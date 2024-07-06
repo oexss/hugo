@@ -1,6 +1,6 @@
 {
-  "name": "HUGO",
-  "short_name": "HUGO",
+  "name": "Hirokit",
+  "short_name": "Hirokit",
   "start_url": "/hugo/",
   "scope": "/hugo/",
   "display": "standalone",
