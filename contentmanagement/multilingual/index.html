@@ -1,0 +1,571 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Multilingual Mode - 多语言模式 # https://gohugo.io/content-management/multilingual/ ​ Hugo支持创建并排展示多种语言的站点。 ​ 您应该在站点配置中的languages部分定义可用的语言。 ​ 另请参阅Hugo"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://t.is-local.org/hugo/contentmanagement/multilingual/"><meta property="og:site_name" content="HUGO"><meta property="og:title" content="多语言模式"><meta property="og:description" content="Multilingual Mode - 多语言模式 # https://gohugo.io/content-management/multilingual/ ​ Hugo支持创建并排展示多种语言的站点。 ​ 您应该在站点配置中的languages部分定义可用的语言。 ​ 另请参阅Hugo"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="contentmanagement"><meta property="article:published_time" content="2023-05-18T17:03:08+08:00"><meta property="article:modified_time" content="2023-05-18T17:03:08+08:00"><title>多语言模式 | HUGO</title>
+<link rel=manifest href=/hugo/manifest.json><link rel=icon href=/hugo/favicon.png><link rel=canonical href=https://t.is-local.org/hugo/contentmanagement/multilingual/><link rel=stylesheet href=/hugo/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css integrity="sha256-MJt+0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin=anonymous><script defer src=/hugo/fuse.min.js></script><script defer src=/hugo/zh-cn.search.min.a426f3a0e1e8951a39b1b352645e382bb08b14b3d53468b1f8b07b0d0928cfe6.js integrity="sha256-pCbzoOHolRo5sbNSZF44K7CLFLPVNGix+LB7DQkoz+Y=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/hugo/><span>HUGO</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder aria-label maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/hugo/svg/translate.svg class=book-icon alt=Languages>
+中文</a></label><ul><li><a href=https://t.is-local.org/hugo/en/>English</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/hugo/svg/menu.svg class=book-icon alt=Menu>
+</label><strong>多语言模式</strong>
+<label for=toc-control><img src=/hugo/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#配置语言>配置语言</a><ul><li><a href=#禁用语言>禁用语言</a></li><li><a href=#配置多语言multihost>配置多语言Multihost</a></li></ul></li><li><a href=#翻译您的内容>翻译您的内容</a><ul><li><a href=#按文件名翻译>按文件名翻译</a></li><li><a href=#按内容目录翻译>按内容目录翻译</a></li><li><a href=#绕过默认链接>绕过默认链接</a></li><li><a href=#本地化永久链接>本地化永久链接</a></li><li><a href=#页面-bundles>页面 Bundles</a></li></ul></li><li><a href=#引用翻译内容>引用翻译内容</a><ul><li><a href=#列出所有可用语言>列出所有可用语言</a></li></ul></li><li><a href=#字符串翻译>字符串翻译</a><ul><li><a href=#查询基本翻译>查询基本翻译</a></li><li><a href=#查询带有变量的灵活翻译>查询带有变量的灵活翻译</a></li><li><a href=#查询单数复数翻译>查询单数/复数翻译</a></li></ul></li><li><a href=#本地化>本地化</a><ul><li><a href=#日期>日期</a></li><li><a href=#货币-currency>货币 Currency</a></li><li><a href=#数字>数字</a></li><li><a href=#百分数>百分数</a></li></ul></li><li><a href=#菜单>菜单</a><ul><li><a href=#使用翻译表>使用翻译表</a></li><li><a href=#创建语言特定的菜单条目>创建语言特定的菜单条目</a></li></ul></li><li><a href=#缺少翻译>缺少翻译</a></li><li><a href=#多语言主题支持>多语言主题支持</a></li><li><a href=#使用-hugo-new-生成多语言内容>使用 <code>hugo new</code> 生成多语言内容</a></li><li><a href=#另请参阅>另请参阅</a></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=multilingual-mode---多语言模式>Multilingual Mode - 多语言模式
+<a class=anchor href=#multilingual-mode---%e5%a4%9a%e8%af%ad%e8%a8%80%e6%a8%a1%e5%bc%8f>#</a></h1><p><a href=https://gohugo.io/content-management/multilingual/>https://gohugo.io/content-management/multilingual/</a></p><p>​ Hugo支持创建并排展示多种语言的站点。</p><p>​ 您应该在站点配置中的<code>languages</code>部分定义可用的语言。</p><p>​ 另请参阅<a href=https://regisphilibert.com/blog/2018/08/hugo-multilingual-part-1-managing-content-translation/>Hugo多语言第一部分：内容翻译</a>。</p><h2 id=配置语言>配置语言
+<a class=anchor href=#%e9%85%8d%e7%bd%ae%e8%af%ad%e8%a8%80>#</a></h2><p>​ 以下是多语言Hugo项目的站点配置示例：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+copyright: Everything is mine
+defaultContentLanguage: en
+languages:
+  ar:
+    languagedirection: rtl
+    title: مدونتي
+    weight: 2
+  en:
+    params:
+      linkedin: https://linkedin.com/whoever
+    title: My blog
+    weight: 1
+  fr:
+    params:
+      linkedin: https://linkedin.com/fr/whoever
+      navigation:
+        help: Aide
+    title: Mon blogue
+    weight: 2
+  pt-pt:
+    title: O meu blog
+    weight: 3
+params:
+  navigation:
+    help: Help
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+copyright = 'Everything is mine'
+defaultContentLanguage = 'en'
+[languages]
+  [languages.ar]
+    languagedirection = 'rtl'
+    title = 'مدونتي'
+    weight = 2
+  [languages.en]
+    title = 'My blog'
+    weight = 1
+    [languages.en.params]
+      linkedin = 'https://linkedin.com/whoever'
+  [languages.fr]
+    title = 'Mon blogue'
+    weight = 2
+    [languages.fr.params]
+      linkedin = 'https://linkedin.com/fr/whoever'
+      [languages.fr.params.navigation]
+        help = 'Aide'
+  [languages.pt-pt]
+    title = 'O meu blog'
+    weight = 3
+[params]
+  [params.navigation]
+    help = 'Help'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;copyright&quot;: &quot;Everything is mine&quot;,
+   &quot;defaultContentLanguage&quot;: &quot;en&quot;,
+   &quot;languages&quot;: {
+      &quot;ar&quot;: {
+         &quot;languagedirection&quot;: &quot;rtl&quot;,
+         &quot;title&quot;: &quot;مدونتي&quot;,
+         &quot;weight&quot;: 2
+      },
+      &quot;en&quot;: {
+         &quot;params&quot;: {
+            &quot;linkedin&quot;: &quot;https://linkedin.com/whoever&quot;
+         },
+         &quot;title&quot;: &quot;My blog&quot;,
+         &quot;weight&quot;: 1
+      },
+      &quot;fr&quot;: {
+         &quot;params&quot;: {
+            &quot;linkedin&quot;: &quot;https://linkedin.com/fr/whoever&quot;,
+            &quot;navigation&quot;: {
+               &quot;help&quot;: &quot;Aide&quot;
+            }
+         },
+         &quot;title&quot;: &quot;Mon blogue&quot;,
+         &quot;weight&quot;: 2
+      },
+      &quot;pt-pt&quot;: {
+         &quot;title&quot;: &quot;O meu blog&quot;,
+         &quot;weight&quot;: 3
+      }
+   },
+   &quot;params&quot;: {
+      &quot;navigation&quot;: {
+         &quot;help&quot;: &quot;Help&quot;
+      }
+   }
+}
+```
+</code></pre><p>​ 任何未在<code>languages</code>块中定义的内容都将回退到该键的全局值（例如英语<code>en</code>语言的<code>copyright</code>）。这也适用于<code>params</code>，如上面的示例所示：您将在法语中获得<code>Aide</code>的值，并在所有没有设置此参数的语言中获得<code>Help</code>。</p><p>​ 使用上述配置，所有内容、站点地图、RSS源、分页和分类页将在英语（默认内容语言）下的<code>/</code>目录下渲染，然后在法语的<code>/fr</code>目录下渲染。</p><p>​ 在<a href=https://gohugo.io/templates/single-page-templates/>单页模板</a>中使用前置元数据 <code>Params</code>时，忽略翻译的键中的<code>params</code>。</p><p>​ <code>defaultContentLanguage</code>设置项目的默认语言。如果未设置，则默认语言为<code>en</code>。</p><p>​ 如果需要将默认语言渲染在其自己的语言代码（<code>/en</code>）下，像其他语言一样，请设置<code>defaultContentLanguageInSubdir：true</code>。</p><p>​ 只有明显的非全局选项可以按语言覆盖。全局选项的示例包括<code>baseURL</code>、<code>buildDrafts</code>等。</p><p>请注意：使用小写语言代码，即使是使用区域性语言（例如使用pt-pt而不是pt-PT）。当前Hugo语言内部将语言代码转换为小写字母，这可能会与未转换为小写字母的<code>defaultContentLanguage</code>等设置发生冲突。请在<a href=https://github.com/gohugoio/hugo/issues/7344>Hugo存储库问题跟踪器</a>中跟踪此问题的演变。</p><h3 id=禁用语言>禁用语言
+<a class=anchor href=#%e7%a6%81%e7%94%a8%e8%af%ad%e8%a8%80>#</a></h3><p>​ 您可以禁用一个或多个语言。这在进行新翻译时非常有用。</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+disableLanguages:
+- fr
+- ja
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+disableLanguages = ['fr', 'ja']
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;disableLanguages&quot;: [
+      &quot;fr&quot;,
+      &quot;ja&quot;
+   ]
+}
+```
+</code></pre><p>​ 请注意，您不能禁用默认内容语言。</p><p>​ 我们将其保留为一个独立的设置，以便更容易通过<a href=https://gohugo.io/getting-started/configuration/#configure-with-environment-variables>操作系统环境</a>进行设置：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>HUGO_DISABLELANGUAGES<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;fr ja&#34;</span> hugo
+</span></span></code></pre></div><p>​ 如果您已经在<code>config.toml</code>中有禁用的语言列表，可以像这样在开发环境中启用它们：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>HUGO_DISABLELANGUAGES<span style=color:#f92672>=</span><span style=color:#e6db74>&#34; &#34;</span> hugo server
+</span></span></code></pre></div><h3 id=配置多语言multihost>配置多语言Multihost
+<a class=anchor href=#%e9%85%8d%e7%bd%ae%e5%a4%9a%e8%af%ad%e8%a8%80multihost>#</a></h3><p>​ 从Hugo 0.31开始，我们支持多语言multihost配置。详见<a href=https://github.com/gohugoio/hugo/issues/4027>此问题</a>的说明。</p><p>​ 这意味着现在可以为每种<code>language</code>配置一个<code>baseURL</code>：</p><blockquote><p>如果在<code>language</code>级别上设置了 <code>baseURL</code>，则所有语言都必须具有一个，且它们必须全部不同。</p></blockquote><p>例如：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+languages:
+  en:
+    baseURL: https://example.com
+    languageName: English
+    title: In English
+    weight: 2
+  fr:
+    baseURL: https://example.fr
+    languageName: Français
+    title: En Français
+    weight: 1
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[languages]
+  [languages.en]
+    baseURL = 'https://example.com'
+    languageName = 'English'
+    title = 'In English'
+    weight = 2
+  [languages.fr]
+    baseURL = 'https://example.fr'
+    languageName = 'Français'
+    title = 'En Français'
+    weight = 1
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;languages&quot;: {
+      &quot;en&quot;: {
+         &quot;baseURL&quot;: &quot;https://example.com&quot;,
+         &quot;languageName&quot;: &quot;English&quot;,
+         &quot;title&quot;: &quot;In English&quot;,
+         &quot;weight&quot;: 2
+      },
+      &quot;fr&quot;: {
+         &quot;baseURL&quot;: &quot;https://example.fr&quot;,
+         &quot;languageName&quot;: &quot;Français&quot;,
+         &quot;title&quot;: &quot;En Français&quot;,
+         &quot;weight&quot;: 1
+      }
+   }
+}
+```
+</code></pre><p>​ 有了上面的配置，这两个站点将生成到带有自己根目录的 <code>public</code> 中：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>public
+</span></span><span style=display:flex><span>├── en
+</span></span><span style=display:flex><span>└── fr
+</span></span></code></pre></div><p>​ 所有的URL（例如<code>.Permalink</code>等）都将从该根目录生成。因此，上面的英文主页的<code>.Permalink</code>将设置为https://example.com/。</p><p>​ 当您运行<code>hugo server</code>时，我们将启动多个HTTP服务器。您通常会在控制台中看到以下内容：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>Web Server is available at 127.0.0.1:1313 (bind address 127.0.0.1)
+</span></span><span style=display:flex><span>Web Server is available at 127.0.0.1:1314 (bind address 127.0.0.1)
+</span></span><span style=display:flex><span>Press Ctrl+C to stop
+</span></span></code></pre></div><p>​ 实时重新加载和在服务器之间使用<code>--navigateToChanged</code>会按预期工作。</p><h2 id=翻译您的内容>翻译您的内容
+<a class=anchor href=#%e7%bf%bb%e8%af%91%e6%82%a8%e7%9a%84%e5%86%85%e5%ae%b9>#</a></h2><p>​ 有两种管理内容翻译的方式。两种方式都可以确保每个页面都被分配了一种语言，并与其对应的翻译链接在一起。</p><h3 id=按文件名翻译>按文件名翻译
+<a class=anchor href=#%e6%8c%89%e6%96%87%e4%bb%b6%e5%90%8d%e7%bf%bb%e8%af%91>#</a></h3><p>​ 考虑以下示例：</p><ol><li><code>/content/about.en.md</code></li><li><code>/content/about.fr.md</code></li></ol><p>​ 第一个文件分配了英语语言，并链接到第二个文件。第二个文件分配了法语语言，并链接到第一个文件。</p><p>​ 它们的语言是根据文件名后缀添加的语言代码分配的。</p><p>​ 通过具有相同的路径和基本文件名，将内容部分链接在一起作为翻译页面。</p><p>​ 如果文件没有语言代码，它将被分配为默认语言。</p><h3 id=按内容目录翻译>按内容目录翻译
+<a class=anchor href=#%e6%8c%89%e5%86%85%e5%ae%b9%e7%9b%ae%e5%bd%95%e7%bf%bb%e8%af%91>#</a></h3><p>​ 该系统使用不同的内容目录来处理每种语言。每种语言的内容目录都是使用 <code>contentDir</code> 参数设置的。</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+languages:
+  en:
+    contentDir: content/english
+    languageName: English
+    weight: 10
+  fr:
+    contentDir: content/french
+    languageName: Français
+    weight: 20
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[languages]
+  [languages.en]
+    contentDir = 'content/english'
+    languageName = 'English'
+    weight = 10
+  [languages.fr]
+    contentDir = 'content/french'
+    languageName = 'Français'
+    weight = 20
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;languages&quot;: {
+      &quot;en&quot;: {
+         &quot;contentDir&quot;: &quot;content/english&quot;,
+         &quot;languageName&quot;: &quot;English&quot;,
+         &quot;weight&quot;: 10
+      },
+      &quot;fr&quot;: {
+         &quot;contentDir&quot;: &quot;content/french&quot;,
+         &quot;languageName&quot;: &quot;Français&quot;,
+         &quot;weight&quot;: 20
+      }
+   }
+}
+```
+</code></pre><p>​ <code>contentDir</code> 的值可以是任何有效的路径，甚至是绝对路径引用。唯一的限制是内容目录不能重叠。</p><p>​ 考虑以下示例与上述配置一起使用：</p><ol><li><code>/content/english/about.md</code></li><li><code>/content/french/about.md</code></li></ol><p>​ 第一个文件被分配为英语，并与第二个文件链接。第二个文件被分配为法语，并与第一个文件链接。</p><p>​ 它们的语言是根据它们放置所在的内容目录分配的。</p><p>​ 通过具有相同的路径和基名（相对于其语言内容目录），内容片段将作为翻译页面相互链接。</p><h3 id=绕过默认链接>绕过默认链接
+<a class=anchor href=#%e7%bb%95%e8%bf%87%e9%bb%98%e8%ae%a4%e9%93%be%e6%8e%a5>#</a></h3><p>​ 任何在前置元数据中设置相同翻译键（<code>translationKey</code>）的页面将被链接为翻译页面，而不考虑基名或位置。</p><p>​ 考虑以下示例：</p><ol><li><code>/content/about-us.en.md</code></li><li><code>/content/om.nn.md</code></li><li><code>/content/presentation/a-propos.fr.md</code></li></ol><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+translationKey: about
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+translationKey = 'about'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;translationKey&quot;: &quot;about&quot;
+}
+```
+</code></pre><p>​ 通过在所有三个页面的前置元数据参数中设置翻译键（<code>translationKey</code>）为 <code>about</code>，它们将被链接为翻译页面。</p><h3 id=本地化永久链接>本地化永久链接
+<a class=anchor href=#%e6%9c%ac%e5%9c%b0%e5%8c%96%e6%b0%b8%e4%b9%85%e9%93%be%e6%8e%a5>#</a></h3><p>​ 因为路径和文件名用于处理链接，所有翻译页面将共享相同的URL（除了语言子目录）。</p><p>​ 为了本地化URL：</p><ul><li>对于常规页面，在前置元数据中设置<code>slug</code>或<code>url</code></li><li>对于章节页面，在前置元数据中设置<code>url</code></li></ul><p>​ 例如，法语翻译可以有自己本地化的<code>slug</code>。</p><p>content/about.fr.md</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+---
+slug: a-propos
+title: A Propos
+---
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
++++
+slug = 'a-propos'
+title = 'A Propos'
++++
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;slug&quot;: &quot;a-propos&quot;,
+   &quot;title&quot;: &quot;A Propos&quot;
+}
+```
+</code></pre><p>At render, Hugo will build both <code>/about/</code> and <code>/fr/a-propos/</code> without affecting the translation link.</p><p>​ 在渲染时，Hugo将同时构建<code>/about/</code>和<code>/fr/a-propos/</code>，而不影响翻译链接。</p><h3 id=页面-bundles>页面 Bundles
+<a class=anchor href=#%e9%a1%b5%e9%9d%a2-bundles>#</a></h3><p>To avoid the burden of having to duplicate files, each Page Bundle inherits the resources of its linked translated pages’ bundles except for the content files (Markdown files, HTML files etc…).</p><p>为了避免重复文件的负担，每个页面包继承其链接的翻译页面包的资源，除了内容文件（Markdown文件，HTML文件等）。</p><p>Therefore, from within a template, the page will have access to the files from all linked pages’ bundles.</p><p>因此，在模板内，页面将可以访问所有链接页面包的文件。</p><p>If, across the linked bundles, two or more files share the same basename, only one will be included and chosen as follows:</p><p>如果在链接的包中，两个或多个文件具有相同的基名，则只包括一个，并按以下方式选择：</p><ul><li>File from current language bundle, if present.</li><li>当前语言包中的文件（如果存在）。</li><li>First file found across bundles by order of language <code>Weight</code>.</li><li>按语言权重顺序在所有包中找到的第一个文件。</li></ul><p>Page Bundle resources follow the same language assignment logic as content files, both by filename (<code>image.jpg</code>, <code>image.fr.jpg</code>) and by directory (<code>english/about/header.jpg</code>, <code>french/about/header.jpg</code>).</p><p>页面包资源遵循与内容文件相同的语言分配逻辑，包括文件名（image.jpg，image.fr.jpg）和目录（english/about/header.jpg，french/about/header.jpg）。</p><h2 id=引用翻译内容>引用翻译内容
+<a class=anchor href=#%e5%bc%95%e7%94%a8%e7%bf%bb%e8%af%91%e5%86%85%e5%ae%b9>#</a></h2><p>To create a list of links to translated content, use a template similar to the following:</p><p>要创建链接到翻译内容的链接列表，请使用类似以下的模板：</p><p>layouts/partials/i18nlist.html</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>.IsTranslated</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>h4</span>&gt;<span style=color:#75715e>{{</span> <span style=color:#a6e22e>i18n</span> <span style=color:#e6db74>&#34;translations&#34;</span> <span style=color:#75715e>}}</span>&lt;/<span style=color:#f92672>h4</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>ul</span>&gt;
+</span></span><span style=display:flex><span>  <span style=color:#75715e>{{</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>.Translations</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>  &lt;<span style=color:#f92672>li</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>.Permalink</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>&#34;</span>&gt;<span style=color:#75715e>{{</span> <span style=color:#a6e22e>.Lang</span> <span style=color:#75715e>}}</span>: <span style=color:#75715e>{{</span> <span style=color:#a6e22e>.Title</span> <span style=color:#75715e>}}{{</span> <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>.IsPage</span> <span style=color:#75715e>}}</span> (<span style=color:#75715e>{{</span> <span style=color:#a6e22e>i18n</span> <span style=color:#e6db74>&#34;wordCount&#34;</span> <span style=color:#a6e22e>.</span> <span style=color:#75715e>}}</span>)<span style=color:#75715e>{{</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span>&lt;/<span style=color:#f92672>a</span>&gt;
+</span></span><span style=display:flex><span>  &lt;/<span style=color:#f92672>li</span>&gt;
+</span></span><span style=display:flex><span>  <span style=color:#75715e>{{</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>ul</span>&gt;
+</span></span><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><p>The above can be put in a <code>partial</code> (i.e., inside <code>layouts/partials/</code>) and included in any template, whether a <a href=https://gohugo.io/templates/single-page-templates/>single content page</a> or the <a href=https://gohugo.io/templates/homepage/>homepage</a>. It will not print anything if there are no translations for a given page.</p><p>上述内容可以放在partial中（即layouts/partials/文件夹中），并包含在任何模板中，无论是单个内容页面还是主页。如果没有给定页面的翻译，它将不会打印任何内容。</p><p>The above also uses the <a href=https://gohugo.io/functions/i18n/><code>i18n</code> function</a> described in the next section.</p><p>上述内容还使用了下一节中描述的i18n函数。</p><h3 id=列出所有可用语言>列出所有可用语言
+<a class=anchor href=#%e5%88%97%e5%87%ba%e6%89%80%e6%9c%89%e5%8f%af%e7%94%a8%e8%af%ad%e8%a8%80>#</a></h3><p><code>.AllTranslations</code> on a <code>Page</code> can be used to list all translations, including the page itself. On the home page it can be used to build a language navigator:</p><p>在页面上使用.AllTranslations可以列出所有翻译，包括页面本身。在主页上，它可用于构建语言导航器：</p><p>layouts/partials/allLanguages.html</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span>&lt;<span style=color:#f92672>ul</span>&gt;
+</span></span><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>$.Site.Home.AllTranslations</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>li</span>&gt;&lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>.Permalink</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>&#34;</span>&gt;<span style=color:#75715e>{{</span> <span style=color:#a6e22e>.Language.LanguageName</span> <span style=color:#75715e>}}</span>&lt;/<span style=color:#f92672>a</span>&gt;&lt;/<span style=color:#f92672>li</span>&gt;
+</span></span><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>ul</span>&gt;
+</span></span></code></pre></div><h2 id=字符串翻译>字符串翻译
+<a class=anchor href=#%e5%ad%97%e7%ac%a6%e4%b8%b2%e7%bf%bb%e8%af%91>#</a></h2><p>Hugo uses <a href=https://github.com/nicksnyder/go-i18n>go-i18n</a> to support string translations. <a href=https://github.com/nicksnyder/go-i18n>See the project’s source repository</a> to find tools that will help you manage your translation workflows.</p><p>Hugo使用go-i18n支持字符串翻译。请参见该项目的源存储库，以查找可帮助您管理翻译工作流程的工具。</p><p>Translations are collected from the <code>themes/&lt;THEME>/i18n/</code> folder (built into the theme), as well as translations present in <code>i18n/</code> at the root of your project. In the <code>i18n</code>, the translations will be merged and take precedence over what is in the theme folder. Language files should be named according to <a href=https://tools.ietf.org/html/rfc5646>RFC 5646</a> with names such as <code>en-US.toml</code>, <code>fr.toml</code>, etc.</p><p>从themes/<theme>/i18n/文件夹（内置于主题中）以及位于项目根目录的i18n/文件夹中收集翻译。在i18n中，翻译将合并并优先于主题文件夹中的内容。语言文件应根据RFC 5646命名，例如en-US.toml、fr.toml等。</p><p>Artificial languages with private use subtags as defined in <a href=https://datatracker.ietf.org/doc/html/rfc5646#section-2.2.7>RFC 5646 § 2.2.7</a> are also supported. You may omit the <code>art-x-</code> prefix for brevity. For example:</p><p>RFC 5646§2.2.7中定义的带有私有使用子标记的人工语言也受支持。为简洁起见，您可以省略art-x-前缀。例如：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>art-x-hugolang
+</span></span><span style=display:flex><span>hugolang
+</span></span></code></pre></div><p>Private use subtags must not exceed 8 alphanumeric characters.</p><p>私有使用子标记不得超过8个字母数字字符。</p><h3 id=查询基本翻译>查询基本翻译
+<a class=anchor href=#%e6%9f%a5%e8%af%a2%e5%9f%ba%e6%9c%ac%e7%bf%bb%e8%af%91>#</a></h3><p>From within your templates, use the <code>i18n</code> function like this:</p><p>在您的模板中，可以像这样使用<code>i18n</code>函数：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>i18n</span> <span style=color:#e6db74>&#34;home&#34;</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><p>The function will search for the <code>"home"</code> id:</p><p>该函数将搜索"home"id：</p><p>i18n/en-US.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+home:
+  other: Home
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[home]
+  other = 'Home'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;home&quot;: {
+      &quot;other&quot;: &quot;Home&quot;
+   }
+}
+```
+</code></pre><p>The result will be</p><p>结果将是</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>Home
+</span></span></code></pre></div><h3 id=查询带有变量的灵活翻译>查询带有变量的灵活翻译
+<a class=anchor href=#%e6%9f%a5%e8%af%a2%e5%b8%a6%e6%9c%89%e5%8f%98%e9%87%8f%e7%9a%84%e7%81%b5%e6%b4%bb%e7%bf%bb%e8%af%91>#</a></h3><p>Often you will want to use the page variables in the translation strings. To do so, pass the <code>.</code> context when calling <code>i18n</code>:</p><p>通常，您会想在翻译字符串中使用页面变量。要这样做，请在调用i18n时传递上下文。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>i18n</span> <span style=color:#e6db74>&#34;wordCount&#34;</span> <span style=color:#a6e22e>.</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><p>The function will pass the <code>.</code> context to the <code>"wordCount"</code> id:</p><p>该函数将把上下文传递给"wordCount"id：</p><p>i18n/en-US.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+wordCount:
+  other: This article has {{ .WordCount }} words.
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[wordCount]
+  other = 'This article has {{ .WordCount }} words.'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;wordCount&quot;: {
+      &quot;other&quot;: &quot;This article has {{ .WordCount }} words.&quot;
+   }
+}
+```
+</code></pre><p>Assume <code>.WordCount</code> in the context has value is 101. The result will be:</p><p>假设上下文中的 .WordCount 值为 101。结果将是：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>This article has 101 words.
+</span></span></code></pre></div><h3 id=查询单数复数翻译>查询单数/复数翻译
+<a class=anchor href=#%e6%9f%a5%e8%af%a2%e5%8d%95%e6%95%b0%e5%a4%8d%e6%95%b0%e7%bf%bb%e8%af%91>#</a></h3><p>In other to meet singular/plural requirement, you must pass a dictionary (map) with a numeric <code>.Count</code> property to the <code>i18n</code> function. The below example uses <code>.ReadingTime</code> variable which has a built-in <code>.Count</code> property.</p><p>为了满足单数/复数要求，您必须将具有数字 .Count 属性的字典（map）传递给 i18n 函数。下面的示例使用内置的 .ReadingTime 变量，它具有一个 .Count 属性。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>i18n</span> <span style=color:#e6db74>&#34;readingTime&#34;</span> <span style=color:#a6e22e>.ReadingTime</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><p>The function will read <code>.Count</code> from <code>.ReadingTime</code> and evaluate whether the number is singular (<code>one</code>) or plural (<code>other</code>). After that, it will pass to <code>readingTime</code> id in <code>i18n/en-US.toml</code> file:</p><p>函数将从 .ReadingTime 中读取 .Count 并评估数字是单数（one）还是复数（other）。之后，它将传递给 i18n/en-US.toml 文件中的 readingTime id：</p><p>i18n/en-US.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+readingTime:
+  one: One minute to read
+  other: '{{ .Count }} minutes to read'
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[readingTime]
+  one = 'One minute to read'
+  other = '{{ .Count }} minutes to read'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;readingTime&quot;: {
+      &quot;one&quot;: &quot;One minute to read&quot;,
+      &quot;other&quot;: &quot;{{ .Count }} minutes to read&quot;
+   }
+}
+```
+</code></pre><p>Assuming <code>.ReadingTime.Count</code> in the context has value is 525600. The result will be:</p><p>假设上下文中的 .ReadingTime.Count 值为 525600。结果将是：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>525600 minutes to read
+</span></span></code></pre></div><p>If <code>.ReadingTime.Count</code> in the context has value is 1. The result is:</p><p>如果上下文中的 .ReadingTime.Count 值为1。结果是：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>One minute to read
+</span></span></code></pre></div><p>In case you need to pass a custom data: (<code>(dict "Count" numeric_value_only)</code> is minimum requirement)</p><p>如果您需要传递自定义数据：((dict &ldquo;Count&rdquo; numeric_value_only) 是最小要求)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>i18n</span> <span style=color:#e6db74>&#34;readingTime&#34;</span> <span style=color:#f92672>(</span><span style=color:#a6e22e>dict</span> <span style=color:#e6db74>&#34;Count&#34;</span> <span style=color:#a6e22e>25</span> <span style=color:#e6db74>&#34;FirstArgument&#34;</span> <span style=color:#66d9ef>true</span> <span style=color:#e6db74>&#34;SecondArgument&#34;</span> <span style=color:#66d9ef>false</span> <span style=color:#e6db74>&#34;Etc&#34;</span> <span style=color:#e6db74>&#34;so on, so far&#34;</span><span style=color:#f92672>)</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><h2 id=本地化>本地化
+<a class=anchor href=#%e6%9c%ac%e5%9c%b0%e5%8c%96>#</a></h2><p>The following localization examples assume your site’s primary language is English, with translations to French and German.</p><p>以下本地化示例假定您站点的主要语言为英语，并提供了法语和德语的翻译。</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+defaultContentLanguage: en
+languages:
+  de:
+    contentDir: content/de
+    languageName: Deutsch
+    weight: 3
+  en:
+    contentDir: content/en
+    languageName: English
+    weight: 1
+  fr:
+    contentDir: content/fr
+    languageName: Français
+    weight: 2
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+defaultContentLanguage = 'en'
+[languages]
+  [languages.de]
+    contentDir = 'content/de'
+    languageName = 'Deutsch'
+    weight = 3
+  [languages.en]
+    contentDir = 'content/en'
+    languageName = 'English'
+    weight = 1
+  [languages.fr]
+    contentDir = 'content/fr'
+    languageName = 'Français'
+    weight = 2
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;defaultContentLanguage&quot;: &quot;en&quot;,
+   &quot;languages&quot;: {
+      &quot;de&quot;: {
+         &quot;contentDir&quot;: &quot;content/de&quot;,
+         &quot;languageName&quot;: &quot;Deutsch&quot;,
+         &quot;weight&quot;: 3
+      },
+      &quot;en&quot;: {
+         &quot;contentDir&quot;: &quot;content/en&quot;,
+         &quot;languageName&quot;: &quot;English&quot;,
+         &quot;weight&quot;: 1
+      },
+      &quot;fr&quot;: {
+         &quot;contentDir&quot;: &quot;content/fr&quot;,
+         &quot;languageName&quot;: &quot;Français&quot;,
+         &quot;weight&quot;: 2
+      }
+   }
+}
+```
+</code></pre><h3 id=日期>日期
+<a class=anchor href=#%e6%97%a5%e6%9c%9f>#</a></h3><p>With this 前置元数据:</p><p>有了这个前置元数据：</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+date: 2021-11-03T12:34:56+01:00
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+date = 2021-11-03T12:34:56+01:00
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;date&quot;: &quot;2021-11-03T12:34:56+01:00&quot;
+}
+```
+</code></pre><p>And this template code:</p><p>以及这个模板代码：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>.Date</span> <span style=color:#f92672>|</span> <span style=color:#a6e22e>time</span><span style=color:#a6e22e>.Format</span> <span style=color:#e6db74>&#34;:date_full&#34;</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><p>The rendered page displays:</p><p>渲染的页面显示：</p><table><thead><tr><th style=text-align:left>Language</th><th style=text-align:left>Value</th></tr></thead><tbody><tr><td style=text-align:left>English</td><td style=text-align:left>Wednesday, November 3, 2021</td></tr><tr><td style=text-align:left>Français</td><td style=text-align:left>mercredi 3 novembre 2021</td></tr><tr><td style=text-align:left>Deutsch</td><td style=text-align:left>Mittwoch, 3. November 2021</td></tr></tbody></table><p>See <a href=https://gohugo.io/functions/dateformat>time.Format</a> for details.</p><p>​ 详细信息请参见<a href=https://gohugo.io/functions/dateformat>time.Format</a>。</p><h3 id=货币-currency>货币 Currency
+<a class=anchor href=#%e8%b4%a7%e5%b8%81-currency>#</a></h3><p>With this template code:</p><p>使用此模板代码：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>512</span><span style=color:#a6e22e>.5032</span> <span style=color:#f92672>|</span> <span style=color:#a6e22e>lang</span><span style=color:#a6e22e>.FormatCurrency</span> <span style=color:#a6e22e>2</span> <span style=color:#e6db74>&#34;USD&#34;</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><p>The rendered page displays:</p><p>渲染的页面显示：</p><table><thead><tr><th style=text-align:left>Language</th><th style=text-align:left>Value</th></tr></thead><tbody><tr><td style=text-align:left>English</td><td style=text-align:left>$512.50</td></tr><tr><td style=text-align:left>Français</td><td style=text-align:left>512,50 $US</td></tr><tr><td style=text-align:left>Deutsch</td><td style=text-align:left>512,50 $</td></tr></tbody></table><p>See <a href=https://gohugo.io/functions/lang>lang.FormatCurrency</a> and <a href=https://gohugo.io/functions/lang>lang.FormatAccounting</a> for details.</p><h3 id=数字>数字
+<a class=anchor href=#%e6%95%b0%e5%ad%97>#</a></h3><p>With this template code:</p><p>使用此模板代码：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>512</span><span style=color:#a6e22e>.5032</span> <span style=color:#f92672>|</span> <span style=color:#a6e22e>lang</span><span style=color:#a6e22e>.FormatNumber</span> <span style=color:#a6e22e>2</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><p>The rendered page displays:</p><p>渲染的页面显示：</p><table><thead><tr><th style=text-align:left>Language</th><th style=text-align:left>Value</th></tr></thead><tbody><tr><td style=text-align:left>English</td><td style=text-align:left>512.50</td></tr><tr><td style=text-align:left>Français</td><td style=text-align:left>512,50</td></tr><tr><td style=text-align:left>Deutsch</td><td style=text-align:left>512,50</td></tr></tbody></table><p>See <a href=https://gohugo.io/functions/lang>lang.FormatNumber</a> and <a href=https://gohugo.io/functions/lang>lang.FormatNumberCustom</a> for details.</p><p>请参考lang.FormatNumber和lang.FormatNumberCustom了解详情。</p><h3 id=百分数>百分数
+<a class=anchor href=#%e7%99%be%e5%88%86%e6%95%b0>#</a></h3><p>With this template code:</p><p>使用此模板代码：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>512</span><span style=color:#a6e22e>.5032</span> <span style=color:#f92672>|</span> <span style=color:#a6e22e>lang</span><span style=color:#a6e22e>.FormatPercent</span> <span style=color:#a6e22e>2</span> <span style=color:#75715e>}}</span> ---&gt; 512.50%
+</span></span></code></pre></div><p>The rendered page displays:</p><p>渲染的页面显示：</p><table><thead><tr><th style=text-align:left>Language</th><th style=text-align:left>Value</th></tr></thead><tbody><tr><td style=text-align:left>English</td><td style=text-align:left>512.50%</td></tr><tr><td style=text-align:left>Français</td><td style=text-align:left>512,50 %</td></tr><tr><td style=text-align:left>Deutsch</td><td style=text-align:left>512,50 %</td></tr></tbody></table><p>See <a href=https://gohugo.io/functions/lang>lang.FormatPercent</a> for details.</p><p>请参考lang.FormatPercent了解详情。</p><h2 id=菜单>菜单
+<a class=anchor href=#%e8%8f%9c%e5%8d%95>#</a></h2><p>Localization of menu entries depends on the how you define them:</p><p>菜单项的本地化取决于定义它们的方式：</p><ul><li>When you define menu entries <a href=https://gohugo.io/content-management/menus/#define-automatically>automatically</a> using the section pages menu, you must use translation tables to localize each entry.</li><li>当您使用部分页面菜单自动定义菜单项时，您必须使用翻译表来本地化每个菜单项。</li><li>When you define menu entries <a href=https://gohugo.io/content-management/menus/#define-in-front-matter>in 前置元数据</a>, they are already localized based on the 前置元数据 itself. If the 前置元数据 values are insufficient, use translation tables to localize each entry.</li><li>当您在前置matter中定义菜单项时，它们已经基于前置matter本身进行了本地化。如果前置matter值不足，请使用翻译表来本地化每个菜单项。</li><li>When you define menu entries <a href=https://gohugo.io/content-management/menus/#define-in-site-configuration>in site configuration</a>, you can (a) use translation tables, or (b) create language-specific menu entries under each language key.</li><li>当您在站点配置中定义菜单项时，您可以（a）使用翻译表，或（b）在每个语言键下创建特定于语言的菜单项。</li></ul><h3 id=使用翻译表>使用翻译表
+<a class=anchor href=#%e4%bd%bf%e7%94%a8%e7%bf%bb%e8%af%91%e8%a1%a8>#</a></h3><p>When rendering the text that appears in menu each entry, the <a href=https://gohugo.io/templates/menu-templates/#example>example menu template</a> does this:</p><p>在渲染出现在菜单中的文本时，示例菜单模板执行以下操作：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>or</span> <span style=color:#f92672>(</span><span style=color:#a6e22e>T</span> <span style=color:#a6e22e>.Identifier</span><span style=color:#f92672>)</span> <span style=color:#a6e22e>.Name</span> <span style=color:#f92672>|</span> <span style=color:#a6e22e>safeHTML</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><p>It queries the translation table for the current language using the menu entry’s <code>identifier</code> and returns the translated string. If the translation table does not exist, or if the <code>identifier</code> key is not present in the translation table, it falls back to <code>name</code>.</p><p>它使用菜单项的标识符查询当前语言的翻译表，并返回已翻译的字符串。如果翻译表不存在，或者标识符键不在翻译表中，则回退到名称。</p><p>The <code>identifier</code> depends on how you define menu entries:</p><p>标识符取决于您如何定义菜单项：</p><ul><li>If you define the menu entry <a href=https://gohugo.io/content-management/menus/#define-automatically>automatically</a> using the section pages menu, the <code>identifier</code> is the page’s <code>.Section</code>.</li><li>如果您使用部分页面菜单自动定义菜单项，则标识符是页面的.Section。</li><li>If you define the menu entry <a href=https://gohugo.io/content-management/menus/#define-in-site-configuration>in site configuration</a> or <a href=https://gohugo.io/content-management/menus/#define-in-front-matter>in 前置元数据</a>, set the <code>identifier</code> property to the desired value.</li><li>如果您在站点配置或前置matter中定义菜单项，请将标识符属性设置为所需值。</li></ul><p>For example, if you define menu entries in site configuration:</p><p>例如，如果您在站点配置中定义菜单项：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+menu:
+  main:
+  - identifier: products
+    name: Products
+    pageRef: /products
+    weight: 10
+  - identifier: services
+    name: Services
+    pageRef: /services
+    weight: 20
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[menu]
+[[menu.main]]
+  identifier = 'products'
+  name = 'Products'
+  pageRef = '/products'
+  weight = 10
+[[menu.main]]
+  identifier = 'services'
+  name = 'Services'
+  pageRef = '/services'
+  weight = 20
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;menu&quot;: {
+      &quot;main&quot;: [
+         {
+            &quot;identifier&quot;: &quot;products&quot;,
+            &quot;name&quot;: &quot;Products&quot;,
+            &quot;pageRef&quot;: &quot;/products&quot;,
+            &quot;weight&quot;: 10
+         },
+         {
+            &quot;identifier&quot;: &quot;services&quot;,
+            &quot;name&quot;: &quot;Services&quot;,
+            &quot;pageRef&quot;: &quot;/services&quot;,
+            &quot;weight&quot;: 20
+         }
+      ]
+   }
+}
+```
+</code></pre><p>Create corresponding entries in the translation tables:</p><p>创建相应的翻译表条目：</p><p>i18n/de.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+products: Produkte
+services: Leistungen
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+products = 'Produkte'
+services = 'Leistungen'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;products&quot;: &quot;Produkte&quot;,
+   &quot;services&quot;: &quot;Leistungen&quot;
+}
+```
+</code></pre><h3 id=创建语言特定的菜单条目>创建语言特定的菜单条目
+<a class=anchor href=#%e5%88%9b%e5%bb%ba%e8%af%ad%e8%a8%80%e7%89%b9%e5%ae%9a%e7%9a%84%e8%8f%9c%e5%8d%95%e6%9d%a1%e7%9b%ae>#</a></h3><p>例如：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+languages:
+  de:
+    languageCode: de-DE
+    languageName: Deutsch
+    menu:
+      main:
+      - name: Produkte
+        pageRef: /products
+        weight: 10
+      - name: Leistungen
+        pageRef: /services
+        weight: 20
+    weight: 1
+  en:
+    languageCode: en-US
+    languageName: English
+    menu:
+      main:
+      - name: Products
+        pageRef: /products
+        weight: 10
+      - name: Services
+        pageRef: /services
+        weight: 20
+    weight: 2
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[languages]
+  [languages.de]
+    languageCode = 'de-DE'
+    languageName = 'Deutsch'
+    weight = 1
+    [languages.de.menu]
+[[languages.de.menu.main]]
+      name = 'Produkte'
+      pageRef = '/products'
+      weight = 10
+[[languages.de.menu.main]]
+      name = 'Leistungen'
+      pageRef = '/services'
+      weight = 20
+  [languages.en]
+    languageCode = 'en-US'
+    languageName = 'English'
+    weight = 2
+    [languages.en.menu]
+[[languages.en.menu.main]]
+      name = 'Products'
+      pageRef = '/products'
+      weight = 10
+[[languages.en.menu.main]]
+      name = 'Services'
+      pageRef = '/services'
+      weight = 20
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;languages&quot;: {
+      &quot;de&quot;: {
+         &quot;languageCode&quot;: &quot;de-DE&quot;,
+         &quot;languageName&quot;: &quot;Deutsch&quot;,
+         &quot;menu&quot;: {
+            &quot;main&quot;: [
+               {
+                  &quot;name&quot;: &quot;Produkte&quot;,
+                  &quot;pageRef&quot;: &quot;/products&quot;,
+                  &quot;weight&quot;: 10
+               },
+               {
+                  &quot;name&quot;: &quot;Leistungen&quot;,
+                  &quot;pageRef&quot;: &quot;/services&quot;,
+                  &quot;weight&quot;: 20
+               }
+            ]
+         },
+         &quot;weight&quot;: 1
+      },
+      &quot;en&quot;: {
+         &quot;languageCode&quot;: &quot;en-US&quot;,
+         &quot;languageName&quot;: &quot;English&quot;,
+         &quot;menu&quot;: {
+            &quot;main&quot;: [
+               {
+                  &quot;name&quot;: &quot;Products&quot;,
+                  &quot;pageRef&quot;: &quot;/products&quot;,
+                  &quot;weight&quot;: 10
+               },
+               {
+                  &quot;name&quot;: &quot;Services&quot;,
+                  &quot;pageRef&quot;: &quot;/services&quot;,
+                  &quot;weight&quot;: 20
+               }
+            ]
+         },
+         &quot;weight&quot;: 2
+      }
+   }
+}
+```
+</code></pre><p>For a simple menu with two languages, these menu entries are easy to create and maintain. For a larger menu, or with more than two languages, using translation tables as described above is preferable.</p><p>对于只包含两种语言的简单菜单，这些菜单条目易于创建和维护。对于更大的菜单或包含两种以上语言的菜单，最好使用上述描述的翻译表。</p><h2 id=缺少翻译>缺少翻译
+<a class=anchor href=#%e7%bc%ba%e5%b0%91%e7%bf%bb%e8%af%91>#</a></h2><p>If a string does not have a translation for the current language, Hugo will use the value from the default language. If no default value is set, an empty string will be shown.</p><p>如果一个字符串在当前语言下没有翻译，Hugo 将使用默认语言的值。如果没有设置默认值，则显示为空字符串。</p><p>While translating a Hugo website, it can be handy to have a visual indicator of missing translations. The <a href=https://gohugo.io/getting-started/configuration/><code>enableMissingTranslationPlaceholders</code> configuration option</a> will flag all untranslated strings with the placeholder <code>[i18n] identifier</code>, where <code>identifier</code> is the id of the missing translation.</p><p>在翻译 Hugo 站点时，有一个缺少翻译的可视化指示器会很方便。启用 enableMissingTranslationPlaceholders 配置选项会使用 [i18n] 占位符标记所有未翻译的字符串，其中 identifier 是缺失翻译的 id。</p><p>Hugo will generate your website with these missing translation placeholders. It might not be suitable for production environments.</p><p>Hugo 将生成带有这些缺失翻译占位符的站点。这可能不适合生产环境。</p><p>For merging of content from other languages (i.e. missing content translations), see <a href=https://gohugo.io/functions/lang.merge/>lang.Merge</a>.</p><p>要合并其他语言的内容（即缺失的内容翻译），请参阅 lang.Merge。</p><p>To track down missing translation strings, run Hugo with the <code>--printI18nWarnings</code> flag:</p><p>要追踪缺失的翻译字符串，请使用 &ndash;printI18nWarnings 标志运行 Hugo：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>hugo --printI18nWarnings | grep i18n
+</span></span><span style=display:flex><span>i18n|MISSING_TRANSLATION|en|wordCount
+</span></span></code></pre></div><h2 id=多语言主题支持>多语言主题支持
+<a class=anchor href=#%e5%a4%9a%e8%af%ad%e8%a8%80%e4%b8%bb%e9%a2%98%e6%94%af%e6%8c%81>#</a></h2><p>To support Multilingual mode in your themes, some considerations must be taken for the URLs in the templates. If there is more than one language, URLs must meet the following criteria:</p><p>要在主题中支持多语言模式，必须在模板中考虑 URL。如果有多种语言，则 URL 必须符合以下标准：</p><ul><li>Come from the built-in <code>.Permalink</code> or <code>.RelPermalink</code></li><li>来自内置的 .Permalink 或 .RelPermalink</li><li>Be constructed with the <a href=https://gohugo.io/functions/rellangurl><code>relLangURL</code> template function</a> or the <a href=https://gohugo.io/functions/abslangurl><code>absLangURL</code> template function</a> <strong>OR</strong> be prefixed with <code>{{ .LanguagePrefix }}</code></li><li>使用 relLangURL 模板函数或 absLangURL 模板函数构造 URL，或在 URL 前加上 {{.LanguagePrefix}}</li></ul><p>If there is more than one language defined, the <code>LanguagePrefix</code> variable will equal <code>/en</code> (or whatever your <code>CurrentLanguage</code> is). If not enabled, it will be an empty string (and is therefore harmless for single-language Hugo websites).</p><p>如果定义了多种语言，则 LanguagePrefix 变量将等于 /en（或您的 CurrentLanguage），如果未启用，则为空字符串（对于单语言 Hugo 站点是无害的）。</p><h2 id=使用-hugo-new-生成多语言内容>使用 <code>hugo new</code> 生成多语言内容
+<a class=anchor href=#%e4%bd%bf%e7%94%a8-hugo-new-%e7%94%9f%e6%88%90%e5%a4%9a%e8%af%ad%e8%a8%80%e5%86%85%e5%ae%b9>#</a></h2><p>If you organize content with translations in the same directory:</p><p>如果您将内容与翻译组织在同一个目录中：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>hugo new post/test.en.md
+</span></span><span style=display:flex><span>hugo new post/test.de.md
+</span></span></code></pre></div><p>If you organize content with translations in different directories:</p><p>如果您将翻译后的内容组织在不同的目录中：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>hugo new content/en/post/test.md
+</span></span><span style=display:flex><span>hugo new content/de/post/test.md
+</span></span></code></pre></div><h2 id=另请参阅>另请参阅
+<a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a></h2><ul><li><a href=https://gohugo.io/functions/i18n/>i18n</a></li><li><a href=https://gohugo.io/functions/abslangurl/>absLangURL</a></li><li><a href=https://gohugo.io/functions/rellangurl/>relLangURL</a></li><li><a href=https://gohugo.io/functions/uniq/>uniq</a></li><li><a href=https://gohugo.io/news/0.65.0-relnotes/>0.65.0: Hugo Reloaded!</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#配置语言>配置语言</a><ul><li><a href=#禁用语言>禁用语言</a></li><li><a href=#配置多语言multihost>配置多语言Multihost</a></li></ul></li><li><a href=#翻译您的内容>翻译您的内容</a><ul><li><a href=#按文件名翻译>按文件名翻译</a></li><li><a href=#按内容目录翻译>按内容目录翻译</a></li><li><a href=#绕过默认链接>绕过默认链接</a></li><li><a href=#本地化永久链接>本地化永久链接</a></li><li><a href=#页面-bundles>页面 Bundles</a></li></ul></li><li><a href=#引用翻译内容>引用翻译内容</a><ul><li><a href=#列出所有可用语言>列出所有可用语言</a></li></ul></li><li><a href=#字符串翻译>字符串翻译</a><ul><li><a href=#查询基本翻译>查询基本翻译</a></li><li><a href=#查询带有变量的灵活翻译>查询带有变量的灵活翻译</a></li><li><a href=#查询单数复数翻译>查询单数/复数翻译</a></li></ul></li><li><a href=#本地化>本地化</a><ul><li><a href=#日期>日期</a></li><li><a href=#货币-currency>货币 Currency</a></li><li><a href=#数字>数字</a></li><li><a href=#百分数>百分数</a></li></ul></li><li><a href=#菜单>菜单</a><ul><li><a href=#使用翻译表>使用翻译表</a></li><li><a href=#创建语言特定的菜单条目>创建语言特定的菜单条目</a></li></ul></li><li><a href=#缺少翻译>缺少翻译</a></li><li><a href=#多语言主题支持>多语言主题支持</a></li><li><a href=#使用-hugo-new-生成多语言内容>使用 <code>hugo new</code> 生成多语言内容</a></li><li><a href=#另请参阅>另请参阅</a></li></ul></nav></div></aside></main></body></html>

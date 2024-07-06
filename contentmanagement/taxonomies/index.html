@@ -1,0 +1,214 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Taxonomies - 分类法 # https://gohugo.io/content-management/taxonomies/ ​ Hugo支持用户定义的分类法。 什么是分类法？ # ​ Hugo支持用户定义的内容分组，称为分类法（taxonomies）。分类法是"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://t.is-local.org/hugo/contentmanagement/taxonomies/"><meta property="og:site_name" content="HUGO"><meta property="og:title" content="分类法"><meta property="og:description" content="Taxonomies - 分类法 # https://gohugo.io/content-management/taxonomies/ ​ Hugo支持用户定义的分类法。 什么是分类法？ # ​ Hugo支持用户定义的内容分组，称为分类法（taxonomies）。分类法是"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="contentmanagement"><meta property="article:published_time" content="2023-05-18T17:03:08+08:00"><meta property="article:modified_time" content="2023-05-18T17:03:08+08:00"><title>分类法 | HUGO</title>
+<link rel=manifest href=/hugo/manifest.json><link rel=icon href=/hugo/favicon.png><link rel=canonical href=https://t.is-local.org/hugo/contentmanagement/taxonomies/><link rel=stylesheet href=/hugo/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css integrity="sha256-MJt+0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin=anonymous><script defer src=/hugo/fuse.min.js></script><script defer src=/hugo/zh-cn.search.min.a426f3a0e1e8951a39b1b352645e382bb08b14b3d53468b1f8b07b0d0928cfe6.js integrity="sha256-pCbzoOHolRo5sbNSZF44K7CLFLPVNGix+LB7DQkoz+Y=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/hugo/><span>HUGO</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder aria-label maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/hugo/svg/translate.svg class=book-icon alt=Languages>
+中文</a></label><ul><li><a href=https://t.is-local.org/hugo/en/>English</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/hugo/svg/menu.svg class=book-icon alt=Menu>
+</label><strong>分类法</strong>
+<label for=toc-control><img src=/hugo/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#什么是分类法>什么是分类法？</a><ul><li><a href=#定义>定义</a></li></ul></li><li><a href=#示例分类法电影站点>示例分类法：电影站点</a><ul><li><a href=#电影分类法组织>电影分类法组织</a></li></ul></li><li><a href=#hugo分类法默认设置>Hugo分类法默认设置</a><ul><li><a href=#默认目标>默认目标</a></li></ul></li><li><a href=#配置分类法>配置分类法</a><ul><li><a href=#示例添加名为series的自定义分类法>示例：添加名为"series"的自定义分类法</a></li><li><a href=#示例删除默认分类法>示例：删除默认分类法</a></li></ul></li><li><a href=#将分类法添加到内容中>将分类法添加到内容中</a><ul><li><a href=#示例带有taxonomies-的前置元数据>示例：带有taxonomies 的前置元数据</a></li></ul></li><li><a href=#排序分类法>排序分类法</a><ul><li><a href=#示例分类法weight>示例：分类法<code>weight</code></a></li></ul></li><li><a href=#向分类法或项添加自定义元数据>向分类法或项添加自定义元数据</a></li><li><a href=#另请参阅>另请参阅</a></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=taxonomies---分类法>Taxonomies - 分类法
+<a class=anchor href=#taxonomies---%e5%88%86%e7%b1%bb%e6%b3%95>#</a></h1><p><a href=https://gohugo.io/content-management/taxonomies/>https://gohugo.io/content-management/taxonomies/</a></p><p>​ Hugo支持用户定义的分类法。</p><h2 id=什么是分类法>什么是分类法？
+<a class=anchor href=#%e4%bb%80%e4%b9%88%e6%98%af%e5%88%86%e7%b1%bb%e6%b3%95>#</a></h2><p>​ Hugo支持用户定义的内容分组，称为<strong>分类法（taxonomies）</strong>。分类法是内容之间逻辑关系的分类。</p><h3 id=定义>定义
+<a class=anchor href=#%e5%ae%9a%e4%b9%89>#</a></h3><ul><li><p>Taxonomy</p><p>可用于对内容进行分类的分类方式</p></li><li><p>Term</p><p>分类法中的一个键</p></li><li><p>Value</p><p>分配给项(term)的内容</p></li></ul><h2 id=示例分类法电影站点>示例分类法：电影站点
+<a class=anchor href=#%e7%a4%ba%e4%be%8b%e5%88%86%e7%b1%bb%e6%b3%95%e7%94%b5%e5%bd%b1%e7%ab%99%e7%82%b9>#</a></h2><p>​ 假设您正在制作一个关于电影的站点。您可能想包括以下分类法：</p><ul><li>Actors 演员</li><li>Directors 导演</li><li>Studios 制片厂</li><li>Genre 流派</li><li>Year 年份</li><li>Awards 奖项</li></ul><p>​ 然后，在每部电影中，您都需要为这些分类法指定项（即，在每部电影的内容文件的<a href=https://gohugo.io/content-management/front-matter/>前置元数据</a>中）。根据这些项（terms），Hugo会自动创建每个Actor、Director、Studio、Genre、Year和Award的页面，每个页面都会列出与特定Actor、Director、Studio、Genre、Year和Award匹配的所有电影。</p><h3 id=电影分类法组织>电影分类法组织
+<a class=anchor href=#%e7%94%b5%e5%bd%b1%e5%88%86%e7%b1%bb%e6%b3%95%e7%bb%84%e7%bb%87>#</a></h3><p>​ 继续使用电影站点的示例，以下演示了从分类法的角度看内容关系：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-txt data-lang=txt><span style=display:flex><span>Actor                    &lt;- Taxonomy
+</span></span><span style=display:flex><span>    Bruce Willis         &lt;- Term
+</span></span><span style=display:flex><span>        The Sixth Sense  &lt;- Value
+</span></span><span style=display:flex><span>        Unbreakable      &lt;- Value
+</span></span><span style=display:flex><span>        Moonrise Kingdom &lt;- Value
+</span></span><span style=display:flex><span>    Samuel L. Jackson    &lt;- Term
+</span></span><span style=display:flex><span>        Unbreakable      &lt;- Value
+</span></span><span style=display:flex><span>        The Avengers     &lt;- Value
+</span></span><span style=display:flex><span>        xXx              &lt;- Value
+</span></span></code></pre></div><p>​ 从内容的角度看，关系看起来不同，尽管使用的数据和标签是相同的：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-txt data-lang=txt><span style=display:flex><span>Unbreakable                 &lt;- Value
+</span></span><span style=display:flex><span>    Actors                  &lt;- Taxonomy
+</span></span><span style=display:flex><span>        Bruce Willis        &lt;- Term
+</span></span><span style=display:flex><span>        Samuel L. Jackson   &lt;- Term
+</span></span><span style=display:flex><span>    Director                &lt;- Taxonomy
+</span></span><span style=display:flex><span>        M. Night Shyamalan  &lt;- Term
+</span></span><span style=display:flex><span>    ...
+</span></span><span style=display:flex><span>Moonrise Kingdom            &lt;- Value
+</span></span><span style=display:flex><span>    Actors                  &lt;- Taxonomy
+</span></span><span style=display:flex><span>        Bruce Willis        &lt;- Term
+</span></span><span style=display:flex><span>        Bill Murray         &lt;- Term
+</span></span><span style=display:flex><span>    Director                &lt;- Taxonomy
+</span></span><span style=display:flex><span>        Wes Anderson        &lt;- Term
+</span></span><span style=display:flex><span>    ...
+</span></span></code></pre></div><h2 id=hugo分类法默认设置>Hugo分类法默认设置
+<a class=anchor href=#hugo%e5%88%86%e7%b1%bb%e6%b3%95%e9%bb%98%e8%ae%a4%e8%ae%be%e7%bd%ae>#</a></h2><p>​ Hugo本身支持分类法。</p><p>​ 不需要在您的<a href=https://gohugo.io/getting-started/configuration/>站点配置</a>文件中添加任何行，Hugo将自动为<code>tags</code>和<code>categories</code>创建分类法。这与<a href=https://gohugo.io/content-management/taxonomies/#configure-taxonomies>手动配置您的分类法</a>相同，如下所示：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+taxonomies:
+  category: categories
+  tag: tags
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;taxonomies&quot;: {
+      &quot;category&quot;: &quot;categories&quot;,
+      &quot;tag&quot;: &quot;tags&quot;
+   }
+}
+```
+</code></pre><p>​ 如果您不想让Hugo创建任何分类法，请将<a href=https://gohugo.io/getting-started/configuration/>站点配置</a>中的<code>disableKinds</code>设置为以下内容：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+disableKinds:
+- taxonomy
+- term
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+disableKinds = ['taxonomy', 'term']
+
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;disableKinds&quot;: [
+      &quot;taxonomy&quot;,
+      &quot;term&quot;
+   ]
+}
+
+```
+</code></pre><table><thead><tr><th style=text-align:left>Kind</th><th style=text-align:left>Description</th><th style=text-align:left>Example</th></tr></thead><tbody><tr><td style=text-align:left><code>home</code></td><td style=text-align:left>主页的着陆页</td><td style=text-align:left><code>/index.html</code></td></tr><tr><td style=text-align:left><code>page</code></td><td style=text-align:left>给定页面的着陆页</td><td style=text-align:left><code>my-post</code> page (<code>/posts/my-post/index.html</code>)</td></tr><tr><td style=text-align:left><code>section</code></td><td style=text-align:left>给定章节的着陆页</td><td style=text-align:left><code>posts</code> section (<code>/posts/index.html</code>)</td></tr><tr><td style=text-align:left><code>taxonomy</code></td><td style=text-align:left>分类法的着陆页</td><td style=text-align:left><code>tags</code> taxonomy (<code>/tags/index.html</code>)</td></tr><tr><td style=text-align:left><code>term</code></td><td style=text-align:left>一个分类法项的着陆页</td><td style=text-align:left>term <code>awesome</code> in <code>tags</code> taxonomy (<code>/tags/awesome/index.html</code>)</td></tr></tbody></table><h3 id=默认目标>默认目标
+<a class=anchor href=#%e9%bb%98%e8%ae%a4%e7%9b%ae%e6%a0%87>#</a></h3><p>​ 当使用分类法并提供<a href=https://gohugo.io/templates/taxonomy-templates/>分类法模板</a>时，Hugo将自动创建列出所有分类法项的页面以及列出与每个项关联的内容的个别页面。例如，在您的配置中声明并在内容前置元数据中使用的<code>categories</code>分类法将创建以下页面：</p><ul><li>位于<code>example.com/categories/</code>的单个页面，列出<a href=https://gohugo.io/templates/taxonomy-templates/#taxonomy-terms-templates>分类法中的所有项</a></li><li>为每个项创建的<a href=https://gohugo.io/templates/taxonomy-templates/>单独的分类法列表页面</a>（例如<code>/categories/development/</code>），其中显示了所有标记为该分类法的任何内容文件的<a href=https://gohugo.io/content-management/front-matter/>前置元数据</a>中的页面列表</li></ul><h2 id=配置分类法>配置分类法
+<a class=anchor href=#%e9%85%8d%e7%bd%ae%e5%88%86%e7%b1%bb%e6%b3%95>#</a></h2><p>​ 除了<a href=https://gohugo.io/content-management/taxonomies/#default-taxonomies>默认</a>之外的自定义分类法在整个站点中使用之前必须在<a href=https://gohugo.io/getting-started/configuration/>站点配置</a>中定义。您需要为每个分类法提供复数和单数标签。例如，对于TOML，<code>singular key = "plural value"</code>，而对于YAML，<code>singular key: "plural value"</code>。</p><h3 id=示例添加名为series的自定义分类法>示例：添加名为"series"的自定义分类法
+<a class=anchor href=#%e7%a4%ba%e4%be%8b%e6%b7%bb%e5%8a%a0%e5%90%8d%e4%b8%baseries%e7%9a%84%e8%87%aa%e5%ae%9a%e4%b9%89%e5%88%86%e7%b1%bb%e6%b3%95>#</a></h3><blockquote><p>在添加自定义分类法时，如果您想保留它们，您需要同时添加默认分类法。</p></blockquote><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+taxonomies:
+  category: categories
+  series: series
+  tag: tags
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[taxonomies]
+  category = 'categories'
+  series = 'series'
+  tag = 'tags'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;taxonomies&quot;: {
+      &quot;category&quot;: &quot;categories&quot;,
+      &quot;series&quot;: &quot;series&quot;,
+      &quot;tag&quot;: &quot;tags&quot;
+   }
+}
+```
+</code></pre><h3 id=示例删除默认分类法>示例：删除默认分类法
+<a class=anchor href=#%e7%a4%ba%e4%be%8b%e5%88%a0%e9%99%a4%e9%bb%98%e8%ae%a4%e5%88%86%e7%b1%bb%e6%b3%95>#</a></h3><p>​ 如果您只想要默认<code>tags</code>分类法，并删除您站点的<code>categories</code>分类法，可以通过修改<a href=https://gohugo.io/getting-started/configuration/>站点配置</a>文件中的<code>taxonomies</code>值来实现。</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+taxonomies:
+  tag: tags
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[taxonomies]
+  tag = 'tags'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;taxonomies&quot;: {
+      &quot;tag&quot;: &quot;tags&quot;
+   }
+}
+```
+</code></pre><p>​ 如果您想要完全禁用所有分类法，请参阅 <a href=https://gohugo.io/content-management/taxonomies/#default-taxonomies>Hugo 分类法默认设置</a>中 <code>disableKinds</code> 的用法。</p><blockquote><p>​ 您可以向您的分类法列表和分类法项页面添加内容和前置元数据。有关如何为此目的添加 <code>_index.md</code> 的更多信息，请参见<a href=https://gohugo.io/content-management/organization/>内容组织</a>。</p><p>​ 与常规页面类似，分类法列表<a href=https://gohugo.io/content-management/urls/>永久链接</a>是可配置的，但分类法项页面永久链接是不可配置的。</p></blockquote><blockquote><p>​ Hugo 0.55 版中删除了配置选项 <code>preserveTaxonomyNames</code>。</p><p>​ 现在，您可以在相关分类法节点（taxonomy node）上使用 <code>.Page.Title</code> 来获取原始值。</p></blockquote><h2 id=将分类法添加到内容中>将分类法添加到内容中
+<a class=anchor href=#%e5%b0%86%e5%88%86%e7%b1%bb%e6%b3%95%e6%b7%bb%e5%8a%a0%e5%88%b0%e5%86%85%e5%ae%b9%e4%b8%ad>#</a></h2><p>​ 一旦在站点级别定义了分类法，任何内容都可以被分配给它，而不管<a href=https://gohugo.io/content-management/types/>内容类型</a>或<a href=https://gohugo.io/content-management/sections/>内容章节</a>。</p><p>​ 将内容分配给分类法是在<a href=https://gohugo.io/content-management/front-matter/>前置元数据</a>中完成的。只需创建一个变量，其名称为taxonomy 的复数形式，并分配所有要应用于内容类型实例的项。</p><blockquote><p>​ 如果您希望能够快速生成具有预配置分类法或项的内容文件，请阅读有关 <a href=https://gohugo.io/content-management/archetypes/>Hugo 原型</a>的文档。</p></blockquote><h3 id=示例带有taxonomies-的前置元数据>示例：带有taxonomies 的前置元数据
+<a class=anchor href=#%e7%a4%ba%e4%be%8b%e5%b8%a6%e6%9c%89taxonomies-%e7%9a%84%e5%89%8d%e7%bd%ae%e5%85%83%e6%95%b0%e6%8d%ae>#</a></h3><p>content/example.md</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+---
+categories:
+- Development
+project_url: https://github.com/gohugoio/hugo
+series:
+- Go Web Dev
+slug: hugo
+tags:
+- Development
+- Go
+- fast
+- Blogging
+title: 'Hugo: A fast and flexible static site generator'
+---
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
++++
+categories = ['Development']
+project_url = 'https://github.com/gohugoio/hugo'
+series = ['Go Web Dev']
+slug = 'hugo'
+tags = ['Development', 'Go', 'fast', 'Blogging']
+title = 'Hugo: A fast and flexible static site generator'
++++
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;categories&quot;: [
+      &quot;Development&quot;
+   ],
+   &quot;project_url&quot;: &quot;https://github.com/gohugoio/hugo&quot;,
+   &quot;series&quot;: [
+      &quot;Go Web Dev&quot;
+   ],
+   &quot;slug&quot;: &quot;hugo&quot;,
+   &quot;tags&quot;: [
+      &quot;Development&quot;,
+      &quot;Go&quot;,
+      &quot;fast&quot;,
+      &quot;Blogging&quot;
+   ],
+   &quot;title&quot;: &quot;Hugo: A fast and flexible static site generator&quot;
+}
+```
+</code></pre><h2 id=排序分类法>排序分类法
+<a class=anchor href=#%e6%8e%92%e5%ba%8f%e5%88%86%e7%b1%bb%e6%b3%95>#</a></h2><p>​ 内容文件可以为其关联的每个分类法分配权重。分类法权重可用于在<a href=https://gohugo.io/templates/taxonomy-templates/#taxonomy-list-templates>分类法列表模板</a>中排序或排序内容，并在内容文件的<a href=https://gohugo.io/content-management/front-matter/>前置元数据</a>中声明。声明分类法权重的约定是<code>taxonomyname_weight</code>。</p><p>​ 以下显示一个具有权重为22的内容，可在渲染分配给<code>tags</code>分类法的"a"、&ldquo;b"和"c"值的页面时用于排序目的。在渲染"d"类别页面时，它也被分配了权重44。</p><h3 id=示例分类法weight>示例：分类法<code>weight</code>
+<a class=anchor href=#%e7%a4%ba%e4%be%8b%e5%88%86%e7%b1%bb%e6%b3%95weight>#</a></h3><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+categories:
+- d
+categories_weight: 44
+tags:
+- a
+- b
+- c
+tags_weight: 22
+title: foo
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+categories = ['d']
+categories_weight = 44
+tags = ['a', 'b', 'c']
+tags_weight = 22
+title = 'foo'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;categories&quot;: [
+      &quot;d&quot;
+   ],
+   &quot;categories_weight&quot;: 44,
+   &quot;tags&quot;: [
+      &quot;a&quot;,
+      &quot;b&quot;,
+      &quot;c&quot;
+   ],
+   &quot;tags_weight&quot;: 22,
+   &quot;title&quot;: &quot;foo&quot;
+}
+```
+</code></pre><p>​ 通过使用分类法权重，同一篇内容可以在不同的分类法中出现在不同的位置。</p><blockquote><p>​ 目前，分类法仅支持<a href=https://gohugo.io/templates/lists/#default-weight--date--linktitle--filepath>默认<code>weight => date</code>排序列表内容</a>。有关更多信息，请参见<a href=https://gohugo.io/templates/taxonomy-templates/>分类法模板</a>的文档。</p></blockquote><h2 id=向分类法或项添加自定义元数据>向分类法或项添加自定义元数据
+<a class=anchor href=#%e5%90%91%e5%88%86%e7%b1%bb%e6%b3%95%e6%88%96%e9%a1%b9%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%ae%9a%e4%b9%89%e5%85%83%e6%95%b0%e6%8d%ae>#</a></h2><p>​ 如果您需要向分类法项添加自定义元数据，则需要在 <code>/content/&lt;TAXONOMY>/&lt;TERM>/_index.md</code> 中创建该项的页面，并在其前置元数据中添加您的元数据。继续以&rsquo;Actors&rsquo;为例，假设您想为每个演员添加维基百科页面链接。您的分类项页面将如下所示：</p><p>content/actors/bruce-willis/_index.md</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+---
+title: Bruce Willis
+wikipedia: https://en.wikipedia.org/wiki/Bruce_Willis
+---
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
++++
+title = 'Bruce Willis'
+wikipedia = 'https://en.wikipedia.org/wiki/Bruce_Willis'
++++
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;title&quot;: &quot;Bruce Willis&quot;,
+   &quot;wikipedia&quot;: &quot;https://en.wikipedia.org/wiki/Bruce_Willis&quot;
+}
+```
+</code></pre><h2 id=另请参阅>另请参阅
+<a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a></h2><ul><li><a href=https://gohugo.io/templates/taxonomy-templates/>分类法模板</a></li><li><a href=https://gohugo.io/content-management/archetypes/>原型</a></li><li><a href=https://gohugo.io/content-management/front-matter/>前置元数据</a></li><li><a href=https://gohugo.io/templates/lists/>Hugo 中的内容列表</a></li><li><a href=https://gohugo.io/functions/param/>.Param</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#什么是分类法>什么是分类法？</a><ul><li><a href=#定义>定义</a></li></ul></li><li><a href=#示例分类法电影站点>示例分类法：电影站点</a><ul><li><a href=#电影分类法组织>电影分类法组织</a></li></ul></li><li><a href=#hugo分类法默认设置>Hugo分类法默认设置</a><ul><li><a href=#默认目标>默认目标</a></li></ul></li><li><a href=#配置分类法>配置分类法</a><ul><li><a href=#示例添加名为series的自定义分类法>示例：添加名为"series"的自定义分类法</a></li><li><a href=#示例删除默认分类法>示例：删除默认分类法</a></li></ul></li><li><a href=#将分类法添加到内容中>将分类法添加到内容中</a><ul><li><a href=#示例带有taxonomies-的前置元数据>示例：带有taxonomies 的前置元数据</a></li></ul></li><li><a href=#排序分类法>排序分类法</a><ul><li><a href=#示例分类法weight>示例：分类法<code>weight</code></a></li></ul></li><li><a href=#向分类法或项添加自定义元数据>向分类法或项添加自定义元数据</a></li><li><a href=#另请参阅>另请参阅</a></li></ul></nav></div></aside></main></body></html>
