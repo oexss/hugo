@@ -1,14 +1,14 @@
 {
   "name": "Hirokit",
   "short_name": "Hirokit",
-  "start_url": "/doc/",
-  "scope": "/doc/",
+  "start_url": "/hugo/",
+  "scope": "/hugo/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/doc/favicon.svg",
+      "src": "/hugo/favicon.svg",
       "sizes": "512x512"
     }
   ]
