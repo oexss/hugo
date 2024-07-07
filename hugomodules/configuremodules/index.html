@@ -1,0 +1,231 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Configure Modules - 配置模块 # https://gohugo.io/hugo-modules/configuration/ ​ 本页描述了模块的配置选项。 模块配置：Top level -> [module] # config. === &ldquo;yaml&rdquo; ```yaml module: noProxy: none noVendor: &#34;&#34; private: '*.*' proxy: direct replacements: &#34;&#34; workspace: &#34;off&#34; ``` === &ldquo;toml&rdquo; ```toml [module] noProxy = 'none' noVendor = '' private = '*.*' proxy = 'direct' replacements"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://t.is-local.org/hugo/hugomodules/configuremodules/"><meta property="og:site_name" content="HUGO"><meta property="og:title" content="配置模块"><meta property="og:description" content="Configure Modules - 配置模块 # https://gohugo.io/hugo-modules/configuration/ ​ 本页描述了模块的配置选项。 模块配置：Top level -> [module] # config. === “yaml” ```yaml module: noProxy: none noVendor: &#34;&#34; private: '*.*' proxy: direct replacements: &#34;&#34; workspace: &#34;off&#34; ``` === “toml” ```toml [module] noProxy = 'none' noVendor = '' private = '*.*' proxy = 'direct' replacements"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="hugomodules"><meta property="article:published_time" content="2023-05-18T17:03:08+08:00"><meta property="article:modified_time" content="2023-05-18T17:03:08+08:00"><title>配置模块 | HUGO</title>
+<link rel=manifest href=/hugo/manifest.json><link rel=icon href=/hugo/favicon.png><link rel=canonical href=https://t.is-local.org/hugo/hugomodules/configuremodules/><link rel=stylesheet href=/hugo/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css integrity="sha256-MJt+0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin=anonymous><script defer src=/hugo/fuse.min.js></script><script defer src=/hugo/zh-cn.search.min.a426f3a0e1e8951a39b1b352645e382bb08b14b3d53468b1f8b07b0d0928cfe6.js integrity="sha256-pCbzoOHolRo5sbNSZF44K7CLFLPVNGix+LB7DQkoz+Y=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/hugo/><span>HUGO</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder aria-label maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/hugo/svg/translate.svg class=book-icon alt=Languages>
+中文</a></label><ul><li><a href=https://t.is-local.org/hugo/en/>English</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/hugo/svg/menu.svg class=book-icon alt=Menu>
+</label><strong>配置模块</strong>
+<label for=toc-control><img src=/hugo/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#模块配置top-level---module>模块配置：Top level -> [module]</a><ul><li><a href=#novendor>noVendor</a></li><li><a href=#vendorclosest>vendorClosest</a></li><li><a href=#proxy>proxy</a></li><li><a href=#noproxy>noProxy</a></li><li><a href=#private>private</a></li><li><a href=#workspace>workspace</a></li><li><a href=#replacements>replacements</a></li></ul></li><li><a href=#模块配置hugoversion---modulehugoversion>模块配置：hugoVersion -> [module.hugoVersion]</a><ul><li><a href=#min>min</a></li><li><a href=#max>max</a></li><li><a href=#extended>extended</a></li></ul></li><li><a href=#模块配置imports--moduleimports>模块配置：imports ->[[module.imports]]</a><ul><li><a href=#path>path</a></li><li><a href=#ignoreconfig>ignoreConfig</a></li><li><a href=#ignoreimports>ignoreImports</a></li><li><a href=#disable>disable</a></li><li><a href=#nomounts>noMounts</a></li><li><a href=#novendor-1>noVendor</a></li></ul></li><li><a href=#模块配置mounts---modulemounts>模块配置：mounts -> [[module.mounts]]</a><ul><li><a href=#source>source</a></li><li><a href=#target>target</a></li><li><a href=#lang>lang</a></li><li><a href=#includefiles-string-or-slice>includeFiles (string or slice)</a></li><li><a href=#excludefiles-字符串或切片>excludeFiles (字符串或切片)</a></li></ul></li><li><a href=#参见>参见</a></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=configure-modules---配置模块>Configure Modules - 配置模块
+<a class=anchor href=#configure-modules---%e9%85%8d%e7%bd%ae%e6%a8%a1%e5%9d%97>#</a></h1><p><a href=https://gohugo.io/hugo-modules/configuration/>https://gohugo.io/hugo-modules/configuration/</a></p><p>​ 本页描述了模块的配置选项。</p><h2 id=模块配置top-level---module>模块配置：Top level -> [module]
+<a class=anchor href=#%e6%a8%a1%e5%9d%97%e9%85%8d%e7%bd%aetop-level---module>#</a></h2><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+module:
+  noProxy: none
+  noVendor: &quot;&quot;
+  private: '*.*'
+  proxy: direct
+  replacements: &quot;&quot;
+  workspace: &quot;off&quot;
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[module]
+  noProxy = 'none'
+  noVendor = ''
+  private = '*.*'
+  proxy = 'direct'
+  replacements = ''
+  workspace = 'off'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;module&quot;: {
+      &quot;noProxy&quot;: &quot;none&quot;,
+      &quot;noVendor&quot;: &quot;&quot;,
+      &quot;private&quot;: &quot;*.*&quot;,
+      &quot;proxy&quot;: &quot;direct&quot;,
+      &quot;replacements&quot;: &quot;&quot;,
+      &quot;workspace&quot;: &quot;off&quot;
+   }
+}
+```
+</code></pre><h3 id=novendor>noVendor
+<a class=anchor href=#novendor>#</a></h3><p>​ 一个可选的 Glob 模式，用于匹配在vendoring时跳过的模块路径，例如<code>"github.com/**"</code>。</p><h3 id=vendorclosest>vendorClosest
+<a class=anchor href=#vendorclosest>#</a></h3><p>​ 当启用时，我们将选择与使用它的模块最接近的vendored模块。默认行为是选择第一个。请注意，每个给定模块路径仍然只能有一个依赖项，因此一旦使用它，就无法重新定义它。</p><h3 id=proxy>proxy
+<a class=anchor href=#proxy>#</a></h3><p>​ 定义用于下载远程模块的代理服务器。默认值为 <code>direct</code>，表示"git clone"等。</p><h3 id=noproxy>noProxy
+<a class=anchor href=#noproxy>#</a></h3><p>​ 逗号分隔的 glob 列表，匹配不应使用上述配置的代理的路径。</p><h3 id=private>private
+<a class=anchor href=#private>#</a></h3><p>​ 逗号分隔的 glob 列表，匹配应视为私有的路径。</p><h3 id=workspace>workspace
+<a class=anchor href=#workspace>#</a></h3><p>​ 要使用的工作区文件。这启用了 Go 工作区模式。请注意，这也可以通过操作系统 env 设置，例如 <code>export HUGO_MODULE_WORKSPACE=/my/hugo.work</code>。这仅适用于 Go 1.18+。在 Hugo <code>v0.109.0</code> 中，我们将默认设置为 <code>off</code>，并且现在会将任何相对的工作文件名解析为相对于工作目录。</p><h3 id=replacements>replacements
+<a class=anchor href=#replacements>#</a></h3><p>​ 从模块路径到目录的映射的逗号分隔列表，例如 <code>github.com/bep/my-theme -> ../..,github.com/bep/shortcodes -> /some/path</code>。这对于临时本地开发模块非常有用，在这种情况下，您可能希望将其保存为环境变量，例如：<code>env HUGO_MODULE_REPLACEMENTS="github.com/bep/my-theme -> ../.."</code>。相对路径相对于 <a href=https://gohugo.io/getting-started/configuration/#all-configuration-settings>themesDir</a>。允许使用绝对路径。</p><p>​ 请注意，上述术语直接映射到 Go 模块中的对应项。设置其中的一些可能会自然地设置为操作系统环境变量。例如，要设置要使用的代理服务器：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-txt data-lang=txt><span style=display:flex><span>env HUGO_MODULE_PROXY=https://proxy.example.org hugo
+</span></span></code></pre></div><p>​ Hugo 模块的大多数命令需要安装更新版本的 Go（请参阅 <a href=https://golang.org/dl/>https://golang.org/dl/</a>）和相关的 VCS 客户端（例如 Git，请参阅 <a href=https://git-scm.com/downloads/>https://git-scm.com/downloads/</a>）。如果您在 Netlify 上运行"旧"站点，则可能必须在环境设置中将 GO_VERSION 设置为 1.12。</p><p>​ 有关 Go 模块的更多信息，请参见：</p><ul><li><a href=https://github.com/golang/go/wiki/Modules>https://github.com/golang/go/wiki/Modules</a></li><li><a href=https://blog.golang.org/using-go-modules>https://blog.golang.org/using-go-modules</a></li></ul><h2 id=模块配置hugoversion---modulehugoversion>模块配置：hugoVersion -> [module.hugoVersion]
+<a class=anchor href=#%e6%a8%a1%e5%9d%97%e9%85%8d%e7%bd%aehugoversion---modulehugoversion>#</a></h2><p>​ 如果您的模块需要特定版本的Hugo才能正常工作，您可以在<code>module</code>部分中指示，并且如果使用过于旧或新的版本，用户将收到警告。</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+module:
+  hugoVersion:
+    extended: false
+    max: &quot;&quot;
+    min: &quot;&quot;
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[module]
+  [module.hugoVersion]
+    extended = false
+    max = ''
+    min = ''
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;module&quot;: {
+      &quot;hugoVersion&quot;: {
+         &quot;extended&quot;: false,
+         &quot;max&quot;: &quot;&quot;,
+         &quot;min&quot;: &quot;&quot;
+      }
+   }
+}
+```
+</code></pre><p>​ 以上任何内容均可省略。</p><h3 id=min>min
+<a class=anchor href=#min>#</a></h3><p>​ 支持的最低Hugo版本，例如<code>0.55.0</code></p><h3 id=max>max
+<a class=anchor href=#max>#</a></h3><p>​ 支持的最高Hugo版本，例如<code>0.55.0</code></p><h3 id=extended>extended
+<a class=anchor href=#extended>#</a></h3><p>​ 是否需要Hugo的扩展版本。</p><h2 id=模块配置imports--moduleimports>模块配置：imports ->[[module.imports]]
+<a class=anchor href=#%e6%a8%a1%e5%9d%97%e9%85%8d%e7%bd%aeimports--moduleimports>#</a></h2><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+module:
+  imports:
+  - disable: false
+    ignoreConfig: false
+    ignoreImports: false
+    path: github.com/gohugoio/hugoTestModules1_linux/modh1_2_1v
+  - path: my-shortcodes
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[module]
+[[module.imports]]
+  disable = false
+  ignoreConfig = false
+  ignoreImports = false
+  path = 'github.com/gohugoio/hugoTestModules1_linux/modh1_2_1v'
+[[module.imports]]
+  path = 'my-shortcodes'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;module&quot;: {
+      &quot;imports&quot;: [
+         {
+            &quot;disable&quot;: false,
+            &quot;ignoreConfig&quot;: false,
+            &quot;ignoreImports&quot;: false,
+            &quot;path&quot;: &quot;github.com/gohugoio/hugoTestModules1_linux/modh1_2_1v&quot;
+         },
+         {
+            &quot;path&quot;: &quot;my-shortcodes&quot;
+         }
+      ]
+   }
+}
+```
+</code></pre><h3 id=path>path
+<a class=anchor href=#path>#</a></h3><p>​ 可以是一个有效的 Go 模块路径，例如 <code>github.com/gohugoio/myShortcodes</code>，或者是存储在您主题文件夹中的模块目录名称。</p><h3 id=ignoreconfig>ignoreConfig
+<a class=anchor href=#ignoreconfig>#</a></h3><p>​ 如果启用，将不会加载任何模块配置文件，例如 <code>config.toml</code>。请注意，这也会停止加载任何传递模块依赖项。</p><h3 id=ignoreimports>ignoreImports
+<a class=anchor href=#ignoreimports>#</a></h3><p>​ 如果启用，将不跟随模块导入。</p><h3 id=disable>disable
+<a class=anchor href=#disable>#</a></h3><p>​ 将其设置为<code>true</code>以禁用该模块，同时保留<code>go.*</code>文件中的任何版本信息。</p><h3 id=nomounts>noMounts
+<a class=anchor href=#nomounts>#</a></h3><p>​ 不要在此导入中挂载任何文件夹。</p><h3 id=novendor-1>noVendor
+<a class=anchor href=#novendor-1>#</a></h3><p>​ 永远不要将此导入内容纳入 vendor（仅允许在主项目中）。</p><p>​ 大多数Hugo模块命令需要安装更新的Go版本（请参见<a href=https://golang.org/dl/>https://golang.org/dl/</a>）和相关的VCS客户端（例如Git，请参见<a href=https://git-scm.com/downloads/>https://git-scm.com/downloads/</a>）。如果您在Netlify上运行"旧"站点，则可能需要在环境设置中将GO_VERSION设置为1.12。</p><p>​ 有关Go模块的更多信息，请参见：</p><ul><li><a href=https://github.com/golang/go/wiki/Modules>https://github.com/golang/go/wiki/Modules</a></li><li><a href=https://blog.golang.org/using-go-modules>https://blog.golang.org/using-go-modules</a></li></ul><h2 id=模块配置mounts---modulemounts>模块配置：mounts -> [[module.mounts]]
+<a class=anchor href=#%e6%a8%a1%e5%9d%97%e9%85%8d%e7%bd%aemounts---modulemounts>#</a></h2><p>​ 在Hugo 0.56.0中引入<code>mounts</code>配置时，我们小心地保留了现有的<code>contentDir</code>、<code>staticDir</code>等配置，以确保所有现有站点都能继续工作。但是，您不应同时使用两者：如果您添加了<code>mounts</code>部分，则应删除旧的<code>contentDir</code>、<code>staticDir</code>等设置。</p><p>​ 当您添加mount时，有关目标根目录的默认mount将被忽略：请确保明确添加它。</p><p>默认挂载点</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+module:
+  mounts:
+  - source: content
+    target: content
+  - source: static
+    target: static
+  - source: layouts
+    target: layouts
+  - source: data
+    target: data
+  - source: assets
+    target: assets
+  - source: i18n
+    target: i18n
+  - source: archetypes
+    target: archetypes
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[module]
+[[module.mounts]]
+  source = 'content'
+  target = 'content'
+[[module.mounts]]
+  source = 'static'
+  target = 'static'
+[[module.mounts]]
+  source = 'layouts'
+  target = 'layouts'
+[[module.mounts]]
+  source = 'data'
+  target = 'data'
+[[module.mounts]]
+  source = 'assets'
+  target = 'assets'
+[[module.mounts]]
+  source = 'i18n'
+  target = 'i18n'
+[[module.mounts]]
+  source = 'archetypes'
+  target = 'archetypes'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;module&quot;: {
+      &quot;mounts&quot;: [
+         {
+            &quot;source&quot;: &quot;content&quot;,
+            &quot;target&quot;: &quot;content&quot;
+         },
+         {
+            &quot;source&quot;: &quot;static&quot;,
+            &quot;target&quot;: &quot;static&quot;
+         },
+         {
+            &quot;source&quot;: &quot;layouts&quot;,
+            &quot;target&quot;: &quot;layouts&quot;
+         },
+         {
+            &quot;source&quot;: &quot;data&quot;,
+            &quot;target&quot;: &quot;data&quot;
+         },
+         {
+            &quot;source&quot;: &quot;assets&quot;,
+            &quot;target&quot;: &quot;assets&quot;
+         },
+         {
+            &quot;source&quot;: &quot;i18n&quot;,
+            &quot;target&quot;: &quot;i18n&quot;
+         },
+         {
+            &quot;source&quot;: &quot;archetypes&quot;,
+            &quot;target&quot;: &quot;archetypes&quot;
+         }
+      ]
+   }
+}
+```
+</code></pre><h3 id=source>source
+<a class=anchor href=#source>#</a></h3><p>挂载点的源目录。对于主项目，可以是相对于项目的路径，也可以是绝对路径，甚至可以是符号链接。对于其他模块，它必须是相对于项目的路径。</p><h3 id=target>target
+<a class=anchor href=#target>#</a></h3><p>它应该被挂载到Hugo虚拟文件系统中的位置。它必须以Hugo的组件文件夹之一开头：<code>static</code>、<code>content</code>、<code>layouts</code>、<code>data</code>、<code>assets</code>、<code>i18n</code>或<code>archetypes</code>。例如，<code>content/blog</code>。</p><h3 id=lang>lang
+<a class=anchor href=#lang>#</a></h3><p>语言代码，例如"en"。只适用于<code>content</code>挂载和多主机模式下的<code>static</code>挂载。</p><h3 id=includefiles-string-or-slice>includeFiles (string or slice)
+<a class=anchor href=#includefiles-string-or-slice>#</a></h3><p>​ 一个或多个用于匹配要包括的文件或目录的<a href=https://github.com/gobwas/glob>glob（通配符）</a>。如果未设置<code>excludeFiles</code>，则与<code>includeFiles</code>匹配的文件将被挂载。</p><p>​ 这些通配符从<code>source</code>根开始匹配文件名，它们应该使用Unix样式的斜杠，即使在Windows上也是如此。 <code>/</code>匹配挂载点根目录，<code>**</code>可以用作超级星号以递归匹配所有目录，例如<code>/posts/**.jpg</code>。</p><p>​ 搜索时忽略大小写。</p><h3 id=excludefiles-字符串或切片>excludeFiles (字符串或切片)
+<a class=anchor href=#excludefiles-%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%88%96%e5%88%87%e7%89%87>#</a></h3><p>​ 一个或多个用于匹配要排除的文件的通配符。</p><p><strong>示例</strong></p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+module:
+  mounts:
+  - excludeFiles: docs/*
+    source: content
+    target: content
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[module]
+[[module.mounts]]
+  excludeFiles = 'docs/*'
+  source = 'content'
+  target = 'content'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;module&quot;: {
+      &quot;mounts&quot;: [
+         {
+            &quot;excludeFiles&quot;: &quot;docs/*&quot;,
+            &quot;source&quot;: &quot;content&quot;,
+            &quot;target&quot;: &quot;content&quot;
+         }
+      ]
+   }
+}
+```
+</code></pre><h2 id=参见>参见
+<a class=anchor href=#%e5%8f%82%e8%a7%81>#</a></h2><ul><li><a href=https://gohugo.io/hugo-modules/theme-components/>主题组件</a></li><li><a href=https://gohugo.io/hugo-modules/use-modules/>使用Hugo模块</a></li><li><a href=https://gohugo.io/getting-started/directory-structure/>目录结构</a></li><li><a href=https://gohugo.io/content-management/static-files/>静态文件</a></li><li><a href=https://gohugo.io/contribute/themes/>将您的Hugo主题添加到展示页面</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#模块配置top-level---module>模块配置：Top level -> [module]</a><ul><li><a href=#novendor>noVendor</a></li><li><a href=#vendorclosest>vendorClosest</a></li><li><a href=#proxy>proxy</a></li><li><a href=#noproxy>noProxy</a></li><li><a href=#private>private</a></li><li><a href=#workspace>workspace</a></li><li><a href=#replacements>replacements</a></li></ul></li><li><a href=#模块配置hugoversion---modulehugoversion>模块配置：hugoVersion -> [module.hugoVersion]</a><ul><li><a href=#min>min</a></li><li><a href=#max>max</a></li><li><a href=#extended>extended</a></li></ul></li><li><a href=#模块配置imports--moduleimports>模块配置：imports ->[[module.imports]]</a><ul><li><a href=#path>path</a></li><li><a href=#ignoreconfig>ignoreConfig</a></li><li><a href=#ignoreimports>ignoreImports</a></li><li><a href=#disable>disable</a></li><li><a href=#nomounts>noMounts</a></li><li><a href=#novendor-1>noVendor</a></li></ul></li><li><a href=#模块配置mounts---modulemounts>模块配置：mounts -> [[module.mounts]]</a><ul><li><a href=#source>source</a></li><li><a href=#target>target</a></li><li><a href=#lang>lang</a></li><li><a href=#includefiles-string-or-slice>includeFiles (string or slice)</a></li><li><a href=#excludefiles-字符串或切片>excludeFiles (字符串或切片)</a></li></ul></li><li><a href=#参见>参见</a></li></ul></nav></div></aside></main></body></html>

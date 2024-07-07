@@ -1,0 +1,202 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Internal Templates - 内置模板 # https://gohugo.io/templates/internal/ ​ Hugo自带一组样板模板，覆盖了静态站点最常见的用例。 ​ 虽然以下内置模板类似于局部模板，但它们不遵循局部模板查找顺序。 Google"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://t.is-local.org/hugo/templ/internaltemplates/"><meta property="og:site_name" content="HUGO"><meta property="og:title" content="内置模板"><meta property="og:description" content="Internal Templates - 内置模板 # https://gohugo.io/templates/internal/ ​ Hugo自带一组样板模板，覆盖了静态站点最常见的用例。 ​ 虽然以下内置模板类似于局部模板，但它们不遵循局部模板查找顺序。 Google"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="templ"><meta property="article:published_time" content="2023-05-18T17:03:08+08:00"><meta property="article:modified_time" content="2023-05-18T17:03:08+08:00"><title>内置模板 | HUGO</title>
+<link rel=manifest href=/hugo/manifest.json><link rel=icon href=/hugo/favicon.png><link rel=canonical href=https://t.is-local.org/hugo/templ/internaltemplates/><link rel=stylesheet href=/hugo/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css integrity="sha256-MJt+0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin=anonymous><script defer src=/hugo/fuse.min.js></script><script defer src=/hugo/zh-cn.search.min.a426f3a0e1e8951a39b1b352645e382bb08b14b3d53468b1f8b07b0d0928cfe6.js integrity="sha256-pCbzoOHolRo5sbNSZF44K7CLFLPVNGix+LB7DQkoz+Y=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/hugo/><span>HUGO</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder aria-label maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/hugo/svg/translate.svg class=book-icon alt=Languages>
+中文</a></label><ul><li><a href=https://t.is-local.org/hugo/en/>English</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/hugo/svg/menu.svg class=book-icon alt=Menu>
+</label><strong>内置模板</strong>
+<label for=toc-control><img src=/hugo/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#google-analytics>Google Analytics</a><ul><li><a href=#configure-google-analytics>Configure Google Analytics</a></li><li><a href=#使用google-analytics模板>使用Google Analytics模板</a></li></ul></li><li><a href=#disqus>Disqus</a><ul><li><a href=#配置disqus>配置Disqus</a></li><li><a href=#使用disqus模板>使用Disqus模板</a></li><li><a href=#disqus评论的条件加载>Disqus评论的条件加载</a></li></ul></li><li><a href=#open-graph>Open Graph</a><ul><li><a href=#配置open-graph>配置Open Graph</a></li><li><a href=#使用-open-graph-模板>使用 Open Graph 模板</a></li></ul></li><li><a href=#twitter-cards>Twitter Cards</a><ul><li><a href=#配置-twitter-cards>配置 Twitter Cards</a></li><li><a href=#使用-twitter-cards-模板>使用 Twitter Cards 模板</a></li></ul></li><li><a href=#内置模板>内置模板</a></li><li><a href=#另请参阅>另请参阅</a></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=internal-templates---内置模板>Internal Templates - 内置模板
+<a class=anchor href=#internal-templates---%e5%86%85%e7%bd%ae%e6%a8%a1%e6%9d%bf>#</a></h1><p><a href=https://gohugo.io/templates/internal/>https://gohugo.io/templates/internal/</a></p><p>​ Hugo自带一组样板模板，覆盖了静态站点最常见的用例。</p><p>​ 虽然以下内置模板类似于局部模板，但它们不遵循局部模板查找顺序。</p><h2 id=google-analytics>Google Analytics
+<a class=anchor href=#google-analytics>#</a></h2><p>​ Hugo自带内置模板支持Google Analytics，包括<a href=https://support.google.com/analytics/answer/10089681>Google Analytics 4</a> (GA4)和Universal Analytics。</p><p><strong>注意:</strong> Universal Analytics已被弃用。有关详情，请参阅<a href=https://support.google.com/analytics/answer/11583528>Universal Analytics将被取消</a>。</p><h3 id=configure-google-analytics>Configure Google Analytics
+<a class=anchor href=#configure-google-analytics>#</a></h3><p>​ 在配置文件中提供您的跟踪ID：</p><p><strong>Google Analytics 4 (gtag.js)</strong></p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+googleAnalytics: G-MEASUREMENT_ID
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+googleAnalytics = 'G-MEASUREMENT_ID'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;googleAnalytics&quot;: &quot;G-MEASUREMENT_ID&quot;
+}
+```
+</code></pre><p><strong>Google Universal Analytics (analytics.js)</strong></p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+googleAnalytics: UA-PROPERTY_ID
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+googleAnalytics = 'UA-PROPERTY_ID'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;googleAnalytics&quot;: &quot;UA-PROPERTY_ID&quot;
+}
+```
+</code></pre><h3 id=使用google-analytics模板>使用Google Analytics模板
+<a class=anchor href=#%e4%bd%bf%e7%94%a8google-analytics%e6%a8%a1%e6%9d%bf>#</a></h3><p>​ 然后，您可以包含Google Analytics内置模板：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>template</span> <span style=color:#e6db74>&#34;_internal/google_analytics_async.html&#34;</span> <span style=color:#a6e22e>.</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><p><strong>注意:</strong> 异步模板不适用于Google Analytics 4。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>template</span> <span style=color:#e6db74>&#34;_internal/google_analytics.html&#34;</span> <span style=color:#a6e22e>.</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><p>​ 如果您想创建自己的模板，可以使用 <code>{{ site.Config.Services.GoogleAnalytics.ID }}</code> 访问已配置的ID。</p><h2 id=disqus>Disqus
+<a class=anchor href=#disqus>#</a></h2><p>​ Hugo还带有用于<a href=https://disqus.com/>Disqus评论</a>的内置模板，这是一种流行的静态和动态站点评论系统。要有效地使用Disqus，您需要通过<a href=https://disqus.com/profile/signup/>注册免费服务</a>来获得Disqus &ldquo;shortname&rdquo;。</p><h3 id=配置disqus>配置Disqus
+<a class=anchor href=#%e9%85%8d%e7%bd%aedisqus>#</a></h3><p>​ 要使用Hugo的Disqus模板，您首先需要设置一个配置值：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+disqusShortname: your-disqus-shortname
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+disqusShortname = 'your-disqus-shortname'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;disqusShortname&quot;: &quot;your-disqus-shortname&quot;
+}
+```
+</code></pre><p>​ 您还可以选择在给定篇的内容的前置元数据中设置以下值：</p><ul><li><code>disqus_identifier</code></li><li><code>disqus_title</code></li><li><code>disqus_url</code></li></ul><h3 id=使用disqus模板>使用Disqus模板
+<a class=anchor href=#%e4%bd%bf%e7%94%a8disqus%e6%a8%a1%e6%9d%bf>#</a></h3><p>​ 要添加Disqus，请在要显示评论的模板中包含以下行：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>template</span> <span style=color:#e6db74>&#34;_internal/disqus.html&#34;</span> <span style=color:#a6e22e>.</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><p>​ 还有一个暴露在配置中的 <code>.Site.DisqusShortname</code> 变量。</p><h3 id=disqus评论的条件加载>Disqus评论的条件加载
+<a class=anchor href=#disqus%e8%af%84%e8%ae%ba%e7%9a%84%e6%9d%a1%e4%bb%b6%e5%8a%a0%e8%bd%bd>#</a></h3><p>​ 用户已经注意到，在运行Hugo Web服务器（即通过<code>hugo server</code>）时启用Disqus评论会导致在关联的Disqus帐户上创建不必要的讨论。</p><p>​ 您可以创建以下 <code>layouts/partials/disqus.html</code> ：</p><p>layouts/partials/disqus.html</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span>&lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;disqus_thread&#34;</span>&gt;&lt;/<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/javascript&#34;</span>&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(<span style=color:#66d9ef>function</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Don&#39;t ever inject Disqus on localhost--it creates unwanted
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// discussions from &#39;localhost:1313&#39; on your Disqus account...
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (window.<span style=color:#a6e22e>location</span>.<span style=color:#a6e22e>hostname</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;localhost&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>dsq</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#39;script&#39;</span>); <span style=color:#a6e22e>dsq</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;text/javascript&#39;</span>; <span style=color:#a6e22e>dsq</span>.<span style=color:#66d9ef>async</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>disqus_shortname</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;</span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>.Site.DisqusShortname</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>&#39;</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>dsq</span>.<span style=color:#a6e22e>src</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;//&#39;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>disqus_shortname</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;.disqus.com/embed.js&#39;</span>;
+</span></span><span style=display:flex><span>    (document.<span style=color:#a6e22e>getElementsByTagName</span>(<span style=color:#e6db74>&#39;head&#39;</span>)[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>||</span> document.<span style=color:#a6e22e>getElementsByTagName</span>(<span style=color:#e6db74>&#39;body&#39;</span>)[<span style=color:#ae81ff>0</span>]).<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>dsq</span>);
+</span></span><span style=display:flex><span>})();
+</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>script</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>noscript</span>&gt;Please enable JavaScript to view the &lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://disqus.com/?ref_noscript&#34;</span>&gt;comments powered by Disqus.&lt;/<span style=color:#f92672>a</span>&gt;&lt;/<span style=color:#f92672>noscript</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://disqus.com/&#34;</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;dsq-brlink&#34;</span>&gt;comments powered by &lt;<span style=color:#f92672>span</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;logo-disqus&#34;</span>&gt;Disqus&lt;/<span style=color:#f92672>span</span>&gt;&lt;/<span style=color:#f92672>a</span>&gt;
+</span></span></code></pre></div><p>​ 当您在本地主机上运行时，<code>if</code> 语句将跳过Disqus评论注入的初始化。</p><p>​ 然后可以按以下方式渲染自定义Disqus局部模板：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>partial</span> <span style=color:#e6db74>&#34;disqus.html&#34;</span> <span style=color:#a6e22e>.</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><h2 id=open-graph>Open Graph
+<a class=anchor href=#open-graph>#</a></h2><p>​ Hugo提供了一个内置模板用于<a href=https://ogp.me/>Open Graph协议</a>，这是一种元数据，可使页面成为社交图中的丰富对象。此格式用于Facebook和其他一些站点。</p><h3 id=配置open-graph>配置Open Graph
+<a class=anchor href=#%e9%85%8d%e7%bd%aeopen-graph>#</a></h3><p>​ Hugo的Open Graph模板使用配置变量和个别页面的<a href=https://gohugo.io/content-management/front-matter/>front-matter</a>的混合来配置。</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+params:
+  description: Text about my cool site
+  images:
+  - site-feature-image.jpg
+  title: My cool site
+taxonomies:
+  series: series
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[params]
+  description = 'Text about my cool site'
+  images = ['site-feature-image.jpg']
+  title = 'My cool site'
+[taxonomies]
+  series = 'series'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;params&quot;: {
+      &quot;description&quot;: &quot;Text about my cool site&quot;,
+      &quot;images&quot;: [
+         &quot;site-feature-image.jpg&quot;
+      ],
+      &quot;title&quot;: &quot;My cool site&quot;
+   },
+   &quot;taxonomies&quot;: {
+      &quot;series&quot;: &quot;series&quot;
+   }
+}
+```
+</code></pre><p>content/blog/my-post.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+audio: []
+date: &quot;2006-01-02&quot;
+description: Text about this post
+images:
+- post-cover.png
+series: []
+tags: []
+title: Post title
+videos: []
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+audio = []
+date = '2006-01-02'
+description = 'Text about this post'
+images = ['post-cover.png']
+series = []
+tags = []
+title = 'Post title'
+videos = []
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;audio&quot;: [],
+   &quot;date&quot;: &quot;2006-01-02&quot;,
+   &quot;description&quot;: &quot;Text about this post&quot;,
+   &quot;images&quot;: [
+      &quot;post-cover.png&quot;
+   ],
+   &quot;series&quot;: [],
+   &quot;tags&quot;: [],
+   &quot;title&quot;: &quot;Post title&quot;,
+   &quot;videos&quot;: []
+}
+```
+</code></pre><p>​ Hugo使用页面标题和描述作为标题和描述元数据。从 <code>images</code> 数组中取前6个URL用于图像元数据。如果使用<a href=https://gohugo.io/content-management/page-bundles/>页面 bundles</a>，并且 <code>images</code> 数组为空或未定义，则使用与 <code>*feature*</code> 或 <code>*cover*,*thumbnail*</code> 匹配的文件名的图像用于图像元数据。</p><p>​ 还可以设置各种可选的元数据：</p><ul><li>日期、发布日期和最后修改日期用于设置发布时间元数据（如果指定）。</li><li><code>audio</code> and <code>videos</code> are URL arrays like <code>images</code> for the audio and video metadata tags, respectively.</li><li><code>audio</code> 和 <code>video</code> 是与音频和视频元数据标签对应的（与 <code>images</code> 类似） URL 数组。</li><li>该页面上前 6 个 <code>tags</code> 用于标签（tags）元数据。</li><li><code>series</code> 分类法用于将相关的 &ldquo;see also"页面放入同一系列。</li></ul><p>​ 如果使用 YouTube，这将生成一个类似于 <code>&lt;meta property="og:video" content="url"></code> 的 og:video 标签。在 YouTube 视频中使用 <code>https://youtu.be/&lt;id></code> 格式（例如：<code>https://youtu.be/qtIqKaDlqXo</code>）。</p><h3 id=使用-open-graph-模板>使用 Open Graph 模板
+<a class=anchor href=#%e4%bd%bf%e7%94%a8-open-graph-%e6%a8%a1%e6%9d%bf>#</a></h3><p>​ 要添加 Open Graph 元数据，请在模板的 <code>&lt;head></code> 标签之间包含以下行：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>template</span> <span style=color:#e6db74>&#34;_internal/opengraph.html&#34;</span> <span style=color:#a6e22e>.</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><h2 id=twitter-cards>Twitter Cards
+<a class=anchor href=#twitter-cards>#</a></h2><p>​ 一个内置的模板，用于为链接到您的站点的推文附加丰富的媒体的<a href=https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards>Twitter Cards</a>元数据。</p><h3 id=配置-twitter-cards>配置 Twitter Cards
+<a class=anchor href=#%e9%85%8d%e7%bd%ae-twitter-cards>#</a></h3><p>​ Hugo 的 Twitter Card 模板使用一些配置变量和个别页面的 <a href=https://gohugo.io/content-management/front-matter/>front-matter</a> 进行混合配置。</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+params:
+  description: Text about my cool site
+  images:
+  - site-feature-image.jpg
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[params]
+  description = 'Text about my cool site'
+  images = ['site-feature-image.jpg']
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;params&quot;: {
+      &quot;description&quot;: &quot;Text about my cool site&quot;,
+      &quot;images&quot;: [
+         &quot;site-feature-image.jpg&quot;
+      ]
+   }
+}
+```
+</code></pre><p>content/blog/my-post.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+description: Text about this post
+images:
+- post-cover.png
+title: Post title
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+description = 'Text about this post'
+images = ['post-cover.png']
+title = 'Post title'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;description&quot;: &quot;Text about this post&quot;,
+   &quot;images&quot;: [
+      &quot;post-cover.png&quot;
+   ],
+   &quot;title&quot;: &quot;Post title&quot;
+}
+```
+</code></pre><p>​ 如果页面的前置元数据中没有指定 <code>images</code>，则 Hugo 会搜索具有 <code>feature</code>、<code>cover</code> 或 <code>thumbnail</code> 名称的 <a href=https://gohugo.io/content-management/image-processing/>图像页面资源</a>。如果找不到具有这些名称的图像资源，则使用在 <a href=https://gohugo.io/getting-started/configuration/>站点配置</a> 中定义的图像。如果根本找不到图像，则使用不带图像的 Twitter <code>summary</code> 卡，而不是 <code>summary_large_image</code>。</p><p>​ Hugo 使用该页面标题和描述作为卡片的标题和描述字段。如果没有给出描述，则使用该页面摘要。</p><p>​ <code>.Site.Social.twitter</code> 变量从配置中暴露，作为 <code>twitter:site</code> 的值。</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+social:
+  twitter: GoHugoIO
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[social]
+  twitter = 'GoHugoIO'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;social&quot;: {
+      &quot;twitter&quot;: &quot;GoHugoIO&quot;
+   }
+}
+```
+</code></pre><p>注意：<code>@</code> 将会自动为您添加。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>name</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;twitter:site&#34;</span> <span style=color:#a6e22e>content</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@GoHugoIO&#34;</span>/&gt;
+</span></span></code></pre></div><h3 id=使用-twitter-cards-模板>使用 Twitter Cards 模板
+<a class=anchor href=#%e4%bd%bf%e7%94%a8-twitter-cards-%e6%a8%a1%e6%9d%bf>#</a></h3><p>​ 要添加 Twitter 卡片元数据，请在您的模板的 <code>&lt;head></code> 元素之后立即包含以下行：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>template</span> <span style=color:#e6db74>&#34;_internal/twitter_cards.html&#34;</span> <span style=color:#a6e22e>.</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><h2 id=内置模板>内置模板
+<a class=anchor href=#%e5%86%85%e7%bd%ae%e6%a8%a1%e6%9d%bf>#</a></h2><p>​ 这些模板的代码位于<a href=https://github.com/gohugoio/hugo/tree/master/tpl/tplimpl/embedded/templates>这里</a>。</p><ul><li><code>_internal/disqus.html</code></li><li><code>_internal/google_analytics.html</code></li><li><code>_internal/google_analytics_async.html</code></li><li><code>_internal/opengraph.html</code></li><li><code>_internal/pagination.html</code></li><li><code>_internal/schema.html</code></li><li><code>_internal/twitter_cards.html</code></li></ul><h2 id=另请参阅>另请参阅
+<a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a></h2><ul><li><a href=https://gohugo.io/content-management/comments/>评论</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#google-analytics>Google Analytics</a><ul><li><a href=#configure-google-analytics>Configure Google Analytics</a></li><li><a href=#使用google-analytics模板>使用Google Analytics模板</a></li></ul></li><li><a href=#disqus>Disqus</a><ul><li><a href=#配置disqus>配置Disqus</a></li><li><a href=#使用disqus模板>使用Disqus模板</a></li><li><a href=#disqus评论的条件加载>Disqus评论的条件加载</a></li></ul></li><li><a href=#open-graph>Open Graph</a><ul><li><a href=#配置open-graph>配置Open Graph</a></li><li><a href=#使用-open-graph-模板>使用 Open Graph 模板</a></li></ul></li><li><a href=#twitter-cards>Twitter Cards</a><ul><li><a href=#配置-twitter-cards>配置 Twitter Cards</a></li><li><a href=#使用-twitter-cards-模板>使用 Twitter Cards 模板</a></li></ul></li><li><a href=#内置模板>内置模板</a></li><li><a href=#另请参阅>另请参阅</a></li></ul></nav></div></aside></main></body></html>

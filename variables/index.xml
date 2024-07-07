@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>变量 on HUGO</title><link>https://t.is-local.org/hugo/variables/</link><description>Recent content in 变量 on HUGO</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 18 May 2023 17:03:08 +0800</lastBuildDate><atom:link href="https://t.is-local.org/hugo/variables/index.xml" rel="self" type="application/rss+xml"/><item><title>站点变量</title><link>https://t.is-local.org/hugo/variables/sitevariables/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://t.is-local.org/hugo/variables/sitevariables/</guid><description>Site Variables - 站点变量 # https://gohugo.io/variables/site/ ​ 许多站点范围的变量在站点配置中定义，但是，Hugo提供了许多内置变量，以方便在模板中访问全局值。 ​ 以下是站点级别（也称为</description></item><item><title>页面变量</title><link>https://t.is-local.org/hugo/variables/pagevariables/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://t.is-local.org/hugo/variables/pagevariables/</guid><description>&lt;h1 id="page-variables---页面变量">
+ Page Variables - 页面变量
+ &lt;a class="anchor" href="#page-variables---%e9%a1%b5%e9%9d%a2%e5%8f%98%e9%87%8f">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;a href="https://gohugo.io/variables/page/">https://gohugo.io/variables/page/&lt;/a>&lt;/p>
+&lt;p>​	页面级变量定义在内容文件的前置元数据中，从内容文件的位置中派生出来，或从内容本身中提取出来。&lt;/p>
+&lt;p>​	以下是页面级变量列表。其中许多将在前置元数据中定义、从文件位置中派生或从内容本身中提取。&lt;/p>
+&lt;h2 id="页面变量">
+ 页面变量
+ &lt;a class="anchor" href="#%e9%a1%b5%e9%9d%a2%e5%8f%98%e9%87%8f">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="alternativeoutputformats">
+ .AlternativeOutputFormats
+ &lt;a class="anchor" href="#alternativeoutputformats">#&lt;/a>
+&lt;/h3>
+&lt;p>包含给定页面的所有备选格式；这个变量在您站点的 &lt;code>&amp;lt;head&amp;gt;&lt;/code> 中的 &lt;code>link rel&lt;/code> 列表中非常有用。（请参见&lt;a href="https://gohugo.io/templates/output-formats/">输出格式(Output Formats)&lt;/a>。）&lt;/p>
+&lt;h3 id="aliases">
+ .Aliases
+ &lt;a class="anchor" href="#aliases">#&lt;/a>
+&lt;/h3>
+&lt;p>此页面的别名&lt;/p>
+&lt;h3 id="ancestors">
+ .Ancestors
+ &lt;a class="anchor" href="#ancestors">#&lt;/a>
+&lt;/h3>
+&lt;p>​	获取每个页面的祖先，简化 &lt;a href="https://gohugo.io/content-management/sections#example-breadcrumb-navigation">面包屑导航(breadcrumb navigation)&lt;/a> 实现的复杂性。&lt;/p>
+&lt;h3 id="bundletype">
+ .BundleType
+ &lt;a class="anchor" href="#bundletype">#&lt;/a>
+&lt;/h3>
+&lt;p>​	&lt;a href="https://gohugo.io/content-management/page-bundles">bundle&lt;/a>类型: &lt;code>leaf&lt;/code>, &lt;code>branch&lt;/code>, 或者如果页面不是bundle，则为空字符串。&lt;/p>
+&lt;h3 id="content">
+ .Content
+ &lt;a class="anchor" href="#content">#&lt;/a>
+&lt;/h3>
+&lt;p>​	内容本身，在前置元数据下定义。&lt;/p>
+&lt;h3 id="data">
+ .Data
+ &lt;a class="anchor" href="#data">#&lt;/a>
+&lt;/h3>
+&lt;p>​	特定于此页面类型的数据。&lt;/p>
+&lt;h3 id="date">
+ .Date
+ &lt;a class="anchor" href="#date">#&lt;/a>
+&lt;/h3>
+&lt;p>​	与页面相关联的日期；&lt;code>.Date&lt;/code>从内容的前置元数据中的&lt;code>date&lt;/code>字段获取。还请参见&lt;code>.ExpiryDate&lt;/code>、&lt;code>.PublishDate&lt;/code>和&lt;code>.Lastmod&lt;/code>。&lt;/p>
+&lt;h3 id="description">
+ .Description
+ &lt;a class="anchor" href="#description">#&lt;/a>
+&lt;/h3>
+&lt;p>​	此页面的描述。&lt;/p>
+&lt;h3 id="draft">
+ .Draft
+ &lt;a class="anchor" href="#draft">#&lt;/a>
+&lt;/h3>
+&lt;p>​	一个布尔值，如果内容在前置元数据中标记为草稿，则为 &lt;code>true&lt;/code>。&lt;/p>
+&lt;h3 id="expirydate">
+ .ExpiryDate
+ &lt;a class="anchor" href="#expirydate">#&lt;/a>
+&lt;/h3>
+&lt;p>​	内容计划过期的日期；&lt;code>.ExpiryDate&lt;/code>从内容的前置元数据中的&lt;code>expirydate&lt;/code>字段获取。还请参见&lt;code>.PublishDate&lt;/code>、&lt;code>.Date&lt;/code>和&lt;code>.Lastmod&lt;/code>。&lt;/p>
+&lt;h3 id="file">
+ .File
+ &lt;a class="anchor" href="#file">#&lt;/a>
+&lt;/h3>
+&lt;p>此内容文件的文件系统相关数据。另请参见&lt;a href="https://gohugo.io/variables/files/">文件变量(File Variables)&lt;/a>。&lt;/p>
+&lt;h3 id="fragments">
+ .Fragments
+ &lt;a class="anchor" href="#fragments">#&lt;/a>
+&lt;/h3>
+&lt;p>​	Fragments返回此页面的片段。请参见&lt;a href="https://gohugo.io/variables/page/#page-fragments">页面片段(Page Fragments)&lt;/a>。&lt;/p>
+&lt;h3 id="fuzzywordcount">
+ .FuzzyWordCount
+ &lt;a class="anchor" href="#fuzzywordcount">#&lt;/a>
+&lt;/h3>
+&lt;p>​	此内容中字的大致数量。&lt;/p>
+&lt;h3 id="ishome">
+ .IsHome
+ &lt;a class="anchor" href="#ishome">#&lt;/a>
+&lt;/h3>
+&lt;p>​	在 &lt;a href="https://gohugo.io/templates/homepage/">主页(homepage)&lt;/a> 的上下文中为 &lt;code>true&lt;/code>。&lt;/p>
+&lt;h3 id="isnode">
+ .IsNode
+ &lt;a class="anchor" href="#isnode">#&lt;/a>
+&lt;/h3>
+&lt;p>​	对于常规内容页面始终为 &lt;code>false&lt;/code>。&lt;/p>
+&lt;h3 id="ispage">
+ .IsPage
+ &lt;a class="anchor" href="#ispage">#&lt;/a>
+&lt;/h3>
+&lt;p>​	对于常规内容页面始终为 &lt;code>true&lt;/code>。&lt;/p>
+&lt;h3 id="issection">
+ .IsSection
+ &lt;a class="anchor" href="#issection">#&lt;/a>
+&lt;/h3>
+&lt;p>​	如果 &lt;a href="https://gohugo.io/templates/section-templates/#page-kinds">&lt;code>.Kind&lt;/code>&lt;/a> 是 &lt;code>section&lt;/code>，则为 &lt;code>true&lt;/code>。&lt;/p>
+&lt;h3 id="istranslated">
+ .IsTranslated
+ &lt;a class="anchor" href="#istranslated">#&lt;/a>
+&lt;/h3>
+&lt;p>​	如果有要显示的翻译，则为 &lt;code>true&lt;/code>。&lt;/p>
+&lt;h3 id="keywords">
+ .Keywords
+ &lt;a class="anchor" href="#keywords">#&lt;/a>
+&lt;/h3>
+&lt;p>​	此内容的元关键字。&lt;/p>
+&lt;h3 id="kind">
+ .Kind
+ &lt;a class="anchor" href="#kind">#&lt;/a>
+&lt;/h3>
+&lt;p>​	此页面的 &lt;em>kind&lt;/em>。可能的返回值为 &lt;code>page&lt;/code>、&lt;code>home&lt;/code>、&lt;code>section&lt;/code>、&lt;code>taxonomy&lt;/code> 或 &lt;code>term&lt;/code>。请注意，还有 &lt;code>RSS&lt;/code>、&lt;code>sitemap&lt;/code>、&lt;code>robotsTXT&lt;/code> 和 &lt;code>404&lt;/code> 类型，但这些仅在每个相应页面类型的渲染期间可用，因此这些不可在任何 &lt;code>Pages&lt;/code> 集合中使用。&lt;/p>
+&lt;h3 id="language">
+ .Language
+ &lt;a class="anchor" href="#language">#&lt;/a>
+&lt;/h3>
+&lt;p>​	一个指向该站点 &lt;code>config&lt;/code> 中语言定义的语言对象。&lt;code>.Language.Lang&lt;/code> 给出语言代码。&lt;/p>
+&lt;h3 id="lastmod">
+ .Lastmod
+ &lt;a class="anchor" href="#lastmod">#&lt;/a>
+&lt;/h3>
+&lt;p>​	此内容最后修改日期。&lt;code>.Lastmod&lt;/code> 从内容的前置元数据中的 &lt;code>lastmod&lt;/code> 字段获取。&lt;/p>
+&lt;ul>
+&lt;li>如果未设置 &lt;code>lastmod&lt;/code> 并且 &lt;code>.GitInfo&lt;/code> 特性已禁用，则将使用前置元数据中的 &lt;code>date&lt;/code> 字段。&lt;/li>
+&lt;li>如果未设置 &lt;code>lastmod&lt;/code> 并且 &lt;code>.GitInfo&lt;/code> 特性已启用，则将使用&lt;code>.GitInfo.AuthorDate&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;p>​	另请参阅 &lt;code>.ExpiryDate&lt;/code>、&lt;code>.Date&lt;/code>、&lt;code>.PublishDate&lt;/code> 和 &lt;a href="https://gohugo.io/variables/git/">.GitInfo&lt;/a>。&lt;/p>
+&lt;h3 id="linktitle">
+ .LinkTitle
+ &lt;a class="anchor" href="#linktitle">#&lt;/a>
+&lt;/h3>
+&lt;p>​	创建指向此内容的链接时使用。如果设置了（&lt;code>linktitle&lt;/code>），Hugo 将在&lt;code>title&lt;/code>之前使用前置元数据中的 &lt;code>linktitle&lt;/code>。&lt;/p>
+&lt;h3 id="next">
+ .Next
+ &lt;a class="anchor" href="#next">#&lt;/a>
+&lt;/h3>
+&lt;p>​	指向下一个 &lt;a href="https://gohugo.io/variables/site/#site-pages">常规页面&lt;/a>（按 Hugo 的 &lt;a href="https://gohugo.io/templates/lists#default-weight--date--linktitle--filepath">默认排序&lt;/a> 排序）。示例：&lt;code>{{ with .Next }}{{ .Permalink }}{{ end }}&lt;/code>。从第一页调用 &lt;code>.Next&lt;/code> 将返回 &lt;code>nil&lt;/code>。&lt;/p>
+&lt;h3 id="nextinsection">
+ .NextInSection
+ &lt;a class="anchor" href="#nextinsection">#&lt;/a>
+&lt;/h3>
+&lt;p>​	指向同一顶级章节的下一个 &lt;a href="https://gohugo.io/variables/site/#site-pages">常规页面&lt;/a>（例如在 &lt;code>/blog&lt;/code> 中）。页面按 Hugo 的 &lt;a href="https://gohugo.io/templates/lists#default-weight--date--linktitle--filepath">默认排序&lt;/a> 排序。示例：&lt;code>{{ with .NextInSection }}{{ .Permalink }}{{ end }}&lt;/code>。从第一页调用 &lt;code>.NextInSection&lt;/code> 将返回 &lt;code>nil&lt;/code>。&lt;/p>
+&lt;h3 id="outputformats">
+ .OutputFormats
+ &lt;a class="anchor" href="#outputformats">#&lt;/a>
+&lt;/h3>
+&lt;p>​	包含给定页面的所有格式，包括当前格式。可以与 &lt;a href="https://gohugo.io/functions/get/">&lt;code>.Get&lt;/code> 函数&lt;/a> 结合使用来获取特定格式（请参阅 &lt;a href="https://gohugo.io/templates/output-formats/">输出格式&lt;/a>）。&lt;/p>
+&lt;h3 id="pages">
+ .Pages
+ &lt;a class="anchor" href="#pages">#&lt;/a>
+&lt;/h3>
+&lt;p>​	相关页面的集合。在常规内容页面的上下文中，此值将为 &lt;code>nil&lt;/code>。请参阅 &lt;a href="https://gohugo.io/variables/page/#pages">.Pages&lt;/a>。&lt;/p>
+&lt;h3 id="permalink">
+ .Permalink
+ &lt;a class="anchor" href="#permalink">#&lt;/a>
+&lt;/h3>
+&lt;p>​	此页面的永久链接；请参阅 &lt;a href="https://gohugo.io/content-management/urls/">永久链接&lt;/a>。&lt;/p>
+&lt;h3 id="plain">
+ .Plain
+ &lt;a class="anchor" href="#plain">#&lt;/a>
+&lt;/h3>
+&lt;p>​	此页面内容去掉 HTML 标签后以字符串形式呈现。在使用 HTML &lt;a href="https://gohugo.io/templates/output-formats#output-format-definitions">输出格式&lt;/a> 渲染此值时，您可能需要通过 &lt;a href="https://gohugo.io/functions/htmlunescape/">&lt;code>htmlUnescape&lt;/code>&lt;/a> 函数进行结果处理。&lt;/p>
+&lt;h3 id="plainwords">
+ .PlainWords
+ &lt;a class="anchor" href="#plainwords">#&lt;/a>
+&lt;/h3>
+&lt;p>​	将 &lt;code>.Plain&lt;/code> 拆分为字所生成的字符串切片，如 Go 的 &lt;a href="https://pkg.go.dev/strings#Fields">strings.Fields&lt;/a> 中定义。&lt;/p>
+&lt;h3 id="prev">
+ .Prev
+ &lt;a class="anchor" href="#prev">#&lt;/a>
+&lt;/h3>
+&lt;p>​	指向上一个 &lt;a href="https://gohugo.io/variables/site/#site-pages">常规页面&lt;/a>（按 Hugo 的 &lt;a href="https://gohugo.io/templates/lists#default-weight--date--linktitle--filepath">默认排序&lt;/a> 排序）。示例：&lt;code>{{ if .Prev }}{{ .Prev.Permalink }}{{ end }}&lt;/code>。从最后一页调用 &lt;code>.Prev&lt;/code> 将返回 &lt;code>nil&lt;/code>。&lt;/p>
+&lt;h3 id="previnsection">
+ .PrevInSection
+ &lt;a class="anchor" href="#previnsection">#&lt;/a>
+&lt;/h3>
+&lt;p>​	指向同一顶级章节的下一个 &lt;a href="https://gohugo.io/variables/site/#site-pages">常规页面&lt;/a>（例如 &lt;code>/blog&lt;/code>）。页面按 Hugo 的 &lt;a href="https://gohugo.io/templates/lists#default-weight--date--linktitle--filepath">默认排序&lt;/a> 排序。示例：&lt;code>{{ if .PrevInSection }}{{ .PrevInSection.Permalink }}{{ end }}&lt;/code>。从最后一页调用 &lt;code>.PrevInSection&lt;/code> 将返回 &lt;code>nil&lt;/code>。&lt;/p>
+&lt;h3 id="publishdate">
+ .PublishDate
+ &lt;a class="anchor" href="#publishdate">#&lt;/a>
+&lt;/h3>
+&lt;p>​	此内容发布日期或将要发布的日期；&lt;code>.Publishdate&lt;/code> 从内容的前置元数据中的 &lt;code>publishdate&lt;/code> 字段获取。另请参阅 &lt;code>.ExpiryDate&lt;/code>、&lt;code>.Date&lt;/code> 和 &lt;code>.Lastmod&lt;/code>。&lt;/p>
+&lt;h3 id="rawcontent">
+ .RawContent
+ &lt;a class="anchor" href="#rawcontent">#&lt;/a>
+&lt;/h3>
+&lt;p>​	没有前置元数据的原始Markdown内容。与 &lt;a href="https://remarkjs.com/">remarkjs.com&lt;/a> 配合使用很有用。&lt;/p>
+&lt;h3 id="readingtime">
+ .ReadingTime
+ &lt;a class="anchor" href="#readingtime">#&lt;/a>
+&lt;/h3>
+&lt;p>​	估计阅读此内容需要的时间（以分钟为单位）。&lt;/p>
+&lt;h3 id="resources">
+ .Resources
+ &lt;a class="anchor" href="#resources">#&lt;/a>
+&lt;/h3>
+&lt;p>​	与此页面相关联的资源，例如图像和CSS。&lt;/p>
+&lt;h3 id="ref">
+ .Ref
+ &lt;a class="anchor" href="#ref">#&lt;/a>
+&lt;/h3>
+&lt;p>​	返回给定引用（例如 &lt;code>.Ref &amp;quot;sample.md&amp;quot;&lt;/code>）的永久链接。&lt;code>.Ref&lt;/code> 无法正确处理页面内部片段。请参阅 &lt;a href="https://gohugo.io/content-management/cross-references/">交叉引用&lt;/a>。&lt;/p>
+&lt;h3 id="relpermalink">
+ .RelPermalink
+ &lt;a class="anchor" href="#relpermalink">#&lt;/a>
+&lt;/h3>
+&lt;p>​	此页面的相对永久链接。&lt;/p>
+&lt;h3 id="relref">
+ .RelRef
+ &lt;a class="anchor" href="#relref">#&lt;/a>
+&lt;/h3>
+&lt;p>​	返回给定引用（例如 &lt;code>RelRef &amp;quot;sample.md&amp;quot;&lt;/code>）的相对永久链接。&lt;code>.RelRef&lt;/code> 无法正确处理页面内部片段。请参阅 &lt;a href="https://gohugo.io/content-management/cross-references/">交叉引用&lt;/a>。&lt;/p>
+&lt;h3 id="site">
+ .Site
+ &lt;a class="anchor" href="#site">#&lt;/a>
+&lt;/h3>
+&lt;p>​	参见&lt;a href="https://gohugo.io/variables/site/">站点变量&lt;/a>。&lt;/p>
+&lt;h3 id="sites">
+ .Sites
+ &lt;a class="anchor" href="#sites">#&lt;/a>
+&lt;/h3>
+&lt;p>​	返回所有站点（语言）。一个典型的用例是链接回主语言：&lt;code>&amp;lt;a href=&amp;quot;{{ .Sites.First.Home.RelPermalink }}&amp;quot;&amp;gt;...&amp;lt;/a&amp;gt;&lt;/code>。&lt;/p>
+&lt;h3 id="sitesfirst">
+ .Sites.First
+ &lt;a class="anchor" href="#sitesfirst">#&lt;/a>
+&lt;/h3>
+&lt;p>​	返回第一种语言的站点。如果这不是多语言设置，则会返回它本身。&lt;/p>
+&lt;h3 id="summary">
+ .Summary
+ &lt;a class="anchor" href="#summary">#&lt;/a>
+&lt;/h3>
+&lt;p>​	此内容的生成摘要，用于在摘要视图中轻松显示片段。可以在内容页中适当位置插入 `&lt;/p></description></item><item><title>简码变量</title><link>https://t.is-local.org/hugo/variables/shortcodevariables/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://t.is-local.org/hugo/variables/shortcodevariables/</guid><description>Shortcode Variables- 简码变量 # https://gohugo.io/variables/shortcodes/ ​ 简码可以访问页面变量，并且有其自己的特定内置变量。 ​ 简码通过.Get访问简码声明中分隔的参数、页面级别和站点级别的变量，还</description></item><item><title>页面方法</title><link>https://t.is-local.org/hugo/variables/pagesmethods/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://t.is-local.org/hugo/variables/pagesmethods/</guid><description>Pages Methods - 页面方法 # https://gohugo.io/variables/pages/ ​ Pages是Hugo中的核心页面集合，具有许多有用的方法。 ​ 此外，请参阅列表模板以获取排序方法的概述。 .Next PAGE # ​ 在Page</description></item><item><title>分类法（Taxonomy）变量</title><link>https://t.is-local.org/hugo/variables/taxonomyvariables/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://t.is-local.org/hugo/variables/taxonomyvariables/</guid><description>Taxonomy Variables - 分类法（Taxonomy）变量 # https://gohugo.io/variables/taxonomy/ ​ Hugo 的分类法系统向分类法和条目模板公开了变量。 分类模板 # ​ 由分类法模板渲染的页面的 .Kind 设置为 taxon</description></item><item><title>菜单变量</title><link>https://t.is-local.org/hugo/variables/menuvariables/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://t.is-local.org/hugo/variables/menuvariables/</guid><description>Menu Variables - 菜单变量 # https://gohugo.io/variables/menus/ ​ 在您的菜单模板中使用这些变量和方法。 变量 # ​ 在定义菜单项之后，可以在菜单模板中使用以下变量访问其属性。 .Children # ​ (menu)</description></item><item><title>文件变量</title><link>https://t.is-local.org/hugo/variables/filevariables/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://t.is-local.org/hugo/variables/filevariables/</guid><description>File Variables - 文件变量 # https://gohugo.io/variables/files/ Use File variables to access file-related values for each page that is backed by a file. 使用文件变量来访问由文件支持的每个页面的与文件相关的值。 ​ 使用文件变量来访问每个由文件支持</description></item><item><title>Git 信息变量</title><link>https://t.is-local.org/hugo/variables/gitvariables/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://t.is-local.org/hugo/variables/gitvariables/</guid><description>Git Info Variables - Git 信息变量 # https://gohugo.io/variables/git/ ​ 获取每个内容文件的最后一次 Git 修订信息。 ​ Hugo 的 Git 集成应该是相当高效的，但可能会增加构建时间。这取决于您的 Git 历史记录大小</description></item><item><title>Sitemap变量</title><link>https://t.is-local.org/hugo/variables/sitemapvariables/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://t.is-local.org/hugo/variables/sitemapvariables/</guid><description>Sitemap Variables - Sitemap变量 # https://gohugo.io/variables/sitemap/ ​ sitemap是一个 Page ，因此具有可用于sitemap模板的所有页面变量。 它们还具有以下专门用于sitemap的</description></item></channel></rss>

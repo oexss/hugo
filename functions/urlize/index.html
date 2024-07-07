@@ -1,0 +1,70 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content='将以下英文翻译为中文： urlize # https://gohugo.io/functions/urlize/ Takes a string, sanitizes it for usage in URLs, and converts spaces to hyphens. 语法 # urlize INPUT The following examples pull from a content file with the following front matter: xxxxxxxxxx2 1{{ upper &ldquo;BatMan&rdquo; }} → &ldquo;BATMAN"2{{ &ldquo;BatMan&rdquo; | upper }} → &ldquo;BATMAN"go-html-template === &ldquo;yaml&rdquo; ``` yaml --- location: Chicago IL tags: - pizza'><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://t.is-local.org/hugo/functions/urlize/"><meta property="og:site_name" content="HUGO"><meta property="og:title" content="urlize"><meta property="og:description" content='将以下英文翻译为中文： urlize # https://gohugo.io/functions/urlize/ Takes a string, sanitizes it for usage in URLs, and converts spaces to hyphens. 语法 # urlize INPUT The following examples pull from a content file with the following front matter: xxxxxxxxxx2 1{{ upper “BatMan” }} → “BATMAN"2{{ “BatMan” | upper }} → “BATMAN"go-html-template === “yaml” ``` yaml --- location: Chicago IL tags: - pizza'><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="functions"><meta property="article:published_time" content="2023-05-18T17:03:08+08:00"><meta property="article:modified_time" content="2023-05-18T17:03:08+08:00"><title>urlize | HUGO</title>
+<link rel=manifest href=/hugo/manifest.json><link rel=icon href=/hugo/favicon.png><link rel=canonical href=https://t.is-local.org/hugo/functions/urlize/><link rel=stylesheet href=/hugo/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css integrity="sha256-MJt+0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin=anonymous><script defer src=/hugo/fuse.min.js></script><script defer src=/hugo/zh-cn.search.min.a426f3a0e1e8951a39b1b352645e382bb08b14b3d53468b1f8b07b0d0928cfe6.js integrity="sha256-pCbzoOHolRo5sbNSZF44K7CLFLPVNGix+LB7DQkoz+Y=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/hugo/><span>HUGO</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder aria-label maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/hugo/svg/translate.svg class=book-icon alt=Languages>
+中文</a></label><ul><li><a href=https://t.is-local.org/hugo/en/>English</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/hugo/svg/menu.svg class=book-icon alt=Menu>
+</label><strong>urlize</strong>
+<label for=toc-control><img src=/hugo/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#语法>语法</a></li><li><a href=#另请参阅>另请参阅</a></li></ul></nav></aside></header><article class="markdown book-article"><p>将以下英文翻译为中文：</p><h1 id=urlize>urlize
+<a class=anchor href=#urlize>#</a></h1><p><a href=https://gohugo.io/functions/urlize/>https://gohugo.io/functions/urlize/</a></p><p>Takes a string, sanitizes it for usage in URLs, and converts spaces to hyphens.</p><h2 id=语法>语法
+<a class=anchor href=#%e8%af%ad%e6%b3%95>#</a></h2><pre tabindex=0><code>urlize INPUT
+</code></pre><p>The following examples pull from a content file with the following front matter:</p><p>xxxxxxxxxx2 1{{ upper &ldquo;BatMan&rdquo; }} → &ldquo;BATMAN"2{{ &ldquo;BatMan&rdquo; | upper }} → &ldquo;BATMAN"go-html-template</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+---
+location: Chicago IL
+tags:
+- pizza
+- beer
+- hot dogs
+title: The World's Greatest City
+---
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
++++
+location = 'Chicago IL'
+tags = ['pizza', 'beer', 'hot dogs']
+title = &quot;The World's Greatest City&quot;
++++
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;location&quot;: &quot;Chicago IL&quot;,
+   &quot;tags&quot;: [
+      &quot;pizza&quot;,
+      &quot;beer&quot;,
+      &quot;hot dogs&quot;
+   ],
+   &quot;title&quot;: &quot;The World's Greatest City&quot;
+}
+```
+</code></pre><p>The following might be used as a partial within a <a href=https://gohugo.io/templates/single-page-templates/>single page template</a>:</p><p>layouts/partials/content-header.html</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span>&lt;<span style=color:#f92672>header</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>h1</span>&gt;<span style=color:#75715e>{{</span> <span style=color:#a6e22e>.Title</span> <span style=color:#75715e>}}</span>&lt;/<span style=color:#f92672>h1</span>&gt;
+</span></span><span style=display:flex><span>    <span style=color:#75715e>{{</span> <span style=color:#66d9ef>with</span> <span style=color:#a6e22e>.Params.location</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>        &lt;<span style=color:#f92672>div</span>&gt;&lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/locations/</span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>.</span> <span style=color:#f92672>|</span> <span style=color:#a6e22e>urlize</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>&#34;</span>&gt;<span style=color:#75715e>{{</span> <span style=color:#a6e22e>.</span> <span style=color:#75715e>}}</span>&lt;/<span style=color:#f92672>a</span>&gt;&lt;/<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>    <span style=color:#75715e>{{</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>&lt;!-- Creates a list of tags for the content and links to each of their pages --&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>{{</span> <span style=color:#66d9ef>with</span> <span style=color:#a6e22e>.Params.tags</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>ul</span>&gt;
+</span></span><span style=display:flex><span>        <span style=color:#75715e>{{</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>.</span><span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>            &lt;<span style=color:#f92672>li</span>&gt;
+</span></span><span style=display:flex><span>                &lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/tags/</span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>.</span> <span style=color:#f92672>|</span> <span style=color:#a6e22e>urlize</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>&#34;</span>&gt;<span style=color:#75715e>{{</span> <span style=color:#a6e22e>.</span> <span style=color:#75715e>}}</span>&lt;/<span style=color:#f92672>a</span>&gt;
+</span></span><span style=display:flex><span>            &lt;/<span style=color:#f92672>li</span>&gt;
+</span></span><span style=display:flex><span>        <span style=color:#75715e>{{</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>    &lt;/<span style=color:#f92672>ul</span>&gt;
+</span></span><span style=display:flex><span>    <span style=color:#75715e>{{</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>header</span>&gt;
+</span></span></code></pre></div><p>The preceding partial would then output to the rendered page as follows:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#f92672>header</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#f92672>h1</span>&gt;The World&amp;#39;s Greatest City&lt;/<span style=color:#f92672>h1</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#f92672>div</span>&gt;&lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/locations/chicago-il&#34;</span>&gt;Chicago IL&lt;/<span style=color:#f92672>a</span>&gt;&lt;/<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#f92672>ul</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>li</span>&gt;
+</span></span><span style=display:flex><span>      &lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/tags/pizza&#34;</span>&gt;pizza&lt;/<span style=color:#f92672>a</span>&gt;
+</span></span><span style=display:flex><span>    &lt;/<span style=color:#f92672>li</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>li</span>&gt;
+</span></span><span style=display:flex><span>      &lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/tags/beer&#34;</span>&gt;beer&lt;/<span style=color:#f92672>a</span>&gt;
+</span></span><span style=display:flex><span>    &lt;/<span style=color:#f92672>li</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>li</span>&gt;
+</span></span><span style=display:flex><span>      &lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/tags/hot-dogs&#34;</span>&gt;hot dogs&lt;/<span style=color:#f92672>a</span>&gt;
+</span></span><span style=display:flex><span>    &lt;/<span style=color:#f92672>li</span>&gt;
+</span></span><span style=display:flex><span>  &lt;/<span style=color:#f92672>ul</span>&gt;
+</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>header</span>&gt;
+</span></span></code></pre></div><h2 id=另请参阅>另请参阅
+<a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a></h2><ul><li><a href=https://gohugo.io/functions/safeurl/>safeURL</a></li><li><a href=https://gohugo.io/content-management/cross-references/>Links and Cross References</a></li><li><a href=https://gohugo.io/content-management/urls/>URL Management</a></li><li><a href=https://gohugo.io/functions/abslangurl/>absLangURL</a></li><li><a href=https://gohugo.io/functions/absurl/>absURL</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#语法>语法</a></li><li><a href=#另请参阅>另请参阅</a></li></ul></nav></div></aside></main></body></html>

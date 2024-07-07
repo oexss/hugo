@@ -1,0 +1,180 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Page Resources - 页面资源 # https://gohugo.io/content-management/page-resources/ ​ 页面资源（如图片、其他页面、文档等）具有相对于页面的 URL 和它们自己的元数据。 ​ 页面资源只能从page bundles中访问，"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://t.is-local.org/hugo/contentmanagement/pageresources/"><meta property="og:site_name" content="HUGO"><meta property="og:title" content="页面资源"><meta property="og:description" content="Page Resources - 页面资源 # https://gohugo.io/content-management/page-resources/ ​ 页面资源（如图片、其他页面、文档等）具有相对于页面的 URL 和它们自己的元数据。 ​ 页面资源只能从page bundles中访问，"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="contentmanagement"><meta property="article:published_time" content="2023-05-18T17:03:08+08:00"><meta property="article:modified_time" content="2023-05-18T17:03:08+08:00"><title>页面资源 | HUGO</title>
+<link rel=manifest href=/hugo/manifest.json><link rel=icon href=/hugo/favicon.png><link rel=canonical href=https://t.is-local.org/hugo/contentmanagement/pageresources/><link rel=stylesheet href=/hugo/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css integrity="sha256-MJt+0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin=anonymous><script defer src=/hugo/fuse.min.js></script><script defer src=/hugo/zh-cn.search.min.a426f3a0e1e8951a39b1b352645e382bb08b14b3d53468b1f8b07b0d0928cfe6.js integrity="sha256-pCbzoOHolRo5sbNSZF44K7CLFLPVNGix+LB7DQkoz+Y=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/hugo/><span>HUGO</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder aria-label maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/hugo/svg/translate.svg class=book-icon alt=Languages>
+中文</a></label><ul><li><a href=https://t.is-local.org/hugo/en/>English</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/hugo/svg/menu.svg class=book-icon alt=Menu>
+</label><strong>页面资源</strong>
+<label for=toc-control><img src=/hugo/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#属性>属性</a></li><li><a href=#方法>方法</a><ul><li><a href=#模式匹配>模式匹配</a></li></ul></li><li><a href=#页面资源元数据>页面资源元数据</a><ul><li><a href=#资源元数据示例>资源元数据示例</a></li><li><a href=#name-和-title-中的-counter-占位符><code>name</code> 和 <code>title</code> 中的 <code>:counter</code> 占位符</a></li></ul></li><li><a href=#另请参阅>另请参阅</a></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=page-resources---页面资源>Page Resources - 页面资源
+<a class=anchor href=#page-resources---%e9%a1%b5%e9%9d%a2%e8%b5%84%e6%ba%90>#</a></h1><p><a href=https://gohugo.io/content-management/page-resources/>https://gohugo.io/content-management/page-resources/</a></p><p>​ 页面资源（如图片、其他页面、文档等）具有相对于页面的 URL 和它们自己的元数据。</p><p>​ 页面资源只能从<a href=https://gohugo.io/content-management/page-bundles>page bundles</a>中访问，这些目录在其根目录中具有index.md或_index.md文件。页面资源仅可用于与其捆绑的页面。</p><p>​ 在此示例中，<code>first-post</code>是具有10个页面资源（包括音频，数据，文档，图像和视频）访问权限的page bundle。尽管<code>second-post</code>也是一个page bundle，但它没有页面资源，并且无法直接访问与<code>first-post</code>关联的页面资源。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>content
+</span></span><span style=display:flex><span>└── post
+</span></span><span style=display:flex><span>    ├── first-post
+</span></span><span style=display:flex><span>    │   ├── images
+</span></span><span style=display:flex><span>    │   │   ├── a.jpg
+</span></span><span style=display:flex><span>    │   │   ├── b.jpg
+</span></span><span style=display:flex><span>    │   │   └── c.jpg
+</span></span><span style=display:flex><span>    │   ├── index.md (root of page bundle)
+</span></span><span style=display:flex><span>    │   ├── latest.html
+</span></span><span style=display:flex><span>    │   ├── manual.json
+</span></span><span style=display:flex><span>    │   ├── notice.md
+</span></span><span style=display:flex><span>    │   ├── office.mp3
+</span></span><span style=display:flex><span>    │   ├── pocket.mp4
+</span></span><span style=display:flex><span>    │   ├── rating.pdf
+</span></span><span style=display:flex><span>    │   └── safety.txt
+</span></span><span style=display:flex><span>    └── second-post
+</span></span><span style=display:flex><span>        └── index.md (root of page bundle)
+</span></span></code></pre></div><h2 id=属性>属性
+<a class=anchor href=#%e5%b1%9e%e6%80%a7>#</a></h2><ul><li><p>ResourceType</p><p>​ 该资源<a href=https://gohugo.io/templates/output-formats/#media-types>媒体类型</a>的主类型。例如，MIME类型为<code>image/jpeg</code>的文件的<code>ResourceType</code>为<code>image</code>。页面的<code>ResourceType</code>值为<code>page</code>。</p></li><li><p>Name</p><p>默认值为文件名（相对于所属页面）。可以在前置元数据中设置。</p></li><li><p>Title</p><p>默认值与 <code>.Name</code> 相同。可以在前置元数据中设置。</p></li><li><p>Permalink</p><p>该资源的绝对URL。类型为<code>page</code>的资源将没有值。</p></li><li><p>RelPermalink</p><p>该资源的相对URL。类型为<code>page</code>的资源将没有值。</p></li><li><p>Content</p><p>该资源本身的内容。对于大多数资源，这将返回一个字符串，其中包含文件的内容。使用它来创建内联资源。</p></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>with</span> <span style=color:#a6e22e>.Resources.GetMatch</span> <span style=color:#e6db74>&#34;script.js&#34;</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>  &lt;<span style=color:#f92672>script</span>&gt;<span style=color:#75715e>{{</span> <span style=color:#a6e22e>.Content</span> <span style=color:#f92672>|</span> <span style=color:#a6e22e>safeJS</span> <span style=color:#75715e>}}</span>&lt;/<span style=color:#f92672>script</span>&gt;
+</span></span><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>with</span> <span style=color:#a6e22e>.Resources.GetMatch</span> <span style=color:#e6db74>&#34;style.css&#34;</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>  &lt;<span style=color:#f92672>style</span>&gt;<span style=color:#75715e>{{</span> <span style=color:#a6e22e>.Content</span> <span style=color:#f92672>|</span> <span style=color:#a6e22e>safeCSS</span> <span style=color:#75715e>}}</span>&lt;/<span style=color:#f92672>style</span>&gt;
+</span></span><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>with</span> <span style=color:#a6e22e>.Resources.GetMatch</span> <span style=color:#e6db74>&#34;img.png&#34;</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>  &lt;<span style=color:#f92672>img</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;data:</span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>.MediaType</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>;base64,</span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>.Content</span> <span style=color:#f92672>|</span> <span style=color:#a6e22e>base64Encode</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>&#34;</span>&gt;
+</span></span><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><ul><li><p>MediaType</p><p>该资源的MIME类型，例如<code>image/jpeg</code>。</p></li><li><p>MediaType.MainType</p><p>该资源MIME类型的主类型。例如，MIME类型为<code>application/pdf</code>的文件的主类型为<code>application</code>。</p></li><li><p>MediaType.SubType</p><p>该资源MIME类型的子类型。例如，MIME类型为<code>application/pdf</code>的文件的子类型为<code>pdf</code>。请注意，这与文件扩展名不同 —— PowerPoint文件的子类型为<code>vnd.mspowerpoint</code>。</p></li><li><p>MediaType.Suffixes</p><p>该资源MIME类型的可能后缀切片。</p></li></ul><h2 id=方法>方法
+<a class=anchor href=#%e6%96%b9%e6%b3%95>#</a></h2><ul><li><p>ByType</p><p>返回给定类型的页面资源。</p></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>.Resources.ByType</span> <span style=color:#e6db74>&#34;image&#34;</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><ul><li><p>Match</p><p>返回所有<code>Name</code>与给定通配符模式（<a href=https://github.com/gobwas/glob/blob/master/readme.md>examples</a>）匹配的页面资源（作为切片）。匹配不区分大小写。</p></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>.Resources.Match</span> <span style=color:#e6db74>&#34;images/*&#34;</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><ul><li><p>GetMatch</p><p>与<code>Match</code>相同，但将返回第一个匹配项。</p></li></ul><h3 id=模式匹配>模式匹配
+<a class=anchor href=#%e6%a8%a1%e5%bc%8f%e5%8c%b9%e9%85%8d>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// 使用 Match/GetMatch 来寻找这个 images/sunset.jpg ?
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>.<span style=color:#a6e22e>Resources</span>.<span style=color:#a6e22e>Match</span> <span style=color:#e6db74>&#34;images/sun*&#34;</span> <span style=color:#960050;background-color:#1e0010>✅</span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>Resources</span>.<span style=color:#a6e22e>Match</span> <span style=color:#e6db74>&#34;**/sunset.jpg&#34;</span> <span style=color:#960050;background-color:#1e0010>✅</span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>Resources</span>.<span style=color:#a6e22e>Match</span> <span style=color:#e6db74>&#34;images/*.jpg&#34;</span> <span style=color:#960050;background-color:#1e0010>✅</span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>Resources</span>.<span style=color:#a6e22e>Match</span> <span style=color:#e6db74>&#34;**.jpg&#34;</span> <span style=color:#960050;background-color:#1e0010>✅</span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>Resources</span>.<span style=color:#a6e22e>Match</span> <span style=color:#e6db74>&#34;*&#34;</span> <span style=color:#960050;background-color:#1e0010>🚫</span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>Resources</span>.<span style=color:#a6e22e>Match</span> <span style=color:#e6db74>&#34;sunset.jpg&#34;</span> <span style=color:#960050;background-color:#1e0010>🚫</span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>Resources</span>.<span style=color:#a6e22e>Match</span> <span style=color:#e6db74>&#34;*sunset.jpg&#34;</span> <span style=color:#960050;background-color:#1e0010>🚫</span>
+</span></span></code></pre></div><h2 id=页面资源元数据>页面资源元数据
+<a class=anchor href=#%e9%a1%b5%e9%9d%a2%e8%b5%84%e6%ba%90%e5%85%83%e6%95%b0%e6%8d%ae>#</a></h2><p>​ 页面资源的元数据由相应页面的前置元数据中的<code>resources</code>数组/表（array/table）参数进行管理。您可以使用<a href=https://tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm>通配符</a>进行批量分配值。</p><blockquote><p>​ 类型为<code>page</code>的资源从其自己的前置元数据中获取<code>Title</code>等。</p></blockquote><ul><li><p>name</p><p>设置<code>Name</code>中返回的值</p></li></ul><blockquote><p>​ <code>Match</code>，<code>Get</code>和<code>GetMatch</code>方法使用<code>Name</code>来匹配资源。</p></blockquote><ul><li><p>title</p><p>设置<code>Title</code>中返回的值。</p></li><li><p>params</p><p>一个自定义键/值的映射。</p></li></ul><h3 id=资源元数据示例>资源元数据示例
+<a class=anchor href=#%e8%b5%84%e6%ba%90%e5%85%83%e6%95%b0%e6%8d%ae%e7%a4%ba%e4%be%8b>#</a></h3><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+date: &quot;2018-01-25&quot;
+resources:
+- name: header
+  src: images/sunset.jpg
+- params:
+    icon: photo
+  src: documents/photo_specs.pdf
+  title: Photo Specifications
+- src: documents/guide.pdf
+  title: Instruction Guide
+- src: documents/checklist.pdf
+  title: Document Checklist
+- src: documents/payment.docx
+  title: Proof of Payment
+- name: pdf-file-:counter
+  params:
+    icon: pdf
+  src: '**.pdf'
+- params:
+    icon: word
+  src: '**.docx'
+title: Application
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+date = '2018-01-25'
+title = 'Application'
+[[resources]]
+name = 'header'
+src = 'images/sunset.jpg'
+[[resources]]
+src = 'documents/photo_specs.pdf'
+title = 'Photo Specifications'
+[resources.params]
+  icon = 'photo'
+[[resources]]
+src = 'documents/guide.pdf'
+title = 'Instruction Guide'
+[[resources]]
+src = 'documents/checklist.pdf'
+title = 'Document Checklist'
+[[resources]]
+src = 'documents/payment.docx'
+title = 'Proof of Payment'
+[[resources]]
+name = 'pdf-file-:counter'
+src = '**.pdf'
+[resources.params]
+  icon = 'pdf'
+[[resources]]
+src = '**.docx'
+[resources.params]
+  icon = 'word'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;date&quot;: &quot;2018-01-25&quot;,
+   &quot;resources&quot;: [
+      {
+         &quot;name&quot;: &quot;header&quot;,
+         &quot;src&quot;: &quot;images/sunset.jpg&quot;
+      },
+      {
+         &quot;params&quot;: {
+            &quot;icon&quot;: &quot;photo&quot;
+         },
+         &quot;src&quot;: &quot;documents/photo_specs.pdf&quot;,
+         &quot;title&quot;: &quot;Photo Specifications&quot;
+      },
+      {
+         &quot;src&quot;: &quot;documents/guide.pdf&quot;,
+         &quot;title&quot;: &quot;Instruction Guide&quot;
+      },
+      {
+         &quot;src&quot;: &quot;documents/checklist.pdf&quot;,
+         &quot;title&quot;: &quot;Document Checklist&quot;
+      },
+      {
+         &quot;src&quot;: &quot;documents/payment.docx&quot;,
+         &quot;title&quot;: &quot;Proof of Payment&quot;
+      },
+      {
+         &quot;name&quot;: &quot;pdf-file-:counter&quot;,
+         &quot;params&quot;: {
+            &quot;icon&quot;: &quot;pdf&quot;
+         },
+         &quot;src&quot;: &quot;**.pdf&quot;
+      },
+      {
+         &quot;params&quot;: {
+            &quot;icon&quot;: &quot;word&quot;
+         },
+         &quot;src&quot;: &quot;**.docx&quot;
+      }
+   ],
+   &quot;title&quot;: &quot;Application&quot;
+}
+```
+</code></pre><p>从上面的示例中：</p><ul><li><code>sunset.jpg</code>将获得一个新的<code>Name</code>，并且现在可以使用<code>.GetMatch "header"</code>找到它。</li><li><code>documents/photo_specs.pdf</code>将获得<code>photo</code>图标。</li><li><code>documents/checklist.pdf</code>，<code>documents/guide.pdf</code>和<code>documents/payment.docx</code>将得到<code>Title</code>，如<code>Title</code>中所设置。</li><li>包中除<code>documents/photo_specs.pdf</code>外的每个PDF都将获得<code>pdf</code>图标。</li><li>所有<code>PDF</code>文件都将获得新的<code>Name</code>。<code>name</code>参数包含一个特殊占位符<code>:counter</code>，因此名称将是<code>pdf-file-1</code>、<code>pdf-file-2</code>、<code>pdf-file-3</code>。</li><li>包中的每个docx都将获得<code>word</code>图标。</li></ul><p>​ 顺序很重要 —— 只有<code>title</code>，<code>name</code>和<code>params</code>-keys的第一个设置值将被使用。连续的参数仅设置未设置的参数。在上面的示例中，<code>.Params.icon</code>首先在<code>src = "documents/photo_specs.pdf"</code>中设置为<code>"photo"</code>。因此，后来设置的<code>src = "**.pdf"</code>规则不会将其覆盖为<code>"pdf"</code>。</p><h3 id=name-和-title-中的-counter-占位符><code>name</code> 和 <code>title</code> 中的 <code>:counter</code> 占位符
+<a class=anchor href=#name-%e5%92%8c-title-%e4%b8%ad%e7%9a%84-counter-%e5%8d%a0%e4%bd%8d%e7%ac%a6>#</a></h3><p>​ <code>:counter</code>是在资源的<code>name</code>和<code>title</code>参数中识别的特殊占位符。</p><p>​ 该计数器从第一次在<code>name</code>或<code>title</code>中使用时开始计数。</p><p>​ 例如，如果一个包中有资源<code>photo_specs.pdf</code>，<code>other_specs.pdf</code>，<code>guide.pdf</code>和<code>checklist.pdf</code>，并且前置元数据已将<code>resources</code>指定为：</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+resources:
+- src: '*specs.pdf'
+  title: 'Specification #:counter'
+- name: pdf-file-:counter
+  src: '**.pdf'
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[[resources]]
+src = '*specs.pdf'
+title = 'Specification #:counter'
+[[resources]]
+name = 'pdf-file-:counter'
+src = '**.pdf'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;resources&quot;: [
+      {
+         &quot;src&quot;: &quot;*specs.pdf&quot;,
+         &quot;title&quot;: &quot;Specification #:counter&quot;
+      },
+      {
+         &quot;name&quot;: &quot;pdf-file-:counter&quot;,
+         &quot;src&quot;: &quot;**.pdf&quot;
+      }
+   ]
+}
+```
+</code></pre><p>则<code>Name</code>和<code>Title</code>将按如下分配给资源文件：</p><table><thead><tr><th style=text-align:left>Resource file</th><th style=text-align:left><code>Name</code></th><th style=text-align:left><code>Title</code></th></tr></thead><tbody><tr><td style=text-align:left>checklist.pdf</td><td style=text-align:left><code>"pdf-file-1.pdf</code></td><td style=text-align:left><code>"checklist.pdf"</code></td></tr><tr><td style=text-align:left>guide.pdf</td><td style=text-align:left><code>"pdf-file-2.pdf</code></td><td style=text-align:left><code>"guide.pdf"</code></td></tr><tr><td style=text-align:left>other_specs.pdf</td><td style=text-align:left><code>"pdf-file-3.pdf</code></td><td style=text-align:left><code>"Specification #1"</code></td></tr><tr><td style=text-align:left>photo_specs.pdf</td><td style=text-align:left><code>"pdf-file-4.pdf</code></td><td style=text-align:left><code>"Specification #2"</code></td></tr></tbody></table><h2 id=另请参阅>另请参阅
+<a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a></h2><ul><li><a href=https://gohugo.io/content-management/organization/>内容组织</a></li><li><a href=https://gohugo.io/functions/scratch/>.Scratch</a></li><li><a href=https://gohugo.io/functions/store/>.Store</a></li><li><a href=https://gohugo.io/content-management/build-options/>构建选项</a></li><li><a href=https://gohugo.io/content-management/comments/>评论</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#属性>属性</a></li><li><a href=#方法>方法</a><ul><li><a href=#模式匹配>模式匹配</a></li></ul></li><li><a href=#页面资源元数据>页面资源元数据</a><ul><li><a href=#资源元数据示例>资源元数据示例</a></li><li><a href=#name-和-title-中的-counter-占位符><code>name</code> 和 <code>title</code> 中的 <code>:counter</code> 占位符</a></li></ul></li><li><a href=#另请参阅>另请参阅</a></li></ul></nav></div></aside></main></body></html>

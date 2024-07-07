@@ -1,0 +1,819 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Configure Hugo - 配置 Hugo # https://gohugo.io/getting-started/configuration/ ​ 如何配置您的 Hugo 站点。 配置文件 # ​ Hugo 使用 config.toml、config.yaml 或 config.json（如果在站点根"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://t.is-local.org/hugo/gettingstarted/configuration/"><meta property="og:site_name" content="HUGO"><meta property="og:title" content="配置 Hugo"><meta property="og:description" content="Configure Hugo - 配置 Hugo # https://gohugo.io/getting-started/configuration/ ​ 如何配置您的 Hugo 站点。 配置文件 # ​ Hugo 使用 config.toml、config.yaml 或 config.json（如果在站点根"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="gettingstarted"><meta property="article:published_time" content="2023-05-18T17:03:08+08:00"><meta property="article:modified_time" content="2023-05-18T17:03:08+08:00"><title>配置 Hugo | HUGO</title>
+<link rel=manifest href=/hugo/manifest.json><link rel=icon href=/hugo/favicon.png><link rel=canonical href=https://t.is-local.org/hugo/gettingstarted/configuration/><link rel=stylesheet href=/hugo/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css integrity="sha256-MJt+0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin=anonymous><script defer src=/hugo/fuse.min.js></script><script defer src=/hugo/zh-cn.search.min.a426f3a0e1e8951a39b1b352645e382bb08b14b3d53468b1f8b07b0d0928cfe6.js integrity="sha256-pCbzoOHolRo5sbNSZF44K7CLFLPVNGix+LB7DQkoz+Y=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/hugo/><span>HUGO</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder aria-label maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/hugo/svg/translate.svg class=book-icon alt=Languages>
+中文</a></label><ul><li><a href=https://t.is-local.org/hugo/en/>English</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/hugo/svg/menu.svg class=book-icon alt=Menu>
+</label><strong>配置 Hugo</strong>
+<label for=toc-control><img src=/hugo/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#配置文件>配置文件</a></li><li><a href=#hugotoml-vs-configtoml>hugo.toml vs config.toml</a></li><li><a href=#配置目录>配置目录</a></li><li><a href=#合并主题配置>合并主题配置</a></li><li><a href=#所有配置设置>所有配置设置</a><ul><li><a href=#archetypedir>archetypeDir</a></li><li><a href=#assetdir>assetDir</a></li><li><a href=#baseurl>baseURL</a></li><li><a href=#build>build</a></li><li><a href=#builddrafts-false>buildDrafts (false)</a></li><li><a href=#buildexpired>buildExpired</a></li><li><a href=#buildfuture>buildFuture</a></li><li><a href=#caches>caches</a></li><li><a href=#cascade>cascade</a></li><li><a href=#canonifyurls>canonifyURLs</a></li><li><a href=#cleandestinationdir>cleanDestinationDir</a></li><li><a href=#contentdir>contentDir</a></li><li><a href=#copyright>copyright</a></li><li><a href=#datadir>dataDir</a></li><li><a href=#defaultcontentlanguage-->defaultContentLanguage &lt;-</a></li><li><a href=#defaultcontentlanguageinsubdir>defaultContentLanguageInSubdir</a></li><li><a href=#disablealiases>disableAliases</a></li><li><a href=#disablehugogeneratorinject>disableHugoGeneratorInject</a></li><li><a href=#disablekinds>disableKinds</a></li><li><a href=#disablelivereload>disableLiveReload</a></li><li><a href=#disablepathtolower>disablePathToLower</a></li><li><a href=#enableemoji-->enableEmoji &lt;-</a></li><li><a href=#enablegitinfo-->enableGitInfo &lt;-</a></li><li><a href=#enableinlineshortcodes>enableInlineShortcodes</a></li><li><a href=#enablemissingtranslationplaceholders>enableMissingTranslationPlaceholders</a></li><li><a href=#enablerobotstxt-->enableRobotsTXT &lt;-</a></li><li><a href=#frontmatter>frontmatter</a></li><li><a href=#googleanalytics>googleAnalytics</a></li><li><a href=#hascjklanguage-->hasCJKLanguage &lt;-</a></li><li><a href=#imaging>imaging</a></li><li><a href=#languagecode>languageCode</a></li><li><a href=#languages>languages</a></li><li><a href=#disablelanguages>disableLanguages</a></li><li><a href=#markup>markup</a></li><li><a href=#mediatypes>mediaTypes</a></li><li><a href=#menus-->menus &lt;-</a></li><li><a href=#minify>minify</a></li><li><a href=#module>module</a></li><li><a href=#newcontenteditor>newContentEditor</a></li><li><a href=#nochmod>noChmod</a></li><li><a href=#notimes>noTimes</a></li><li><a href=#outputformats>outputFormats</a></li><li><a href=#paginate-->paginate &lt;-</a></li><li><a href=#paginatepath>paginatePath</a></li><li><a href=#permalinks>permalinks</a></li><li><a href=#pluralizelisttitles>pluralizeListTitles</a></li><li><a href=#publishdir>publishDir</a></li><li><a href=#related>related</a></li><li><a href=#relativeurls>relativeURLs</a></li><li><a href=#reflinkserrorlevel>refLinksErrorLevel</a></li><li><a href=#reflinksnotfoundurl>refLinksNotFoundURL</a></li><li><a href=#removepathaccents>removePathAccents</a></li><li><a href=#rsslimit>rssLimit</a></li><li><a href=#sectionpagesmenu>sectionPagesMenu</a></li><li><a href=#security>security</a></li><li><a href=#sitemap>sitemap</a></li><li><a href=#summarylength>summaryLength</a></li><li><a href=#taxonomies>taxonomies</a></li><li><a href=#theme>theme</a></li><li><a href=#themesdir>themesDir</a></li><li><a href=#timeout>timeout</a></li><li><a href=#timezone-->timeZone &lt;-</a></li><li><a href=#title>title</a></li><li><a href=#titlecasestyle>titleCaseStyle</a></li><li><a href=#uglyurls>uglyURLs</a></li><li><a href=#watch>watch</a></li></ul></li><li><a href=#配置构建---build>配置构建 -> [build]</a></li><li><a href=#configure-server---server>Configure Server -> [server]</a></li><li><a href=#404服务器错误页面---redirects>404服务器错误页面 -> [[redirects]]</a></li><li><a href=#配置标题大小写---titlecasestyle>配置标题大小写 -> titleCaseStyle</a></li><li><a href=#配置环境变量>配置环境变量</a></li><li><a href=#配置查找顺序>配置查找顺序</a></li><li><a href=#示例配置>示例配置</a></li><li><a href=#使用环境变量配置>使用环境变量配置</a></li><li><a href=#忽略内容和数据文件的渲染----ignorefiles>忽略内容和数据文件的渲染 -> ignoreFiles</a></li><li><a href=#配置front-matter---frontmatter>配置Front Matter -> [frontmatter]</a><ul><li><a href=#配置日期>配置日期</a></li></ul></li><li><a href=#配置其他输出格式>配置其他输出格式</a></li><li><a href=#配置压缩---minify>配置压缩 -> [minify]</a></li><li><a href=#配置文件缓存---caches>配置文件缓存 -> [caches]</a><ul><li><a href=#关键字的解释>关键字的解释</a></li></ul></li><li><a href=#配置格式规范>配置格式规范</a></li><li><a href=#参见>参见</a></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=configure-hugo---配置-hugo>Configure Hugo - 配置 Hugo
+<a class=anchor href=#configure-hugo---%e9%85%8d%e7%bd%ae-hugo>#</a></h1><p><a href=https://gohugo.io/getting-started/configuration/>https://gohugo.io/getting-started/configuration/</a></p><p>​ 如何配置您的 Hugo 站点。</p><h2 id=配置文件>配置文件
+<a class=anchor href=#%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6>#</a></h2><p>​ Hugo 使用 <code>config.toml</code>、<code>config.yaml</code> 或 <code>config.json</code>（如果在站点根目录中找到）作为默认的站点配置文件。</p><p>​ 用户可以使用命令行 <code>--config</code> 开关选择覆盖默认设置的一个或多个站点配置文件。</p><p>例如：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-txt data-lang=txt><span style=display:flex><span>hugo --config debugconfig.toml
+</span></span><span style=display:flex><span>hugo --config a.toml,b.toml,c.toml
+</span></span></code></pre></div><blockquote><p>​ 可以将多个站点配置文件指定为逗号分隔的字符串传递给 <code>--config</code> 开关。</p></blockquote><h2 id=hugotoml-vs-configtoml>hugo.toml vs config.toml
+<a class=anchor href=#hugotoml-vs-configtoml>#</a></h2><p>​ 在 Hugo 0.110.0 中，我们将默认的配置基础文件名更改为 <code>hugo</code>，例如 <code>hugo.toml</code>。我们仍会查找 <code>config.toml</code> 等文件，但我们建议您最终将其重命名（但如果您想支持旧版本的 Hugo，则需要等待）。我们这样做的主要原因是为了让代码编辑器和构建工具更容易识别这是 Hugo 的配置文件和项目。</p><p><a href=https://github.com/gohugoio/hugo/releases/tag/v0.110.0>v0.110.0 新功能</a></p><h2 id=配置目录>配置目录
+<a class=anchor href=#%e9%85%8d%e7%bd%ae%e7%9b%ae%e5%bd%95>#</a></h2><p>​ 除了使用单个站点配置文件外，您还可以使用 <code>configDir</code> 目录（默认为 <code>config/</code>）来维护更易于组织和特定于环境的设置。</p><ul><li>每个文件都代表一个配置根对象，例如 <code>params.toml</code> 代表 <code>[Params]</code>，<code>menu(s).toml</code> 代表 <code>[Menu]</code>，<code>languages.toml</code> 代表 <code>[Languages]</code> 等等…</li><li>每个文件的内容必须是顶级的，例如：</li></ul><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+Params:
+  foo: bar
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[Params]
+  foo = 'bar'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+    &quot;Params&quot;: {
+          &quot;foo&quot;: &quot;bar&quot;
+    }
+}
+```
+</code></pre><p>params.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+foo: bar
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+foo = 'bar'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;foo&quot;: &quot;bar&quot;
+}
+```
+</code></pre><ul><li>每个目录保存了一组文件，包含特定环境的设置。</li><li>文件可以本地化，变成特定语言。</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-txt data-lang=txt><span style=display:flex><span>├── config
+</span></span><span style=display:flex><span>│   ├── _default
+</span></span><span style=display:flex><span>│   │   ├── config.toml
+</span></span><span style=display:flex><span>│   │   ├── languages.toml
+</span></span><span style=display:flex><span>│   │   ├── menus.en.toml
+</span></span><span style=display:flex><span>│   │   ├── menus.zh.toml
+</span></span><span style=display:flex><span>│   │   └── params.toml
+</span></span><span style=display:flex><span>│   ├── production
+</span></span><span style=display:flex><span>│   │   ├── config.toml
+</span></span><span style=display:flex><span>│   │   └── params.toml
+</span></span><span style=display:flex><span>│   └── staging
+</span></span><span style=display:flex><span>│       ├── config.toml
+</span></span><span style=display:flex><span>│       └── params.toml
+</span></span></code></pre></div><p>​ 考虑上述结构，在运行<code>hugo --environment staging</code>命令时，Hugo将使用<code>config/_default</code>中的所有设置，并在其上合并<code>staging</code>的设置。</p><p>​ 让我们举个例子来更好地理解这个过程。假设您的站点使用Google Analytics。这要求您在<code>config.toml</code>中指定<code>googleAnalytics = "G-XXXXXXXX"</code>。现在考虑以下场景：</p><ul><li>您不希望在开发中加载分析代码，即在<code>localhost</code>上。</li><li>您想为生产和staging环境使用不同的googleAnalytics ID：<ul><li>生产环境的<code>G-PPPPPPPP</code></li><li>staging环境的<code>G-SSSSSSSS</code></li></ul></li></ul><p>​ 考虑上述情况，您需要如何配置您的<code>config.toml</code>文件：</p><ol><li><p>在<code>_default/config.toml</code>中，您根本不需要提及<code>googleAnalytics</code>参数。这可以确保在您运行<code>hugo server</code>时，即在您的开发服务器上不加载Google Analytics代码。这是因为，当您运行<code>hugo server</code>时，默认情况下Hugo设置<code>Environment=development</code>，它使用<code>_default</code>文件夹中的配置文件。</p></li><li><p>在<code>production/config.toml</code>中，您只需要有一行：</p><p><code>googleAnalytics = "G-PPPPPPPP"</code></p><p>您不需要在此配置文件中再次提及所有其他参数，如<code>title</code>、<code>baseURL</code>、<code>theme</code>等。您只需要提及那些不同或新的生产环境参数。这是由于Hugo将在<code>_default/config.toml</code>之上合并此参数。现在，当您运行<code>hugo</code>（build命令）时，默认情况下hugo设置<code>Environment=production</code>，因此<code>G-PPPPPPPP</code>分析代码将存在于您的生产站点中。</p></li><li><p>同样，在<code>staging/config.toml</code>中，您只需要有一行：</p><p><code>googleAnalytics = "G-SSSSSSSS"</code></p><p>现在，您需要告诉Hugo您正在使用staging环境。因此，您的构建命令应该是<code>hugo --environment staging</code>，这将在您的staging站点中加载<code>G-SSSSSSSS</code>分析代码。</p></li></ol><blockquote><p>​ 默认环境是<code>hugo server</code>下的<code>development</code>和hugo下的<code>production</code>。</p></blockquote><h2 id=合并主题配置>合并主题配置
+<a class=anchor href=#%e5%90%88%e5%b9%b6%e4%b8%bb%e9%a2%98%e9%85%8d%e7%bd%ae>#</a></h2><p>​ <code>_merge</code> 的配置值可以是以下之一：</p><ul><li><p>none</p><p>不合并。</p></li><li><p>shallow</p><p>仅添加新键的值。</p></li><li><p>deep</p><p>添加新键的值，合并现有键的值。</p></li></ul><p>​ 请注意，您不需要像下面的默认设置那样冗长；如果未设置，则会继承更高的<code>_merge</code>值。</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+build:
+  _merge: none
+caches:
+  _merge: none
+cascade:
+  _merge: none
+frontmatter:
+  _merge: none
+imaging:
+  _merge: none
+languages:
+  _merge: none
+  en:
+    _merge: none
+    menus:
+      _merge: shallow
+    params:
+      _merge: deep
+markup:
+  _merge: none
+mediatypes:
+  _merge: shallow
+menus:
+  _merge: shallow
+minify:
+  _merge: none
+module:
+  _merge: none
+outputformats:
+  _merge: shallow
+params:
+  _merge: deep
+permalinks:
+  _merge: none
+privacy:
+  _merge: none
+related:
+  _merge: none
+security:
+  _merge: none
+sitemap:
+  _merge: none
+taxonomies:
+  _merge: none
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[build]
+  _merge = 'none'
+[caches]
+  _merge = 'none'
+[cascade]
+  _merge = 'none'
+[frontmatter]
+  _merge = 'none'
+[imaging]
+  _merge = 'none'
+[languages]
+  _merge = 'none'
+  [languages.en]
+    _merge = 'none'
+    [languages.en.menus]
+      _merge = 'shallow'
+    [languages.en.params]
+      _merge = 'deep'
+[markup]
+  _merge = 'none'
+[mediatypes]
+  _merge = 'shallow'
+[menus]
+  _merge = 'shallow'
+[minify]
+  _merge = 'none'
+[module]
+  _merge = 'none'
+[outputformats]
+  _merge = 'shallow'
+[params]
+  _merge = 'deep'
+[permalinks]
+  _merge = 'none'
+[privacy]
+  _merge = 'none'
+[related]
+  _merge = 'none'
+[security]
+  _merge = 'none'
+[sitemap]
+  _merge = 'none'
+[taxonomies]
+  _merge = 'none'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;build&quot;: {
+      &quot;_merge&quot;: &quot;none&quot;
+   },
+   &quot;caches&quot;: {
+      &quot;_merge&quot;: &quot;none&quot;
+   },
+   &quot;cascade&quot;: {
+      &quot;_merge&quot;: &quot;none&quot;
+   },
+   &quot;frontmatter&quot;: {
+      &quot;_merge&quot;: &quot;none&quot;
+   },
+   &quot;imaging&quot;: {
+      &quot;_merge&quot;: &quot;none&quot;
+   },
+   &quot;languages&quot;: {
+      &quot;_merge&quot;: &quot;none&quot;,
+      &quot;en&quot;: {
+         &quot;_merge&quot;: &quot;none&quot;,
+         &quot;menus&quot;: {
+            &quot;_merge&quot;: &quot;shallow&quot;
+         },
+         &quot;params&quot;: {
+            &quot;_merge&quot;: &quot;deep&quot;
+         }
+      }
+   },
+   &quot;markup&quot;: {
+      &quot;_merge&quot;: &quot;none&quot;
+   },
+   &quot;mediatypes&quot;: {
+      &quot;_merge&quot;: &quot;shallow&quot;
+   },
+   &quot;menus&quot;: {
+      &quot;_merge&quot;: &quot;shallow&quot;
+   },
+   &quot;minify&quot;: {
+      &quot;_merge&quot;: &quot;none&quot;
+   },
+   &quot;module&quot;: {
+      &quot;_merge&quot;: &quot;none&quot;
+   },
+   &quot;outputformats&quot;: {
+      &quot;_merge&quot;: &quot;shallow&quot;
+   },
+   &quot;params&quot;: {
+      &quot;_merge&quot;: &quot;deep&quot;
+   },
+   &quot;permalinks&quot;: {
+      &quot;_merge&quot;: &quot;none&quot;
+   },
+   &quot;privacy&quot;: {
+      &quot;_merge&quot;: &quot;none&quot;
+   },
+   &quot;related&quot;: {
+      &quot;_merge&quot;: &quot;none&quot;
+   },
+   &quot;security&quot;: {
+      &quot;_merge&quot;: &quot;none&quot;
+   },
+   &quot;sitemap&quot;: {
+      &quot;_merge&quot;: &quot;none&quot;
+   },
+   &quot;taxonomies&quot;: {
+      &quot;_merge&quot;: &quot;none&quot;
+   }
+}
+```
+</code></pre><h2 id=所有配置设置>所有配置设置
+<a class=anchor href=#%e6%89%80%e6%9c%89%e9%85%8d%e7%bd%ae%e8%ae%be%e7%bd%ae>#</a></h2><p>​ 以下是Hugo定义的变量的完整列表。用户可以选择在其站点配置文件中覆盖这些值。</p><h3 id=archetypedir>archetypeDir
+<a class=anchor href=#archetypedir>#</a></h3><p>​ 默认值：&ldquo;archetypes&rdquo;</p><p>​ Hugo查找原型文件（内容模板）的目录。另请参阅<a href=https://gohugo.io/hugo-modules/configuration/#module-config-mounts>模块挂载配置</a>，以了解配置此目录的另一种替代方式（从Hugo 0.56开始）。</p><h3 id=assetdir>assetDir
+<a class=anchor href=#assetdir>#</a></h3><p>​ 默认值：&ldquo;assets&rdquo;</p><p>​ Hugo查找<a href=https://gohugo.io/hugo-pipes/>Hugo Pipes</a>中使用的资产文件的目录。另请参阅<a href=https://gohugo.io/hugo-modules/configuration/#module-config-mounts>模块挂载配置</a>，以了解配置此目录的另一种替代方式（从Hugo 0.56开始）。</p><h3 id=baseurl>baseURL
+<a class=anchor href=#baseurl>#</a></h3><p>​ 您发布站点的绝对 URL（协议、主机、路径和尾随斜杠），例如 <code>https://www.example.org/docs/</code>。</p><h3 id=build>build
+<a class=anchor href=#build>#</a></h3><p>​ 请参阅<a href=https://gohugo.io/getting-started/configuration/#configure-build>配置构建</a></p><h3 id=builddrafts-false>buildDrafts (false)
+<a class=anchor href=#builddrafts-false>#</a></h3><p>​ 默认值：false</p><p>​ 在构建时包括草稿。</p><h3 id=buildexpired>buildExpired
+<a class=anchor href=#buildexpired>#</a></h3><p>​ 默认值：false</p><p>​ 包括已过期的内容。</p><h3 id=buildfuture>buildFuture
+<a class=anchor href=#buildfuture>#</a></h3><p>​ 默认值：false</p><p>​ 包括发布日期在未来的内容。</p><h3 id=caches>caches
+<a class=anchor href=#caches>#</a></h3><p>​ 请参阅<a href=https://gohugo.io/getting-started/configuration/#configure-file-caches>配置文件缓存</a></p><h3 id=cascade>cascade
+<a class=anchor href=#cascade>#</a></h3><p>​ 将默认配置值（正面）传递到内容树中的页面。站点配置中的选项与页面前置元数据相同，请参阅<a href=https://gohugo.io/content-management/front-matter#front-matter-cascade>前置元数据层叠</a>。</p><h3 id=canonifyurls>canonifyURLs
+<a class=anchor href=#canonifyurls>#</a></h3><p>​ 默认值：false</p><p>​ 启用将相对URL转换为绝对URL。</p><h3 id=cleandestinationdir>cleanDestinationDir
+<a class=anchor href=#cleandestinationdir>#</a></h3><p>​ 默认值：false</p><p>​ 在构建时，从目标中删除在static 目录中找不到的文件。</p><h3 id=contentdir>contentDir
+<a class=anchor href=#contentdir>#</a></h3><p>​ 默认值：&ldquo;content&rdquo;</p><p>​ Hugo读取内容文件的目录。也可以参考<a href=https://gohugo.io/hugo-modules/configuration/#module-config-mounts>模块安装配置</a>的另一种方式来配置此目录（从Hugo 0.56开始）。</p><h3 id=copyright>copyright
+<a class=anchor href=#copyright>#</a></h3><p>​ 默认值：""</p><p>​ 站点的版权声明，通常显示在页脚上。</p><h3 id=datadir>dataDir
+<a class=anchor href=#datadir>#</a></h3><p>​ 默认值：&ldquo;data&rdquo;</p><p>​ Hugo读取数据文件的目录。也可以参考<a href=https://gohugo.io/hugo-modules/configuration/#module-config-mounts>模块安装配置</a>的另一种方式来配置此目录（从Hugo 0.56开始）。</p><h3 id=defaultcontentlanguage-->defaultContentLanguage &lt;-
+<a class=anchor href=#defaultcontentlanguage-->#</a></h3><p>​ 默认值：&ldquo;en&rdquo;</p><p>​ 没有语言标识的内容将默认为此语言。</p><h3 id=defaultcontentlanguageinsubdir>defaultContentLanguageInSubdir
+<a class=anchor href=#defaultcontentlanguageinsubdir>#</a></h3><p>​ 默认值：false</p><p>​ 在子目录中呈现默认的内容语言，例如<code>content/en/</code>。站点根目录<code>/</code>将重定向到<code>/en/</code>。</p><h3 id=disablealiases>disableAliases
+<a class=anchor href=#disablealiases>#</a></h3><p>​ 默认值：false</p><p>​ 禁用别名重定向的生成。请注意，即使设置了<code>disableAliases</code>，别名本身仍将保留在页面上。这样做的动机是能够在<code>.htaccess</code>、Netlify <code>_redirects</code>文件或类似的输出格式中使用301重定向。</p><h3 id=disablehugogeneratorinject>disableHugoGeneratorInject
+<a class=anchor href=#disablehugogeneratorinject>#</a></h3><p>​ 默认值：false</p><p>​ Hugo默认情况下<strong>仅在主页</strong>的HTML头中插入一个生成器元标记。您可以关闭它，但我们真的很希望您不要这样做，因为这是观察Hugo的受欢迎程度的好方法。</p><h3 id=disablekinds>disableKinds
+<a class=anchor href=#disablekinds>#</a></h3><p>​ 默认值：[]</p><p>​ 启用禁用指定类型的所有页面。在此列表中允许的值为：<code>"page"</code>、<code>"home"</code>、<code>"section"</code>、<code>"taxonomy"</code>、<code>"term"</code>、<code>"RSS"</code>、<code>"sitemap"</code>、<code>"robotsTXT"</code>、<code>"404"</code>。</p><h3 id=disablelivereload>disableLiveReload
+<a class=anchor href=#disablelivereload>#</a></h3><p>​ 默认值：false</p><p>​ 禁用浏览器窗口的自动实时重新加载。</p><h3 id=disablepathtolower>disablePathToLower
+<a class=anchor href=#disablepathtolower>#</a></h3><p>​ 默认值：false</p><p>​ 不要将url/path转换为小写。</p><h3 id=enableemoji-->enableEmoji &lt;-
+<a class=anchor href=#enableemoji-->#</a></h3><p>​ 默认值：false</p><p>​ 为页面内容启用表情符号支持；参见<a href=https://www.webpagefx.com/tools/emoji-cheat-sheet/>Emoji备忘表</a>。</p><h3 id=enablegitinfo-->enableGitInfo &lt;-
+<a class=anchor href=#enablegitinfo-->#</a></h3><p>​ 默认值：false</p><p>​ 为每个页面启用<code>.GitInfo</code>对象（如果Hugo站点已经通过Git进行版本控制）。这将使用每个内容文件的最后git提交日期来更新每个页面的<code>Lastmod</code>参数。</p><h3 id=enableinlineshortcodes>enableInlineShortcodes
+<a class=anchor href=#enableinlineshortcodes>#</a></h3><p>​ 默认值：false</p><p>​ 启用内联shortcode 支持。参见<a href=https://gohugo.io/templates/shortcode-templates/#inline-shortcodes>内联shortcode</a> 。</p><h3 id=enablemissingtranslationplaceholders>enableMissingTranslationPlaceholders
+<a class=anchor href=#enablemissingtranslationplaceholders>#</a></h3><p>​ 默认值：false</p><p>​ 如果缺少翻译，则显示占位符，而不是默认值或空字符串。</p><h3 id=enablerobotstxt-->enableRobotsTXT &lt;-
+<a class=anchor href=#enablerobotstxt-->#</a></h3><p>​ 默认值：false</p><p>​ 启用<code>robots.txt</code>文件的生成。</p><h3 id=frontmatter>frontmatter
+<a class=anchor href=#frontmatter>#</a></h3><p>​ 请参阅<a href=https://gohugo.io/getting-started/configuration/#configure-front-matter>前置元数据配置</a>。</p><h3 id=googleanalytics>googleAnalytics
+<a class=anchor href=#googleanalytics>#</a></h3><p>​ 默认值：""</p><p>​ Google Analytics 跟踪 ID。</p><h3 id=hascjklanguage-->hasCJKLanguage &lt;-
+<a class=anchor href=#hascjklanguage-->#</a></h3><p>​ 默认值：false</p><p>​ 如果为 true，则自动检测内容中的中文/日文/韩文语言。这将使得 <code>.Summary</code> 和 <code>.WordCount</code> 在 CJK 语言中正确工作。</p><h3 id=imaging>imaging
+<a class=anchor href=#imaging>#</a></h3><p>​ 请参阅<a href=https://gohugo.io/content-management/image-processing/#imaging-configuration>图像处理配置</a>。</p><h3 id=languagecode>languageCode
+<a class=anchor href=#languagecode>#</a></h3><p>​ 默认值：""</p><p>​ 由 <a href=https://datatracker.ietf.org/doc/html/rfc5646>RFC 5646</a> 定义的语言标签。此值用于填充：</p><ul><li>内部 <a href=https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/_default/rss.xml>RSS 模板</a>中的 <code>&lt;language></code> 元素</li><li>内部<a href=https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/alias.html>别名模板</a>中 <code>&lt;html></code> 元素的 <code>lang</code> 属性</li></ul><h3 id=languages>languages
+<a class=anchor href=#languages>#</a></h3><p>​ 请参阅<a href=https://gohugo.io/content-management/multilingual/#configure-languages>配置语言</a>。</p><h3 id=disablelanguages>disableLanguages
+<a class=anchor href=#disablelanguages>#</a></h3><p>​ 请参阅<a href=https://gohugo.io/content-management/multilingual/#disable-a-language>禁用语言</a>。</p><h3 id=markup>markup
+<a class=anchor href=#markup>#</a></h3><p>​ 请参阅<a href=https://gohugo.io/getting-started/configuration-markup>配置标记</a>。</p><h3 id=mediatypes>mediaTypes
+<a class=anchor href=#mediatypes>#</a></h3><p>​ 请参阅<a href=https://gohugo.io/templates/output-formats/#media-types>配置媒体类型</a>。</p><h3 id=menus-->menus &lt;-
+<a class=anchor href=#menus-->#</a></h3><p>​ 请参阅<a href=https://gohugo.io/content-management/menus/#define-in-site-configuration>菜单</a>。</p><h3 id=minify>minify
+<a class=anchor href=#minify>#</a></h3><p>​ 请参阅<a href=https://gohugo.io/getting-started/configuration/#configure-minify>配置 Minify</a>。</p><h3 id=module>module
+<a class=anchor href=#module>#</a></h3><p>​ 模块配置，请参阅<a href=https://gohugo.io/hugo-modules/configuration/>模块配置</a>。</p><h3 id=newcontenteditor>newContentEditor
+<a class=anchor href=#newcontenteditor>#</a></h3><p>​ 默认值：""</p><p>​ 创建新内容时要使用的编辑器。</p><h3 id=nochmod>noChmod
+<a class=anchor href=#nochmod>#</a></h3><p>​ 默认值：false</p><p>​ 不同步文件的权限模式。</p><h3 id=notimes>noTimes
+<a class=anchor href=#notimes>#</a></h3><p>​ 默认值：false</p><p>​ 不同步文件的修改时间。</p><h3 id=outputformats>outputFormats
+<a class=anchor href=#outputformats>#</a></h3><p>​ 请参阅<a href=https://gohugo.io/getting-started/configuration/#configure-additional-output-formats>配置输出格式</a>。</p><h3 id=paginate-->paginate &lt;-
+<a class=anchor href=#paginate-->#</a></h3><p>​ 默认值：10</p><p>​ <a href=https://gohugo.io/templates/pagination/>分页</a>中每页的默认元素数。</p><h3 id=paginatepath>paginatePath
+<a class=anchor href=#paginatepath>#</a></h3><p>​ 默认值：&ldquo;page&rdquo;</p><p>​ 在分页期间使用的路径元素（<code>https://example.com/page/2</code>）。</p><h3 id=permalinks>permalinks
+<a class=anchor href=#permalinks>#</a></h3><p>​ 请参阅<a href=https://gohugo.io/content-management/urls/#permalinks>内容管理</a>。</p><h3 id=pluralizelisttitles>pluralizeListTitles
+<a class=anchor href=#pluralizelisttitles>#</a></h3><p>​ 默认值：true</p><p>​ 在列表中使用复数形式的标题。</p><h3 id=publishdir>publishDir
+<a class=anchor href=#publishdir>#</a></h3><p>​ 默认值：&ldquo;public&rdquo;</p><p>​ Hugo将生成的最终静态站点（HTML文件等）写入的目录。</p><h3 id=related>related
+<a class=anchor href=#related>#</a></h3><p>​ 请参阅相关内容（<a href=https://gohugo.io/content-management/related/#configure-related-content>Related Content</a>）。</p><h3 id=relativeurls>relativeURLs
+<a class=anchor href=#relativeurls>#</a></h3><p>​ 默认值：false</p><p>​ 启用此选项可使所有相对URL相对于内容根目录。请注意，这不会影响绝对URL。</p><h3 id=reflinkserrorlevel>refLinksErrorLevel
+<a class=anchor href=#reflinkserrorlevel>#</a></h3><p>​ 默认值：&ldquo;ERROR&rdquo;</p><p>​ 使用<code>ref</code>或<code>relref</code>解析页面链接时，如果无法解析链接，将以此日志级别记录。有效值为<code>ERROR</code>（默认值）或<code>WARNING</code>。任何<code>ERROR</code>将导致构建失败（<code>exit -1</code>）。</p><h3 id=reflinksnotfoundurl>refLinksNotFoundURL
+<a class=anchor href=#reflinksnotfoundurl>#</a></h3><p>​ 在<code>ref</code>或<code>relref</code>中找不到页面引用时要使用的URL占位符。按原样使用。</p><h3 id=removepathaccents>removePathAccents
+<a class=anchor href=#removepathaccents>#</a></h3><p>​ 默认值：false</p><p>​ 从内容路径中的<a href=https://en.wikipedia.org/wiki/Precomposed_character>组合字符</a>中删除<a href=https://www.compart.com/en/unicode/category/Mn>非间隔标记</a>。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>content/post/hügó.md --&gt; https://example.org/post/hugo/
+</span></span></code></pre></div><h3 id=rsslimit>rssLimit
+<a class=anchor href=#rsslimit>#</a></h3><p>​ 默认值：-1（无限制）</p><p>​ RSS feed中的最大项目数。</p><h3 id=sectionpagesmenu>sectionPagesMenu
+<a class=anchor href=#sectionpagesmenu>#</a></h3><p>​ 请参阅菜单（<a href=https://gohugo.io/content-management/menus/#define-in-site-configuration>Menus</a>）。</p><h3 id=security>security
+<a class=anchor href=#security>#</a></h3><p>​ 请参阅安全策略（<a href=https://gohugo.io/about/security-model/#security-policy>Security Policy</a>）。</p><h3 id=sitemap>sitemap
+<a class=anchor href=#sitemap>#</a></h3><p>​ 默认<a href=https://gohugo.io/templates/sitemap-template/#configuration>站点地图配置</a>。</p><h3 id=summarylength>summaryLength
+<a class=anchor href=#summarylength>#</a></h3><p>​ 默认值：70</p><p>​ 在<code>.Summary</code>中显示的文本长度（以单词计算）。</p><h3 id=taxonomies>taxonomies
+<a class=anchor href=#taxonomies>#</a></h3><p>​ 请参阅分类（<a href=https://gohugo.io/content-management/taxonomies#configure-taxonomies>Configure Taxonomies</a>）。</p><h3 id=theme>theme
+<a class=anchor href=#theme>#</a></h3><p>​ 请参阅模块配置（<a href=https://gohugo.io/hugo-modules/configuration/#module-config-imports>Module Config</a>）以了解如何导入主题。</p><h3 id=themesdir>themesDir
+<a class=anchor href=#themesdir>#</a></h3><p>​ 默认值：&ldquo;themes&rdquo;</p><p>​ Hugo从中读取主题的目录。</p><h3 id=timeout>timeout
+<a class=anchor href=#timeout>#</a></h3><p>​ 默认值：&ldquo;30s&rdquo;</p><p>​ 生成页面内容的超时时间，以<a href=https://pkg.go.dev/time#Duration>持续时间</a>或毫秒表示。注意：这用于退出递归内容生成。如果页面生成较慢（例如因为它们需要大量的图像处理或依赖于远程内容），则可能需要提高此限制。</p><h3 id=timezone-->timeZone &lt;-
+<a class=anchor href=#timezone-->#</a></h3><p>​ 用于解析前置元数据日期（不带此信息）和<a href=https://gohugo.io/functions/time/><code>time</code> function</a>的时区（或位置），例如<code>Europe/Oslo</code>。有效值列表可能因系统而异，但应包括<code>UTC</code>、<code>Local</code>和<a href=https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>IANA时区数据库</a>中的任何位置。</p><h3 id=title>title
+<a class=anchor href=#title>#</a></h3><p>​ 站点标题。</p><h3 id=titlecasestyle>titleCaseStyle
+<a class=anchor href=#titlecasestyle>#</a></h3><p>​ 默认值：&ldquo;AP&rdquo;</p><p>​ 请参阅配置标题大小写（<a href=https://gohugo.io/getting-started/configuration/#configure-title-case>Configure Title Case</a>）。</p><h3 id=uglyurls>uglyURLs
+<a class=anchor href=#uglyurls>#</a></h3><p>​ 默认值：false</p><p>​ 启用时，将创建形式为<code>/filename.html</code>而不是<code>/filename/</code>的URL。</p><h3 id=watch>watch
+<a class=anchor href=#watch>#</a></h3><p>​ 默认值：false</p><p>​ 监视文件系统以进行更改，并根据需要重新创建。</p><blockquote><p>​ 如果您在<code>*nix</code>机器上开发您的站点，这是一个方便的从命令行查找配置选项的快捷方式：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cd ~/sites/yourhugosite
+</span></span><span style=display:flex><span>hugo config | grep emoji
+</span></span></code></pre></div><p>显示输出如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-txt data-lang=txt><span style=display:flex><span>enableemoji: true
+</span></span></code></pre></div></blockquote><h2 id=配置构建---build>配置构建 -> [build]
+<a class=anchor href=#%e9%85%8d%e7%bd%ae%e6%9e%84%e5%bb%ba---build>#</a></h2><p>​ <code>build</code>配置部分包含全局构建相关的配置选项。</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+build:
+  noJSConfigInAssets: false
+  useResourceCacheWhen: fallback
+  writeStats: false
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[build]
+  noJSConfigInAssets = false
+  useResourceCacheWhen = 'fallback'
+  writeStats = false
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;build&quot;: {
+      &quot;noJSConfigInAssets&quot;: false,
+      &quot;useResourceCacheWhen&quot;: &quot;fallback&quot;,
+      &quot;writeStats&quot;: false
+   }
+}
+```
+</code></pre><ul><li><p>useResourceCacheWhen</p><p>决定在 PostCSS 和 ToCSS 中何时使用 <code>/resources/_gen</code> 中的缓存资源。有效值为 <code>never</code>、<code>always</code> 和 <code>fallback</code>。最后一个值表示如果 PostCSS/extended版本不可用，则尝试使用缓存。</p></li><li><p>writeStats</p><p>启用后，将在项目根目录下写入一个名为 <code>hugo_stats.json</code> 的文件，其中包含有关构建的一些汇总数据，例如已发布的 HTML 实体列表，可用于进行 <a href=https://gohugo.io/hugo-pipes/postprocess/#css-purging-with-postcss>CSS pruning</a>。如果您仅在生产构建中使用此功能，则应考虑将其放在 <a href=https://gohugo.io/getting-started/configuration/#configuration-directory>config/production</a> 下面。值得一提的是，由于部分服务器构建的本质，当您添加或更改 HTML 实体时，将添加新的 HTML 实体，但旧值不会在您重启服务器或运行常规的 <code>hugo</code> 构建之前被删除。</p></li></ul><p>请注意，这是清除未使用的 CSS 的主要用例；它专为速度而建，可能会出现误报（例如，检测到不是 HTML 元素的 HTML 元素）。</p><ul><li><p>noJSConfigInAssets</p><p>关闭在 <code>/assets</code> 文件夹中写入一个 <code>jsconfig.json</code>，其中包含来自运行 <a href=https://gohugo.io/hugo-pipes/js>js.Build</a> 的导入映射。此文件旨在帮助在诸如 <a href=https://code.visualstudio.com/>VS Code</a> 等代码编辑器内进行智能感知/导航。请注意，如果您不使用 <code>js.Build</code>，则不会写入任何文件。</p></li></ul><h2 id=configure-server---server>Configure Server -> [server]
+<a class=anchor href=#configure-server---server>#</a></h2><p>​ 仅在运行 <code>hugo server</code> 时相关，在开发过程中可以设置 HTTP 标头，从而可以测试您的内容安全策略等。配置格式与 <a href=https://docs.netlify.com/routing/headers/#syntax-for-the-netlify-configuration-file>Netlify</a> 的格式相匹配，并具有略微更强大的<a href=https://github.com/gobwas/glob>全局匹配功能</a>：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+server:
+  headers:
+  - for: /**
+    values:
+      Content-Security-Policy: script-src localhost:1313
+      Referrer-Policy: strict-origin-when-cross-origin
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: DENY
+      X-XSS-Protection: 1; mode=block
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[server]
+[[server.headers]]
+  for = '/**'
+  [server.headers.values]
+    Content-Security-Policy = 'script-src localhost:1313'
+    Referrer-Policy = 'strict-origin-when-cross-origin'
+    X-Content-Type-Options = 'nosniff'
+    X-Frame-Options = 'DENY'
+    X-XSS-Protection = '1; mode=block'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;server&quot;: {
+      &quot;headers&quot;: [
+         {
+            &quot;for&quot;: &quot;/**&quot;,
+            &quot;values&quot;: {
+               &quot;Content-Security-Policy&quot;: &quot;script-src localhost:1313&quot;,
+               &quot;Referrer-Policy&quot;: &quot;strict-origin-when-cross-origin&quot;,
+               &quot;X-Content-Type-Options&quot;: &quot;nosniff&quot;,
+               &quot;X-Frame-Options&quot;: &quot;DENY&quot;,
+               &quot;X-XSS-Protection&quot;: &quot;1; mode=block&quot;
+            }
+         }
+      ]
+   }
+}
+```
+</code></pre><p>​ 由于这仅适用于"development only"，因此将其放置在<code>development</code>环境下可能是有意义的：</p><p>config/development/server.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+headers:
+- for: /**
+  values:
+    Content-Security-Policy: script-src localhost:1313
+    Referrer-Policy: strict-origin-when-cross-origin
+    X-Content-Type-Options: nosniff
+    X-Frame-Options: DENY
+    X-XSS-Protection: 1; mode=block
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[[headers]]
+for = '/**'
+[headers.values]
+  Content-Security-Policy = 'script-src localhost:1313'
+  Referrer-Policy = 'strict-origin-when-cross-origin'
+  X-Content-Type-Options = 'nosniff'
+  X-Frame-Options = 'DENY'
+  X-XSS-Protection = '1; mode=block'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;headers&quot;: [
+      {
+         &quot;for&quot;: &quot;/**&quot;,
+         &quot;values&quot;: {
+            &quot;Content-Security-Policy&quot;: &quot;script-src localhost:1313&quot;,
+            &quot;Referrer-Policy&quot;: &quot;strict-origin-when-cross-origin&quot;,
+            &quot;X-Content-Type-Options&quot;: &quot;nosniff&quot;,
+            &quot;X-Frame-Options&quot;: &quot;DENY&quot;,
+            &quot;X-XSS-Protection&quot;: &quot;1; mode=block&quot;
+         }
+      }
+   ]
+}
+```
+</code></pre><p>​ 您还可以为服务器指定简单的重定向规则。 语法与Netlify类似。</p><p>​ 请注意，<code>status</code>200会触发<a href=https://docs.netlify.com/routing/redirects/rewrites-proxies/>URL重写</a>，这是在SPA情况下所需要的，例如：</p><p>config/development/server.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+redirects:
+- force: false
+  from: /myspa/**
+  status: 200
+  to: /myspa/
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[[redirects]]
+force = false
+from = '/myspa/**'
+status = 200
+to = '/myspa/'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;redirects&quot;: [
+      {
+         &quot;force&quot;: false,
+         &quot;from&quot;: &quot;/myspa/**&quot;,
+         &quot;status&quot;: 200,
+         &quot;to&quot;: &quot;/myspa/&quot;
+      }
+   ]
+}
+```
+</code></pre><p>​ 设置<code>force=true</code>将使重定向即使路径中存在现有内容也会生效。 请注意，在Hugo 0.76之前，<code>force</code>是默认行为，但这符合Netlify的处理方式。</p><h2 id=404服务器错误页面---redirects>404服务器错误页面 -> [[redirects]]
+<a class=anchor href=#404%e6%9c%8d%e5%8a%a1%e5%99%a8%e9%94%99%e8%af%af%e9%a1%b5%e9%9d%a2---redirects>#</a></h2><p><a href=https://github.com/gohugoio/hugo/releases/tag/v0.103.0>New in v0.103.0</a></p><p>​ 当运行<code>hugo server</code>时，默认情况下，Hugo将使用<code>404.html</code>模板呈现所有404错误。 请注意，如果您已经添加了一个或多个重定向到<a href=https://gohugo.io/getting-started/configuration/#configure-server>服务器配置</a>中，则需要显式添加404重定向，例如：</p><p>config/development/server.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+redirects:
+- from: /**
+  status: 404
+  to: /404.html
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[[redirects]]
+from = '/**'
+status = 404
+to = '/404.html'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;redirects&quot;: [
+      {
+         &quot;from&quot;: &quot;/**&quot;,
+         &quot;status&quot;: 404,
+         &quot;to&quot;: &quot;/404.html&quot;
+      }
+   ]
+}
+```
+</code></pre><h2 id=配置标题大小写---titlecasestyle>配置标题大小写 -> titleCaseStyle
+<a class=anchor href=#%e9%85%8d%e7%bd%ae%e6%a0%87%e9%a2%98%e5%a4%a7%e5%b0%8f%e5%86%99---titlecasestyle>#</a></h2><p>​ 设置<code>titleCaseStyle</code>以指定<a href=https://gohugo.io/functions/title/>title</a>模板函数和Hugo中自动部分标题使用的标题样式。</p><p>​ 默认情况下，Hugo遵循<a href=https://www.apstylebook.com/>美联社 （Associated Press（AP））</a>风格指南中的大写规则。 如果您想遵循<a href=https://www.chicagomanualofstyle.org/home.html>芝加哥风格（Chicago Manual of Style）</a>手册，则将<code>titleCaseStyle</code>设置为<code>chicago</code>，或将其设置为<code>go</code>以使用Go的惯例，即每个单词都大写。</p><h2 id=配置环境变量>配置环境变量
+<a class=anchor href=#%e9%85%8d%e7%bd%ae%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f>#</a></h2><ul><li><p>HUGO_NUMWORKERMULTIPLIER</p><p>可以设置为增加或减少在Hugo中并行处理中使用的工作程序数量。 如果未设置，则将使用逻辑CPU的数量。</p></li></ul><h2 id=配置查找顺序>配置查找顺序
+<a class=anchor href=#%e9%85%8d%e7%bd%ae%e6%9f%a5%e6%89%be%e9%a1%ba%e5%ba%8f>#</a></h2><p>​ 与模板<a href=https://gohugo.io/templates/lookup-order/>查找顺序</a>类似，Hugo有一组默认规则，用于在站点源目录的根目录中搜索配置文件作为默认行为：</p><ol><li><code>./config.toml</code></li><li><code>./config.yaml</code></li><li><code>./config.json</code></li></ol><p>​ 在<code>config</code>文件中，您可以指导Hugo如何渲染您的站点，控制您的站点菜单，并任意定义特定于您的项目的站点范围（site-wide）参数。</p><h2 id=示例配置>示例配置
+<a class=anchor href=#%e7%a4%ba%e4%be%8b%e9%85%8d%e7%bd%ae>#</a></h2><p>​ 以下是典型的配置文件示例。在<code>params:</code>下嵌套的值将填充<code>.Site.Params</code>变量，供<a href=https://gohugo.io/templates/>模板</a>使用：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+baseURL: https://yoursite.example.com/
+params:
+  AuthorName: Jon Doe
+  GitHubUser: spf13
+  ListOfFoo:
+  - foo1
+  - foo2
+  SidebarRecentLimit: 5
+  Subtitle: Hugo is Absurdly Fast!
+permalinks:
+  posts: /:year/:month/:title/
+title: My Hugo Site
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+baseURL = 'https://yoursite.example.com/'
+title = 'My Hugo Site'
+[params]
+  AuthorName = 'Jon Doe'
+  GitHubUser = 'spf13'
+  ListOfFoo = ['foo1', 'foo2']
+  SidebarRecentLimit = 5
+  Subtitle = 'Hugo is Absurdly Fast!'
+[permalinks]
+  posts = '/:year/:month/:title/'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;baseURL&quot;: &quot;https://yoursite.example.com/&quot;,
+   &quot;params&quot;: {
+      &quot;AuthorName&quot;: &quot;Jon Doe&quot;,
+      &quot;GitHubUser&quot;: &quot;spf13&quot;,
+      &quot;ListOfFoo&quot;: [
+         &quot;foo1&quot;,
+         &quot;foo2&quot;
+      ],
+      &quot;SidebarRecentLimit&quot;: 5,
+      &quot;Subtitle&quot;: &quot;Hugo is Absurdly Fast!&quot;
+   },
+   &quot;permalinks&quot;: {
+      &quot;posts&quot;: &quot;/:year/:month/:title/&quot;
+   },
+   &quot;title&quot;: &quot;My Hugo Site&quot;
+}
+```
+</code></pre><h2 id=使用环境变量配置>使用环境变量配置
+<a class=anchor href=#%e4%bd%bf%e7%94%a8%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f%e9%85%8d%e7%bd%ae>#</a></h2><p>​ 除了已经提到的三个配置选项外，可以通过操作系统环境变量定义配置键值。</p><p>​ 例如，以下命令将在类Unix系统上有效地设置站点标题：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-txt data-lang=txt><span style=display:flex><span>$ env HUGO_TITLE=&#34;Some Title&#34; hugo
+</span></span></code></pre></div><p>​ 如果您使用像Netlify这样的服务部署您的站点，则这非常有用。请参阅Hugo文档中的<a href=https://github.com/gohugoio/hugoDocs/blob/master/netlify.toml>Netlify配置文件示例</a>。</p><blockquote><p>​ 名称必须以<code>HUGO_</code>为前缀，并且设置操作系统环境变量时必须将配置键设置为大写。</p><p>​ 要设置配置参数，请使用<code>HUGO_PARAMS_</code>作为前缀。</p></blockquote><p>​ 如果您使用了下划线命名法，则上述方法将无法正常工作。Hugo通过<code>HUGO</code>之后的第一个字符确定要使用的分隔符。这允许您使用任何[允许的](<a href="https://stackoverflow.com/questions/2821043/allowed-characters-in-linux-environment-variable-names#:~:text=So">https://stackoverflow.com/questions/2821043/allowed-characters-in-linux-environment-variable-names#:~:text=So</a> names may contain any,not begin with a digit)分隔符来定义形式为<code>HUGOxPARAMSxAPI_KEY=abcdefgh</code>的环境变量。</p><h2 id=忽略内容和数据文件的渲染----ignorefiles>忽略内容和数据文件的渲染 -> ignoreFiles
+<a class=anchor href=#%e5%bf%bd%e7%95%a5%e5%86%85%e5%ae%b9%e5%92%8c%e6%95%b0%e6%8d%ae%e6%96%87%e4%bb%b6%e7%9a%84%e6%b8%b2%e6%9f%93----ignorefiles>#</a></h2><p>​ 注意：这个方法可行，但我们建议您使用更新且更强大的<a href=https://gohugo.io/hugo-modules/configuration/#module-config-mounts>includeFiles和excludeFiles</a>挂载选项。</p><p>​ 要在渲染站点时排除特定的<code>content</code>和<code>data</code>目录中的文件，请将<code>ignoreFiles</code>设置为一个或多个正则表达式，以匹配绝对文件路径。</p><p>​ 要忽略以<code>.foo</code>或<code>.boo</code>结尾的文件：</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+ignoreFiles:
+- \.foo$
+- \.boo$
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+ignoreFiles = ['\.foo$', '\.boo$']
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;ignoreFiles&quot;: [
+      &quot;\\.foo$&quot;,
+      &quot;\\.boo$&quot;
+   ]
+}
+```
+</code></pre><p>​ 通过绝对文件路径忽略一个文件：</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+ignoreFiles:
+- ^/home/user/project/content/test\.md$
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+ignoreFiles = ['^/home/user/project/content/test\.md$']
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;ignoreFiles&quot;: [
+      &quot;^/home/user/project/content/test\\.md$&quot;
+   ]
+}
+```
+</code></pre><h2 id=配置front-matter---frontmatter>配置Front Matter -> [frontmatter]
+<a class=anchor href=#%e9%85%8d%e7%bd%aefront-matter---frontmatter>#</a></h2><h3 id=配置日期>配置日期
+<a class=anchor href=#%e9%85%8d%e7%bd%ae%e6%97%a5%e6%9c%9f>#</a></h3><p>​ 日期在Hugo中很重要，您可以通过向<code>config.toml</code>添加<code>frontmatter</code>部分来配置Hugo如何为您的内容页面分配日期。</p><p>默认配置如下：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+frontmatter:
+  date:
+  - date
+  - publishDate
+  - lastmod
+  expiryDate:
+  - expiryDate
+  lastmod:
+  - :git
+  - lastmod
+  - date
+  - publishDate
+  publishDate:
+  - publishDate
+  - date
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[frontmatter]
+  date = ['date', 'publishDate', 'lastmod']
+  expiryDate = ['expiryDate']
+  lastmod = [':git', 'lastmod', 'date', 'publishDate']
+  publishDate = ['publishDate', 'date']
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;frontmatter&quot;: {
+      &quot;date&quot;: [
+         &quot;date&quot;,
+         &quot;publishDate&quot;,
+         &quot;lastmod&quot;
+      ],
+      &quot;expiryDate&quot;: [
+         &quot;expiryDate&quot;
+      ],
+      &quot;lastmod&quot;: [
+         &quot;:git&quot;,
+         &quot;lastmod&quot;,
+         &quot;date&quot;,
+         &quot;publishDate&quot;
+      ],
+      &quot;publishDate&quot;: [
+         &quot;publishDate&quot;,
+         &quot;date&quot;
+      ]
+   }
+}
+```
+</code></pre><p>​ 如果您的一些内容中具有非标准日期参数，您可以覆盖<code>date</code>的设置：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+frontmatter:
+  date:
+  - myDate
+  - :default
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[frontmatter]
+  date = ['myDate', ':default']
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;frontmatter&quot;: {
+      &quot;date&quot;: [
+         &quot;myDate&quot;,
+         &quot;:default&quot;
+      ]
+   }
+}
+```
+</code></pre><p>​ <code>:default</code>是默认设置的快捷方式。以上设置将根据需要将<code>.Date</code>设置为<code>myDate</code>中的日期值，如果不存在，则会查找<code>date</code>、<code>publishDate</code>、<code>lastmod</code>并选择第一个有效日期。</p><p>​ 在右侧的列表中，以"<code>:</code>&ldquo;开头的值是具有特殊含义的日期处理程序（见下文）。其他的只是您的正文数据配置中日期参数的名称（大小写不敏感）。另请注意，Hugo有一些内置别名：<code>lastmod</code> => <code>modified</code>，<code>publishDate</code> => <code>pubdate</code>，<code>published</code>和<code>expiryDate</code> => <code>unpublishdate</code>。例如，使用front matter中的<code>pubDate</code>作为日期将默认分配给<code>.PublishDate</code>。</p><p>​ 特殊日期处理程序为：</p><ul><li><p><code>:fileModTime</code></p><p>从内容文件的最后修改时间戳中提取日期。</p></li></ul><p>例如：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+frontmatter:
+  lastmod:
+  - lastmod
+  - :fileModTime
+  - :default
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[frontmatter]
+  lastmod = ['lastmod', ':fileModTime', ':default']
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;frontmatter&quot;: {
+      &quot;lastmod&quot;: [
+         &quot;lastmod&quot;,
+         &quot;:fileModTime&quot;,
+         &quot;:default&quot;
+      ]
+   }
+}
+```
+</code></pre><p>​ 上面的配置将首先尝试从front matter参数中<code>lastmod</code> 提取<code>.Lastmod</code>的值，然后再从内容文件的修改时间戳中提取日期值。最后，<code>:default</code>在这里不需要，但是Hugo最终会在<code>:git</code>、<code>date</code>和<code>publishDate</code>中查找有效的日期。</p><ul><li><p><code>:filename</code></p><p>从内容文件的文件名中提取日期。例如，<code>2018-02-22-mypage.md</code>将提取日期<code>2018-02-22</code>。此外，如果<code>slug</code>未设置，则<code>mypage</code>将作为<code>.Slug</code>的值。</p></li></ul><p>例如：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+frontmatter:
+  date:
+  - :filename
+  - :default
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[frontmatter]
+  date = [':filename', ':default']
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;frontmatter&quot;: {
+      &quot;date&quot;: [
+         &quot;:filename&quot;,
+         &quot;:default&quot;
+      ]
+   }
+}
+```
+</code></pre><p>​ 以上配置将首先尝试从文件名中提取<code>.Date</code>的值，然后再从front matter参数的<code>date</code>、<code>publishDate</code>和<code>lastmod</code>中查找。</p><ul><li><p><code>:git</code></p><p>这是此内容文件的最后修订版的Git作者日期。这只有在设置了 <code>--enableGitInfo</code> 或在站点配置中设置了 <code>enableGitInfo = true</code> 时才会被设置。</p></li></ul><h2 id=配置其他输出格式>配置其他输出格式
+<a class=anchor href=#%e9%85%8d%e7%bd%ae%e5%85%b6%e4%bb%96%e8%be%93%e5%87%ba%e6%a0%bc%e5%bc%8f>#</a></h2><p>​ Hugo v0.20引入了将内容呈现为多种输出格式（例如JSON、AMP html或CSV）的能力。请参阅<a href=https://gohugo.io/templates/output-formats/>输出格式</a>，了解如何将这些值添加到您的Hugo项目配置文件中。</p><h2 id=配置压缩---minify>配置压缩 -> [minify]
+<a class=anchor href=#%e9%85%8d%e7%bd%ae%e5%8e%8b%e7%bc%a9---minify>#</a></h2><p>默认配置：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+minify:
+  disableCSS: false
+  disableHTML: false
+  disableJS: false
+  disableJSON: false
+  disableSVG: false
+  disableXML: false
+  minifyOutput: false
+  tdewolff:
+    css:
+      keepCSS2: true
+      precision: 0
+    html:
+      keepComments: false
+      keepConditionalComments: true
+      keepDefaultAttrVals: true
+      keepDocumentTags: true
+      keepEndTags: true
+      keepQuotes: false
+      keepWhitespace: false
+    js:
+      keepVarNames: false
+      noNullishOperator: false
+      precision: 0
+    json:
+      keepNumbers: false
+      precision: 0
+    svg:
+      keepComments: false
+      precision: 0
+    xml:
+      keepWhitespace: false
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = false
+  [minify.tdewolff]
+    [minify.tdewolff.css]
+      keepCSS2 = true
+      precision = 0
+    [minify.tdewolff.html]
+      keepComments = false
+      keepConditionalComments = true
+      keepDefaultAttrVals = true
+      keepDocumentTags = true
+      keepEndTags = true
+      keepQuotes = false
+      keepWhitespace = false
+    [minify.tdewolff.js]
+      keepVarNames = false
+      noNullishOperator = false
+      precision = 0
+    [minify.tdewolff.json]
+      keepNumbers = false
+      precision = 0
+    [minify.tdewolff.svg]
+      keepComments = false
+      precision = 0
+    [minify.tdewolff.xml]
+      keepWhitespace = false
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;minify&quot;: {
+      &quot;disableCSS&quot;: false,
+      &quot;disableHTML&quot;: false,
+      &quot;disableJS&quot;: false,
+      &quot;disableJSON&quot;: false,
+      &quot;disableSVG&quot;: false,
+      &quot;disableXML&quot;: false,
+      &quot;minifyOutput&quot;: false,
+      &quot;tdewolff&quot;: {
+         &quot;css&quot;: {
+            &quot;keepCSS2&quot;: true,
+            &quot;precision&quot;: 0
+         },
+         &quot;html&quot;: {
+            &quot;keepComments&quot;: false,
+            &quot;keepConditionalComments&quot;: true,
+            &quot;keepDefaultAttrVals&quot;: true,
+            &quot;keepDocumentTags&quot;: true,
+            &quot;keepEndTags&quot;: true,
+            &quot;keepQuotes&quot;: false,
+            &quot;keepWhitespace&quot;: false
+         },
+         &quot;js&quot;: {
+            &quot;keepVarNames&quot;: false,
+            &quot;noNullishOperator&quot;: false,
+            &quot;precision&quot;: 0
+         },
+         &quot;json&quot;: {
+            &quot;keepNumbers&quot;: false,
+            &quot;precision&quot;: 0
+         },
+         &quot;svg&quot;: {
+            &quot;keepComments&quot;: false,
+            &quot;precision&quot;: 0
+         },
+         &quot;xml&quot;: {
+            &quot;keepWhitespace&quot;: false
+         }
+      }
+   }
+}
+```
+</code></pre><h2 id=配置文件缓存---caches>配置文件缓存 -> [caches]
+<a class=anchor href=#%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e7%bc%93%e5%ad%98---caches>#</a></h2><p>​ 自Hugo 0.52版本以来，您可以配置的不仅是<code>cacheDir</code>。这是默认配置：</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>```yaml
+caches:
+  assets:
+    dir: :resourceDir/_gen
+    maxAge: -1
+  getcsv:
+    dir: :cacheDir/:project
+    maxAge: -1
+  getjson:
+    dir: :cacheDir/:project
+    maxAge: -1
+  getresource:
+    dir: :cacheDir/:project
+    maxAge: -1
+  images:
+    dir: :resourceDir/_gen
+    maxAge: -1
+  modules:
+    dir: :cacheDir/modules
+    maxAge: -1
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>```toml
+[caches]
+  [caches.assets]
+    dir = ':resourceDir/_gen'
+    maxAge = -1
+  [caches.getcsv]
+    dir = ':cacheDir/:project'
+    maxAge = -1
+  [caches.getjson]
+    dir = ':cacheDir/:project'
+    maxAge = -1
+  [caches.getresource]
+    dir = ':cacheDir/:project'
+    maxAge = -1
+  [caches.images]
+    dir = ':resourceDir/_gen'
+    maxAge = -1
+  [caches.modules]
+    dir = ':cacheDir/modules'
+    maxAge = -1
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>```json
+{
+   &quot;caches&quot;: {
+      &quot;assets&quot;: {
+         &quot;dir&quot;: &quot;:resourceDir/_gen&quot;,
+         &quot;maxAge&quot;: -1
+      },
+      &quot;getcsv&quot;: {
+         &quot;dir&quot;: &quot;:cacheDir/:project&quot;,
+         &quot;maxAge&quot;: -1
+      },
+      &quot;getjson&quot;: {
+         &quot;dir&quot;: &quot;:cacheDir/:project&quot;,
+         &quot;maxAge&quot;: -1
+      },
+      &quot;getresource&quot;: {
+         &quot;dir&quot;: &quot;:cacheDir/:project&quot;,
+         &quot;maxAge&quot;: -1
+      },
+      &quot;images&quot;: {
+         &quot;dir&quot;: &quot;:resourceDir/_gen&quot;,
+         &quot;maxAge&quot;: -1
+      },
+      &quot;modules&quot;: {
+         &quot;dir&quot;: &quot;:cacheDir/modules&quot;,
+         &quot;maxAge&quot;: -1
+      }
+   }
+}
+```
+</code></pre><p>​ 您可以在自己的<code>config.toml</code>中覆盖这些缓存设置。</p><h3 id=关键字的解释>关键字的解释
+<a class=anchor href=#%e5%85%b3%e9%94%ae%e5%ad%97%e7%9a%84%e8%a7%a3%e9%87%8a>#</a></h3><ul><li><p><code>:cacheDir</code></p><p>这是<code>cacheDir</code>配置选项的值，如果设置了的话（也可以通过OS环境变量<code>HUGO_CACHEDIR</code>设置）。如果在Netlify上，将回退到<code>/opt/build/cache/hugo_cache/</code>，对于其他的操作系统，将位于操作系统临时目录下的<code>hugo_cache</code>目录。这意味着，如果您在Netlify上运行构建，所有配置为<code>:cacheDir</code>的缓存都将保存并在下一次构建时恢复。对于其他的CI供应商，请阅读其文档。有关CircleCI示例，请参见<a href=https://github.com/bep/hugo-sass-test/blob/6c3960a8f4b90e8938228688bc49bdcdd6b2d99e/.circleci/config.yml>此配置</a>。</p></li><li><p><code>:project</code></p><p>当前Hugo项目的基本目录名称。这意味着，在默认设置中，每个项目都有单独的文件缓存，这意味着当您运行<code>hugo --gc</code>时，您不会触及与其他在同一台电脑上运行的Hugo项目相关的文件。</p></li><li><p><code>:resourceDir</code></p><p>这是<code>resourceDir</code>配置选项的值。</p></li><li><p>maxAge</p><p>这是缓存条目被清除之前的持续时间，-1表示永远，0有效地关闭该特定缓存。使用Go的<code>time.Duration</code>，所以有效值是<code>"10s"</code>（10秒），<code>"10m"</code>（10分钟）和<code>"10h"</code>（10小时）。</p></li><li><p>dir</p><p>这是用于存储此缓存文件的绝对路径。允许的起始占位符是<code>:cacheDir</code>和<code>:resourceDir</code>（见上文）。</p></li></ul><h2 id=配置格式规范>配置格式规范
+<a class=anchor href=#%e9%85%8d%e7%bd%ae%e6%a0%bc%e5%bc%8f%e8%a7%84%e8%8c%83>#</a></h2><ul><li><a href=https://github.com/toml-lang/toml>TOML 规范</a></li><li><a href=https://yaml.org/spec/>YAML 规范</a></li><li><a href=https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf>JSON 规范</a></li></ul><h2 id=参见>参见
+<a class=anchor href=#%e5%8f%82%e8%a7%81>#</a></h2><ul><li><a href=https://gohugo.io/templates/data-templates/>数据模板</a></li><li><a href=https://gohugo.io/content-management/front-matter/>前置元数据</a></li><li><a href=https://gohugo.io/getting-started/configuration-markup/>配置标记</a></li><li><a href=https://gohugo.io/hosting-and-deployment/hosting-on-gitlab/>在GitLab上托管</a></li><li><a href=https://gohugo.io/about/hugo-and-gdpr/>Hugo和一般数据保护条例（GDPR）</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#配置文件>配置文件</a></li><li><a href=#hugotoml-vs-configtoml>hugo.toml vs config.toml</a></li><li><a href=#配置目录>配置目录</a></li><li><a href=#合并主题配置>合并主题配置</a></li><li><a href=#所有配置设置>所有配置设置</a><ul><li><a href=#archetypedir>archetypeDir</a></li><li><a href=#assetdir>assetDir</a></li><li><a href=#baseurl>baseURL</a></li><li><a href=#build>build</a></li><li><a href=#builddrafts-false>buildDrafts (false)</a></li><li><a href=#buildexpired>buildExpired</a></li><li><a href=#buildfuture>buildFuture</a></li><li><a href=#caches>caches</a></li><li><a href=#cascade>cascade</a></li><li><a href=#canonifyurls>canonifyURLs</a></li><li><a href=#cleandestinationdir>cleanDestinationDir</a></li><li><a href=#contentdir>contentDir</a></li><li><a href=#copyright>copyright</a></li><li><a href=#datadir>dataDir</a></li><li><a href=#defaultcontentlanguage-->defaultContentLanguage &lt;-</a></li><li><a href=#defaultcontentlanguageinsubdir>defaultContentLanguageInSubdir</a></li><li><a href=#disablealiases>disableAliases</a></li><li><a href=#disablehugogeneratorinject>disableHugoGeneratorInject</a></li><li><a href=#disablekinds>disableKinds</a></li><li><a href=#disablelivereload>disableLiveReload</a></li><li><a href=#disablepathtolower>disablePathToLower</a></li><li><a href=#enableemoji-->enableEmoji &lt;-</a></li><li><a href=#enablegitinfo-->enableGitInfo &lt;-</a></li><li><a href=#enableinlineshortcodes>enableInlineShortcodes</a></li><li><a href=#enablemissingtranslationplaceholders>enableMissingTranslationPlaceholders</a></li><li><a href=#enablerobotstxt-->enableRobotsTXT &lt;-</a></li><li><a href=#frontmatter>frontmatter</a></li><li><a href=#googleanalytics>googleAnalytics</a></li><li><a href=#hascjklanguage-->hasCJKLanguage &lt;-</a></li><li><a href=#imaging>imaging</a></li><li><a href=#languagecode>languageCode</a></li><li><a href=#languages>languages</a></li><li><a href=#disablelanguages>disableLanguages</a></li><li><a href=#markup>markup</a></li><li><a href=#mediatypes>mediaTypes</a></li><li><a href=#menus-->menus &lt;-</a></li><li><a href=#minify>minify</a></li><li><a href=#module>module</a></li><li><a href=#newcontenteditor>newContentEditor</a></li><li><a href=#nochmod>noChmod</a></li><li><a href=#notimes>noTimes</a></li><li><a href=#outputformats>outputFormats</a></li><li><a href=#paginate-->paginate &lt;-</a></li><li><a href=#paginatepath>paginatePath</a></li><li><a href=#permalinks>permalinks</a></li><li><a href=#pluralizelisttitles>pluralizeListTitles</a></li><li><a href=#publishdir>publishDir</a></li><li><a href=#related>related</a></li><li><a href=#relativeurls>relativeURLs</a></li><li><a href=#reflinkserrorlevel>refLinksErrorLevel</a></li><li><a href=#reflinksnotfoundurl>refLinksNotFoundURL</a></li><li><a href=#removepathaccents>removePathAccents</a></li><li><a href=#rsslimit>rssLimit</a></li><li><a href=#sectionpagesmenu>sectionPagesMenu</a></li><li><a href=#security>security</a></li><li><a href=#sitemap>sitemap</a></li><li><a href=#summarylength>summaryLength</a></li><li><a href=#taxonomies>taxonomies</a></li><li><a href=#theme>theme</a></li><li><a href=#themesdir>themesDir</a></li><li><a href=#timeout>timeout</a></li><li><a href=#timezone-->timeZone &lt;-</a></li><li><a href=#title>title</a></li><li><a href=#titlecasestyle>titleCaseStyle</a></li><li><a href=#uglyurls>uglyURLs</a></li><li><a href=#watch>watch</a></li></ul></li><li><a href=#配置构建---build>配置构建 -> [build]</a></li><li><a href=#configure-server---server>Configure Server -> [server]</a></li><li><a href=#404服务器错误页面---redirects>404服务器错误页面 -> [[redirects]]</a></li><li><a href=#配置标题大小写---titlecasestyle>配置标题大小写 -> titleCaseStyle</a></li><li><a href=#配置环境变量>配置环境变量</a></li><li><a href=#配置查找顺序>配置查找顺序</a></li><li><a href=#示例配置>示例配置</a></li><li><a href=#使用环境变量配置>使用环境变量配置</a></li><li><a href=#忽略内容和数据文件的渲染----ignorefiles>忽略内容和数据文件的渲染 -> ignoreFiles</a></li><li><a href=#配置front-matter---frontmatter>配置Front Matter -> [frontmatter]</a><ul><li><a href=#配置日期>配置日期</a></li></ul></li><li><a href=#配置其他输出格式>配置其他输出格式</a></li><li><a href=#配置压缩---minify>配置压缩 -> [minify]</a></li><li><a href=#配置文件缓存---caches>配置文件缓存 -> [caches]</a><ul><li><a href=#关键字的解释>关键字的解释</a></li></ul></li><li><a href=#配置格式规范>配置格式规范</a></li><li><a href=#参见>参见</a></li></ul></nav></div></aside></main></body></html>

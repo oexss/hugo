@@ -1,0 +1,294 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Menus - 菜单 # https://gohugo.io/content-management/menus/ ​ 通过定义条目、本地化每个条目以及渲染结果数据结构来创建菜单。 概述 # ​ 要为您的站点创建菜单步骤如下： 定义菜单条目 本地化每个条目 使"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://t.is-local.org/hugo/contentmanagement/menus/"><meta property="og:site_name" content="HUGO"><meta property="og:title" content="菜单"><meta property="og:description" content="Menus - 菜单 # https://gohugo.io/content-management/menus/ ​ 通过定义条目、本地化每个条目以及渲染结果数据结构来创建菜单。 概述 # ​ 要为您的站点创建菜单步骤如下： 定义菜单条目 本地化每个条目 使"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="contentmanagement"><meta property="article:published_time" content="2023-05-18T17:03:08+08:00"><meta property="article:modified_time" content="2023-05-18T17:03:08+08:00"><title>菜单 | HUGO</title>
+<link rel=manifest href=/hugo/manifest.json><link rel=icon href=/hugo/favicon.png><link rel=canonical href=https://t.is-local.org/hugo/contentmanagement/menus/><link rel=stylesheet href=/hugo/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css integrity="sha256-MJt+0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin=anonymous><script defer src=/hugo/fuse.min.js></script><script defer src=/hugo/zh-cn.search.min.a426f3a0e1e8951a39b1b352645e382bb08b14b3d53468b1f8b07b0d0928cfe6.js integrity="sha256-pCbzoOHolRo5sbNSZF44K7CLFLPVNGix+LB7DQkoz+Y=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/hugo/><span>HUGO</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder aria-label maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/hugo/svg/translate.svg class=book-icon alt=Languages>
+中文</a></label><ul><li><a href=https://t.is-local.org/hugo/en/>English</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/hugo/svg/menu.svg class=book-icon alt=Menu>
+</label><strong>菜单</strong>
+<label for=toc-control><img src=/hugo/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#概述>概述</a></li><li><a href=#自动定义>自动定义</a></li><li><a href=#在前置元数据中定义>在前置元数据中定义</a><ul><li><a href=#属性>属性</a></li><li><a href=#示例>示例</a></li></ul></li><li><a href=#在站点配置中定义>在站点配置中定义</a><ul><li><a href=#属性-1>属性</a></li><li><a href=#示例-1>示例</a></li></ul></li><li><a href=#本地化>本地化</a></li><li><a href=#渲染>渲染</a></li><li><a href=#另请参阅>另请参阅</a></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=menus---菜单>Menus - 菜单
+<a class=anchor href=#menus---%e8%8f%9c%e5%8d%95>#</a></h1><p><a href=https://gohugo.io/content-management/menus/>https://gohugo.io/content-management/menus/</a></p><p>​ 通过定义条目、本地化每个条目以及渲染结果数据结构来创建菜单。</p><h2 id=概述>概述
+<a class=anchor href=#%e6%a6%82%e8%bf%b0>#</a></h2><p>​ 要为您的站点创建菜单步骤如下：</p><ol><li>定义菜单条目</li><li><a href=https://gohugo.io/content-management/multilingual/#menus>本地化</a>每个条目</li><li>使用<a href=https://gohugo.io/templates/menu-templates/>模板</a>渲染菜单</li></ol><p>​ 创建多个菜单，可以是平面或嵌套的。例如，创建一个用于页眉的主菜单，以及一个用于页脚的单独菜单。</p><p>​ 有三种方法可以定义菜单条目：</p><ol><li>自动定义</li><li>在前置元数据中定义</li><li>在站点配置中定义</li></ol><p>​ 虽然可以在定义菜单时结合使用这些方法，但如果在整个站点中使用一种方法，则更容易理解和维护菜单。</p><h2 id=自动定义>自动定义
+<a class=anchor href=#%e8%87%aa%e5%8a%a8%e5%ae%9a%e4%b9%89>#</a></h2><p>​ 要为站点的每个顶级章节自动定义菜单条目，请在站点配置中启用section pages menu。</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+sectionPagesMenu: main
+
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+sectionPagesMenu = 'main'
+
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;sectionPagesMenu&quot;: &quot;main&quot;
+}
+
+```
+</code></pre><p>​ 这将创建一个菜单结构，您可以在模板中使用 <code>site.Menus.main</code> 访问它。有关详细信息，请参阅<a href=https://gohugo.io/templates/menu-templates/>菜单模板</a>。</p><h2 id=在前置元数据中定义>在前置元数据中定义
+<a class=anchor href=#%e5%9c%a8%e5%89%8d%e7%bd%ae%e5%85%83%e6%95%b0%e6%8d%ae%e4%b8%ad%e5%ae%9a%e4%b9%89>#</a></h2><p>​ 要将一个页面添加到"main"菜单中：</p><p>content/about.md</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+---
+menu: main
+title: About
+---
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
++++
+menu = 'main'
+title = 'About'
++++
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;menu&quot;: &quot;main&quot;,
+   &quot;title&quot;: &quot;About&quot;
+}
+```
+</code></pre><p>​ 您可以在模板中使用 <code>site.Menus.main</code> 访问该条目。有关详细信息，请参阅<a href=https://gohugo.io/templates/menu-templates/>菜单模板</a>。</p><p>​ 要将一个页面添加到"main"和"footer"菜单中：</p><p>content/contact.md</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+---
+menu:
+- main
+- footer
+title: Contact
+---
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
++++
+menu = ['main', 'footer']
+title = 'Contact'
++++
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;menu&quot;: [
+      &quot;main&quot;,
+      &quot;footer&quot;
+   ],
+   &quot;title&quot;: &quot;Contact&quot;
+}
+```
+</code></pre><p>​ 您可以在模板中使用 <code>site.Menus.main</code> 和 <code>site.Menus.footer</code> 访问该条目。有关详细信息，请参阅<a href=https://gohugo.io/templates/menu-templates/>菜单模板</a>。</p><h3 id=属性>属性
+<a class=anchor href=#%e5%b1%9e%e6%80%a7>#</a></h3><p>​ 在前置元数据中定义菜单条目时，请使用以下这些属性：</p><ul><li><p>identifier</p><p>（<code>string</code>）当两个或多个菜单条目具有相同<code>name</code>或者使用翻译表（translation tables）本地化<code>name</code>时，必填。必须以字母开头，后跟字母、数字或下划线。</p></li><li><p>name</p><p>（<code>string</code>）在渲染该菜单条目时要显示的文本。</p></li><li><p>params</p><p>（<code>map</code>）该菜单条目的用户定义属性。</p></li><li><p>parent</p><p>（<code>string</code>）该父菜单条目的<code>identifier</code>。如果未定义<code>identifier</code>，请使用<code>name</code>。在嵌套菜单中的子菜单条目中必填。</p></li><li><p>post</p><p>（<code>string</code>）在渲染该菜单条目时追加的HTML。</p></li><li><p>pre</p><p>（<code>string</code>）在渲染该菜单条目时前置的HTML。</p></li><li><p>title</p><p>（<code>string</code>）被渲染的该菜单条目的HTML的<code>title</code>属性。</p></li><li><p>weight</p><p>（<code>int</code>）非零整数，表示该条目相对于菜单根的位置，或者表示子条目相对于其父级的位置。较轻的条目上浮到顶部，较重的条目下沉到底部。</p></li></ul><h3 id=示例>示例
+<a class=anchor href=#%e7%a4%ba%e4%be%8b>#</a></h3><p>​ 此前置元数据菜单条目演示了一些可用属性：</p><p>content/products/software.md</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+---
+menu:
+  main:
+    params:
+      class: center
+    parent: Products
+    pre: &lt;i class=&quot;fa-solid fa-code&quot;&gt;&lt;/i&gt;
+    weight: 20
+title: Software
+---
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
++++
+title = 'Software'
+[menu]
+  [menu.main]
+    parent = 'Products'
+    pre = '&lt;i class=&quot;fa-solid fa-code&quot;&gt;&lt;/i&gt;'
+    weight = 20
+    [menu.main.params]
+      class = 'center'
++++
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;menu&quot;: {
+      &quot;main&quot;: {
+         &quot;params&quot;: {
+            &quot;class&quot;: &quot;center&quot;
+         },
+         &quot;parent&quot;: &quot;Products&quot;,
+         &quot;pre&quot;: &quot;\u003ci class=\&quot;fa-solid fa-code\&quot;\u003e\u003c/i\u003e&quot;,
+         &quot;weight&quot;: 20
+      }
+   },
+   &quot;title&quot;: &quot;Software&quot;
+}
+```
+</code></pre><p>​ 在模板中使用<code>site.Menus.main</code>访问该条目。有关详细信息，请参见<a href=https://gohugo.io/templates/menu-templates/>菜单模板</a>。</p><h2 id=在站点配置中定义>在站点配置中定义
+<a class=anchor href=#%e5%9c%a8%e7%ab%99%e7%82%b9%e9%85%8d%e7%bd%ae%e4%b8%ad%e5%ae%9a%e4%b9%89>#</a></h2><p>​ 要定义"main"菜单的条目：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+menu:
+  main:
+  - name: Home
+    pageRef: /
+    weight: 10
+  - name: Products
+    pageRef: /products
+    weight: 20
+  - name: Services
+    pageRef: /services
+    weight: 30
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[menu]
+[[menu.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+[[menu.main]]
+  name = 'Products'
+  pageRef = '/products'
+  weight = 20
+[[menu.main]]
+  name = 'Services'
+  pageRef = '/services'
+  weight = 30
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;menu&quot;: {
+      &quot;main&quot;: [
+         {
+            &quot;name&quot;: &quot;Home&quot;,
+            &quot;pageRef&quot;: &quot;/&quot;,
+            &quot;weight&quot;: 10
+         },
+         {
+            &quot;name&quot;: &quot;Products&quot;,
+            &quot;pageRef&quot;: &quot;/products&quot;,
+            &quot;weight&quot;: 20
+         },
+         {
+            &quot;name&quot;: &quot;Services&quot;,
+            &quot;pageRef&quot;: &quot;/services&quot;,
+            &quot;weight&quot;: 30
+         }
+      ]
+   }
+}
+```
+</code></pre><p>​ 这将创建一个菜单结构，您可以在模板中使用<code>site.Menus.main</code>访问。有关详细信息，请参见<a href=https://gohugo.io/templates/menu-templates/>菜单模板</a>。</p><p>​ 要定义"footer"菜单的条目：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+menu:
+  footer:
+  - name: Terms
+    pageRef: /terms
+    weight: 10
+  - name: Privacy
+    pageRef: /privacy
+    weight: 20
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[menu]
+[[menu.footer]]
+  name = 'Terms'
+  pageRef = '/terms'
+  weight = 10
+[[menu.footer]]
+  name = 'Privacy'
+  pageRef = '/privacy'
+  weight = 20
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;menu&quot;: {
+      &quot;footer&quot;: [
+         {
+            &quot;name&quot;: &quot;Terms&quot;,
+            &quot;pageRef&quot;: &quot;/terms&quot;,
+            &quot;weight&quot;: 10
+         },
+         {
+            &quot;name&quot;: &quot;Privacy&quot;,
+            &quot;pageRef&quot;: &quot;/privacy&quot;,
+            &quot;weight&quot;: 20
+         }
+      ]
+   }
+}
+```
+</code></pre><p>​ 这将创建一个菜单结构，您可以在模板中使用<code>site.Menus.footer</code>访问。有关详细信息，请参见<a href=https://gohugo.io/templates/menu-templates/>菜单模板</a>。</p><h3 id=属性-1>属性
+<a class=anchor href=#%e5%b1%9e%e6%80%a7-1>#</a></h3><p>​ <a href=https://gohugo.io/content-management/menus/#properties-front-matter>在前置元数据中定义的条目可用的属性</a>也适用于在站点配置中定义的条目。</p><p>​ 在站点配置中定义的每个菜单条目都需要两个或多个属性：</p><ul><li><p>为内部链接指定<code>name</code>和<code>pageRef</code></p></li><li><p>为外部链接指定<code>name</code>和<code>url</code></p></li><li><p>pageRef</p><p>（<code>string</code>）目标页面的文件路径，相对于<code>content</code>目录。省略语言代码和文件扩展名。内部链接则必填。</p></li></ul><table><thead><tr><th style=text-align:left>Kind</th><th style=text-align:left>pageRef</th></tr></thead><tbody><tr><td style=text-align:left>home</td><td style=text-align:left><code>/</code></td></tr><tr><td style=text-align:left>page</td><td style=text-align:left><code>/books/book-1</code></td></tr><tr><td style=text-align:left>section</td><td style=text-align:left><code>/books</code></td></tr><tr><td style=text-align:left>taxonomy</td><td style=text-align:left><code>/tags</code></td></tr><tr><td style=text-align:left>term</td><td style=text-align:left><code>/tags/foo</code></td></tr></tbody></table><ul><li><p>url</p><p>（<code>string</code>）外部链接则必填。</p></li></ul><h3 id=示例-1>示例
+<a class=anchor href=#%e7%a4%ba%e4%be%8b-1>#</a></h3><p>​ 这个嵌套菜单演示了一些可用的属性：</p><p>config.</p><p>=== &ldquo;yaml&rdquo;</p><pre><code>``` yaml
+menu:
+  main:
+  - name: Products
+    pageRef: /products
+    weight: 10
+  - name: Hardware
+    pageRef: /products/hardware
+    parent: Products
+    weight: 1
+  - name: Software
+    pageRef: /products/software
+    parent: Products
+    weight: 2
+  - name: Services
+    pageRef: /services
+    weight: 20
+  - name: Hugo
+    params:
+      rel: external
+    pre: &lt;i class=&quot;fa fa-heart&quot;&gt;&lt;/i&gt;
+    url: https://gohugo.io/
+    weight: 30
+```
+</code></pre><p>=== &ldquo;toml&rdquo;</p><pre><code>``` toml
+[menu]
+[[menu.main]]
+  name = 'Products'
+  pageRef = '/products'
+  weight = 10
+[[menu.main]]
+  name = 'Hardware'
+  pageRef = '/products/hardware'
+  parent = 'Products'
+  weight = 1
+[[menu.main]]
+  name = 'Software'
+  pageRef = '/products/software'
+  parent = 'Products'
+  weight = 2
+[[menu.main]]
+  name = 'Services'
+  pageRef = '/services'
+  weight = 20
+[[menu.main]]
+  name = 'Hugo'
+  pre = '&lt;i class=&quot;fa fa-heart&quot;&gt;&lt;/i&gt;'
+  url = 'https://gohugo.io/'
+  weight = 30
+  [menu.main.params]
+    rel = 'external'
+```
+</code></pre><p>=== &ldquo;json&rdquo;</p><pre><code>``` json
+{
+   &quot;menu&quot;: {
+      &quot;main&quot;: [
+         {
+            &quot;name&quot;: &quot;Products&quot;,
+            &quot;pageRef&quot;: &quot;/products&quot;,
+            &quot;weight&quot;: 10
+         },
+         {
+            &quot;name&quot;: &quot;Hardware&quot;,
+            &quot;pageRef&quot;: &quot;/products/hardware&quot;,
+            &quot;parent&quot;: &quot;Products&quot;,
+            &quot;weight&quot;: 1
+         },
+         {
+            &quot;name&quot;: &quot;Software&quot;,
+            &quot;pageRef&quot;: &quot;/products/software&quot;,
+            &quot;parent&quot;: &quot;Products&quot;,
+            &quot;weight&quot;: 2
+         },
+         {
+            &quot;name&quot;: &quot;Services&quot;,
+            &quot;pageRef&quot;: &quot;/services&quot;,
+            &quot;weight&quot;: 20
+         },
+         {
+            &quot;name&quot;: &quot;Hugo&quot;,
+            &quot;params&quot;: {
+               &quot;rel&quot;: &quot;external&quot;
+            },
+            &quot;pre&quot;: &quot;\u003ci class=\&quot;fa fa-heart\&quot;\u003e\u003c/i\u003e&quot;,
+            &quot;url&quot;: &quot;https://gohugo.io/&quot;,
+            &quot;weight&quot;: 30
+         }
+      ]
+   }
+}
+```
+</code></pre><p>​ 这将创建一个菜单结构，您可以在模板中使用 <code>site.Menus.main</code> 访问。有关详细信息，请参阅<a href=https://gohugo.io/templates/menu-templates/>菜单模板</a>。</p><h2 id=本地化>本地化
+<a class=anchor href=#%e6%9c%ac%e5%9c%b0%e5%8c%96>#</a></h2><p>​ Hugo提供了两种方法来本地化菜单条目。请参阅<a href=https://gohugo.io/content-management/multilingual/#menus>多语言</a>。</p><h2 id=渲染>渲染
+<a class=anchor href=#%e6%b8%b2%e6%9f%93>#</a></h2><p>​ 请参阅<a href=https://gohugo.io/templates/menu-templates/>菜单模板</a>。</p><h2 id=另请参阅>另请参阅
+<a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a></h2><ul><li><a href=https://gohugo.io/templates/menu-templates/>菜单模板</a></li><li><a href=https://gohugo.io/functions/hasmenucurrent/>.HasMenuCurrent</a></li><li><a href=https://gohugo.io/functions/ismenucurrent/>.IsMenuCurrent</a></li><li><a href=https://gohugo.io/content-management/build-options/>构建选项</a></li><li><a href=https://gohugo.io/variables/menus/>菜单变量</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#概述>概述</a></li><li><a href=#自动定义>自动定义</a></li><li><a href=#在前置元数据中定义>在前置元数据中定义</a><ul><li><a href=#属性>属性</a></li><li><a href=#示例>示例</a></li></ul></li><li><a href=#在站点配置中定义>在站点配置中定义</a><ul><li><a href=#属性-1>属性</a></li><li><a href=#示例-1>示例</a></li></ul></li><li><a href=#本地化>本地化</a></li><li><a href=#渲染>渲染</a></li><li><a href=#另请参阅>另请参阅</a></li></ul></nav></div></aside></main></body></html>

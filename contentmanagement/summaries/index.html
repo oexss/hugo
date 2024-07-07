@@ -1,0 +1,68 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content='
+  Content Summaries - 内容摘要
+  #
+
+https://gohugo.io/content-management/summaries/
+​	Hugo 可以生成内容的摘要。
+​	通过使用.Summary页面变量，Hugo会生成内容摘要以在摘要视图中用作简短版本。
+
+  摘要拆分选项
+  #
+
+
+自动摘要拆分
+手动摘要拆分
+前置元数据摘要
+
+​	在摘要中附带指向原始内容的链接是很自然的，常见的设计模式是以"Read More …&ldquo;按钮的形式渲染。参见 .RelPermalink、.Permalink 和 .Truncated 页面变量。
+
+  自动摘要拆分
+  #
+
+​	默认情况下，Hugo 会自动将内容的前 70 个字作为摘要，并将其存储在 .Summary 页面变量中供模板使用。您可以通过在站点配置中设置 summaryLength 来自定义摘要长度。
+
+​	您可以使用 plainify 和 safeHTML 等函数自定义摘要中加载的 HTML 标记的方式。
+
+
+​	Hugo 定义的摘要使用的是通过将文本按一个或多个连续空格字符拆分计算的字数。如果您使用 CJK 语言创建内容，并希望使用 Hugo 的自动摘要拆分，请在站点配置中将 hasCJKLanguage 设置为 true。
+
+
+  手动摘要拆分
+  #
+
+​	或者，您可以在想要拆分文章的地方添加 `'><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://t.is-local.org/hugo/contentmanagement/summaries/"><meta property="og:site_name" content="HUGO"><meta property="og:title" content="内容摘要"><meta property="og:description" content=' Content Summaries - 内容摘要 # https://gohugo.io/content-management/summaries/
+​	Hugo 可以生成内容的摘要。
+​	通过使用.Summary页面变量，Hugo会生成内容摘要以在摘要视图中用作简短版本。
+摘要拆分选项 # 自动摘要拆分 手动摘要拆分 前置元数据摘要 ​	在摘要中附带指向原始内容的链接是很自然的，常见的设计模式是以"Read More …“按钮的形式渲染。参见 .RelPermalink、.Permalink 和 .Truncated 页面变量。
+自动摘要拆分 # ​	默认情况下，Hugo 会自动将内容的前 70 个字作为摘要，并将其存储在 .Summary 页面变量中供模板使用。您可以通过在站点配置中设置 summaryLength 来自定义摘要长度。
+​	您可以使用 plainify 和 safeHTML 等函数自定义摘要中加载的 HTML 标记的方式。
+​	Hugo 定义的摘要使用的是通过将文本按一个或多个连续空格字符拆分计算的字数。如果您使用 CJK 语言创建内容，并希望使用 Hugo 的自动摘要拆分，请在站点配置中将 hasCJKLanguage 设置为 true。
+手动摘要拆分 # ​	或者，您可以在想要拆分文章的地方添加 `'><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="contentmanagement"><meta property="article:published_time" content="2023-05-18T17:03:08+08:00"><meta property="article:modified_time" content="2023-05-18T17:03:08+08:00"><title>内容摘要 | HUGO</title>
+<link rel=manifest href=/hugo/manifest.json><link rel=icon href=/hugo/favicon.png><link rel=canonical href=https://t.is-local.org/hugo/contentmanagement/summaries/><link rel=stylesheet href=/hugo/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css integrity="sha256-MJt+0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin=anonymous><script defer src=/hugo/fuse.min.js></script><script defer src=/hugo/zh-cn.search.min.a426f3a0e1e8951a39b1b352645e382bb08b14b3d53468b1f8b07b0d0928cfe6.js integrity="sha256-pCbzoOHolRo5sbNSZF44K7CLFLPVNGix+LB7DQkoz+Y=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/hugo/><span>HUGO</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder aria-label maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/hugo/svg/translate.svg class=book-icon alt=Languages>
+中文</a></label><ul><li><a href=https://t.is-local.org/hugo/en/>English</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/hugo/svg/menu.svg class=book-icon alt=Menu>
+</label><strong>内容摘要</strong>
+<label for=toc-control><img src=/hugo/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#摘要拆分选项>摘要拆分选项</a><ul><li><a href=#自动摘要拆分>自动摘要拆分</a></li><li><a href=#手动摘要拆分>手动摘要拆分</a></li><li><a href=#前置元数据摘要>前置元数据摘要</a></li></ul></li><li><a href=#摘要选择顺序>摘要选择顺序</a></li><li><a href=#示例前-10-篇带摘要的文章>示例：前 10 篇带摘要的文章</a></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=content-summaries---内容摘要>Content Summaries - 内容摘要
+<a class=anchor href=#content-summaries---%e5%86%85%e5%ae%b9%e6%91%98%e8%a6%81>#</a></h1><p><a href=https://gohugo.io/content-management/summaries/>https://gohugo.io/content-management/summaries/</a></p><p>​ Hugo 可以生成内容的摘要。</p><p>​ 通过使用<code>.Summary</code><a href=https://gohugo.io/variables/page/>页面变量</a>，Hugo会生成内容摘要以在摘要视图中用作简短版本。</p><h2 id=摘要拆分选项>摘要拆分选项
+<a class=anchor href=#%e6%91%98%e8%a6%81%e6%8b%86%e5%88%86%e9%80%89%e9%a1%b9>#</a></h2><ul><li>自动摘要拆分</li><li>手动摘要拆分</li><li>前置元数据摘要</li></ul><p>​ 在摘要中附带指向原始内容的链接是很自然的，常见的设计模式是以"Read More …&ldquo;按钮的形式渲染。参见 <code>.RelPermalink</code>、<code>.Permalink</code> 和 <code>.Truncated</code> <a href=https://gohugo.io/variables/page/>页面变量</a>。</p><h3 id=自动摘要拆分>自动摘要拆分
+<a class=anchor href=#%e8%87%aa%e5%8a%a8%e6%91%98%e8%a6%81%e6%8b%86%e5%88%86>#</a></h3><p>​ 默认情况下，Hugo 会自动将内容的前 70 个字作为摘要，并将其存储在 <code>.Summary</code> 页面变量中供模板使用。您可以通过在<a href=https://gohugo.io/getting-started/configuration/>站点配置</a>中设置 <code>summaryLength</code> 来自定义摘要长度。</p><blockquote><p>​ 您可以使用 <code>plainify</code> 和 <code>safeHTML</code> 等函数自定义摘要中加载的 HTML 标记的方式。</p></blockquote><blockquote><p>​ Hugo 定义的摘要使用的是通过将文本按一个或多个连续空格字符拆分计算的字数。如果您使用 <code>CJK</code> 语言创建内容，并希望使用 Hugo 的自动摘要拆分，请在<a href=https://gohugo.io/getting-started/configuration/>站点配置</a>中将 <code>hasCJKLanguage</code> 设置为 <code>true</code>。</p></blockquote><h3 id=手动摘要拆分>手动摘要拆分
+<a class=anchor href=#%e6%89%8b%e5%8a%a8%e6%91%98%e8%a6%81%e6%8b%86%e5%88%86>#</a></h3><p>​ 或者，您可以在想要拆分文章的地方添加 `</p><p>` 摘要分隔符。</p><p>​ 对于 <a href=https://gohugo.io/content-management/formats/>Org 模式内容</a>，请在想要拆分文章的地方使用 <code># more</code>。</p><p>​ 摘要分隔符之前的内容将用作该内容的摘要，并以完整的 HTML 格式存储在 <code>.Summary</code> 页面变量中。</p><blockquote><p>​ 摘要分隔符的概念不仅仅适用于 Hugo。在其他文献中，它也被称为"more tag"或"excerpt separator&rdquo;。</p></blockquote><ul><li><p>Pros（优点）</p><p>自由、精度和提高渲染质量。所有 HTML 标记和格式都会被保留。</p></li><li><p>Cons（缺点）</p><p>需要内容作者额外的工作，因为他们需要记得在每个内容文件中输入 <code>&lt;!--more--></code>（或 <a href=https://gohugo.io/content-management/formats/>org 内容</a>为 <code># more</code>）。可以通过在<code>原型</code>的前置元数据下方添加摘要分隔符来自动化这一过程。</p></li></ul><p>​ 请确保精确输入 <code>&lt;!--more--></code>；即全部小写且没有空格。</p><h3 id=前置元数据摘要>前置元数据摘要
+<a class=anchor href=#%e5%89%8d%e7%bd%ae%e5%85%83%e6%95%b0%e6%8d%ae%e6%91%98%e8%a6%81>#</a></h3><p>​ 您可能希望文章摘要不是从文章开头开始的文本。在这种情况下，您可以在文章前置元数据的<code>summary</code>变量中提供一个单独的摘要。</p><ul><li><p>Pros（优点）</p><p>完全自由的文本，与文章内容无关。可以在摘要中使用标记。</p></li><li><p>Cons（缺点）</p><p>对于内容作者来说，需要编写一个完全独立的文本作为文章的摘要，这会增加额外的工作量。</p></li></ul><h2 id=摘要选择顺序>摘要选择顺序
+<a class=anchor href=#%e6%91%98%e8%a6%81%e9%80%89%e6%8b%a9%e9%a1%ba%e5%ba%8f>#</a></h2><p>​ 因为有多种方法可以指定摘要，了解 Hugo 在决定返回 <code>.Summary</code> 的文本时遵循的选择顺序是有用的。它如下所示：</p><ol><li>如果文章中存在 <code>&lt;!--more--></code> 摘要分隔符，则提供分隔符之前的文本，按照手动摘要拆分方法。</li><li>如果文章前置元数据中有一个<code>summary</code>变量，则按照前置元数据摘要方法提供变量的值。</li><li>按照自动摘要拆分方法，提供文章开头的文本。</li></ol><blockquote><p>​ Hugo 使用上述步骤中返回的第一个文本。因此，例如，如果您的文章在其前言中具有<code>summary</code>变量和一个 <code>&lt;!--more--></code> 摘要分隔符，Hugo 将使用手动摘要拆分方法。</p></blockquote><h2 id=示例前-10-篇带摘要的文章>示例：前 10 篇带摘要的文章
+<a class=anchor href=#%e7%a4%ba%e4%be%8b%e5%89%8d-10-%e7%af%87%e5%b8%a6%e6%91%98%e8%a6%81%e7%9a%84%e6%96%87%e7%ab%a0>#</a></h2><p>​ 您可以使用以下代码显示内容摘要。例如，您可以在一个<a href=https://gohugo.io/templates/section-templates/>章节模板</a>中使用以下代码片段。</p><p>page-list-with-summaries.html</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go-html-template data-lang=go-html-template><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>first</span> <span style=color:#a6e22e>10</span> <span style=color:#a6e22e>.Pages</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>article</span>&gt;
+</span></span><span style=display:flex><span>      <span style=color:#75715e>&lt;!-- this &lt;div&gt; includes the title summary --&gt;</span>
+</span></span><span style=display:flex><span>      &lt;<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>        &lt;<span style=color:#f92672>h2</span>&gt;&lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>.RelPermalink</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>&#34;</span>&gt;<span style=color:#75715e>{{</span> <span style=color:#a6e22e>.Title</span> <span style=color:#75715e>}}</span>&lt;/<span style=color:#f92672>a</span>&gt;&lt;/<span style=color:#f92672>h2</span>&gt;
+</span></span><span style=display:flex><span>        <span style=color:#75715e>{{</span> <span style=color:#a6e22e>.Summary</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>      &lt;/<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>      <span style=color:#75715e>{{</span> <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>.Truncated</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e>&lt;!-- This &lt;div&gt; includes a read more link, but only if the summary is truncated... --&gt;</span>
+</span></span><span style=display:flex><span>      &lt;<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>        &lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>.RelPermalink</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>&#34;</span>&gt;Read More…&lt;/<span style=color:#f92672>a</span>&gt;
+</span></span><span style=display:flex><span>      &lt;/<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>      <span style=color:#75715e>{{</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span>
+</span></span><span style=display:flex><span>    &lt;/<span style=color:#f92672>article</span>&gt;
+</span></span><span style=display:flex><span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span>
+</span></span></code></pre></div><p>注意，当内容未被截断时，即摘要包含整篇文章时，<code>.Truncated</code> 布尔变量值可以用于隐藏"Read More…&ldquo;链接。</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#摘要拆分选项>摘要拆分选项</a><ul><li><a href=#自动摘要拆分>自动摘要拆分</a></li><li><a href=#手动摘要拆分>手动摘要拆分</a></li><li><a href=#前置元数据摘要>前置元数据摘要</a></li></ul></li><li><a href=#摘要选择顺序>摘要选择顺序</a></li><li><a href=#示例前-10-篇带摘要的文章>示例：前 10 篇带摘要的文章</a></li></ul></nav></div></aside></main></body></html>
